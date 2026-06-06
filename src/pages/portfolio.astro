@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    category: "Touring",
+    title: "International Touring",
+    slug: "international-touring",
+    years: "2006 - present",
+    location: "Europe / international",
+    slateRole: "LD / programmer",
+    mediaStatus: "media archive in progress",
+    description: "Adaptable show systems for rooms, crews, and rigs that change every day.",
+    meta: ["GrandMA", "show files", "tour adaptation"],
+    cta: "Selected Touring Work",
+    tone: "cyan"
+  },
+  {
+    category: "Dance",
+    title: "Contemporary Dance",
+    slug: "contemporary-dance",
+    years: "Selected seasons",
+    location: "Norway / Europe",
+    slateRole: "Lighting design",
+    mediaStatus: "project images coming",
+    description: "Precise light for movement, silence, timing, and black-box conditions.",
+    meta: ["EOS", "cue timing", "focus"],
+    cta: "Dance Productions",
+    tone: "warm"
+  },
+  {
+    category: "Festivals",
+    title: "Festival Work",
+    slug: "festival-work",
+    years: "Multiple seasons",
+    location: "Nordics / Europe",
+    slateRole: "Operator / programmer",
+    mediaStatus: "visual documentation pending",
+    description: "Fast translation from touring intent to local rigs, daylight, and short changeovers.",
+    meta: ["busking", "advance notes", "local plots"],
+    cta: "Festival Adaptation",
+    tone: "cyan"
+  },
+  {
+    category: "Artists",
+    title: "Artist Collaboration",
+    slug: "artist-collaboration",
+    years: "Ongoing",
+    location: "Oslo / touring rooms",
+    slateRole: "Creative direction",
+    mediaStatus: "media archive in progress",
+    description: "Turning references and rehearsals into stage pictures that artists can trust.",
+    meta: ["rehearsals", "look notes", "live operation"],
+    cta: "Artist Projects",
+    tone: "neutral"
+  },
+  {
+    category: "Visualization",
+    title: "Unreal Visualization",
+    slug: "unreal-visualization",
+    years: "Preproduction",
+    location: "Studio / remote",
+    slateRole: "Previs",
+    mediaStatus: "visual documentation pending",
+    description: "Previsualization and lighting studies before the rig is in the room.",
+    meta: ["Unreal", "camera framing", "look testing"],
+    cta: "Previs Workflow",
+    tone: "warm"
+  },
+  {
+    category: "Live production",
+    title: "Special Projects",
+    slug: "special-projects",
+    years: "Selected builds",
+    location: "Venues / studios / hybrid",
+    slateRole: "Systems / support",
+    mediaStatus: "project images coming",
+    description: "One-off builds, hybrid events, streaming setups, and rooms with unusual constraints.",
+    meta: ["control systems", "practical rigs", "troubleshooting"],
+    cta: "Unusual Builds",
+    tone: "neutral"
+  }
+];
+---
+
+<Layout
+  title="Portfolio | De Freitas Lys Design"
+  description="Selected lighting design, programming, touring, festival, contemporary dance, and visualization work by Dorian De Freitas."
+>
+  <div class="glow"></div>
+
+  <main class="portfolio-page">
+    <section class="portfolio-hero" aria-labelledby="portfolio-title">
+      <div class="section-kicker">Portfolio</div>
+
+      <h1 id="portfolio-title">Selected Work</h1>
+
+      <p>
+        Concerts, touring, contemporary dance, festivals, visualization and live production.
+      </p>
+    </section>
+
+    <section class="portfolio-grid" aria-label="Selected portfolio projects">
+      {
+        projects.map((project) => (
+          <article class={`portfolio-card portfolio-card--${project.tone}`}>
+            <div class="portfolio-image">
+              <div class="portfolio-slate">
+                <span class="slate-category">{project.category}</span>
+                <strong>{project.title}</strong>
+
+                <dl>
+                  <div>
+                    <dt>Years</dt>
+                    <dd>{project.years}</dd>
+                  </div>
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{project.slateRole}</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>{project.location}</dd>
+                  </div>
+                </dl>
+
+                <span class="slate-status">{project.mediaStatus}</span>
+              </div>
+            </div>
+
+            <div class="portfolio-card-body">
+              <span class="portfolio-category">{project.category}</span>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+
+              <div class="portfolio-meta">
+                <div>
+                  <span>Setup</span>
+                  <ul>
+                    {project.meta.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <a class="portfolio-link" href="/contact">
+                {project.cta}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</Layout>
