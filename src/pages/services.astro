@@ -4,40 +4,71 @@ import Layout from "../layouts/Layout.astro";
 const services = [
   {
     title: "Lighting Design",
-    kicker: "Concept / show language",
-    copy: "A complete visual direction for stages, rooms, artists, and moments that need a strong identity before the first cue fires.",
-    points: ["Show looks", "Fixture planning", "Cue structure"]
+    kicker: "Concerts / dance / festivals",
+    copy: "Looks that fit the artist, the room, and the rig. Built for concerts, dance, festivals, and late changes.",
+    points: ["Show looks", "Rig-aware design", "Cue structure"],
+    priority: "primary"
   },
   {
     title: "Lighting Programming / Operator",
-    kicker: "Precision under pressure",
-    copy: "Clean programming, responsive operation, and show files built to survive real production conditions, revisions, and fast decisions.",
-    points: ["GrandMA workflows", "Timecode", "Live busking"]
+    kicker: "GrandMA / EOS / show control",
+    copy: "Clean files, readable layouts, fast updates. Calm operation when the set, room, or artist changes.",
+    points: ["GrandMA / EOS", "Busking / timecode", "Tourable show files"],
+    priority: "primary"
   },
   {
     title: "Touring / Live Events",
-    kicker: "Scalable systems",
-    copy: "Lighting support for touring, festivals, concerts, and one-off live events where the design must travel, adapt, and still hit hard.",
-    points: ["Advancing", "On-site execution", "Festival adaptation"]
+    kicker: "International touring",
+    copy: "Touring support for real conditions: local rigs, short focus, mixed crews, and doors that do not wait.",
+    points: ["Advancing", "Local rig translation", "Show-day decisions"],
+    priority: "primary"
   },
   {
     title: "Creative Direction",
-    kicker: "Visual identity",
-    copy: "A sharper connection between sound, artist, room, and image, built for performances that need atmosphere instead of decoration.",
-    points: ["Mood systems", "Show pacing", "Stage composition"]
+    kicker: "Artist collaboration",
+    copy: "Work with artists, choreographers, and directors. Turn references into cues, angles, color, and timing.",
+    points: ["Artist process", "Music / movement", "Stage picture"],
+    priority: "primary"
   },
   {
     title: "Consulting for Creators / Streamers",
-    kicker: "Small spaces / big presence",
-    copy: "Practical lighting strategy for creators, streamers, and small studios that need a premium look without bloated production overhead.",
-    points: ["Setup design", "Gear direction", "Camera-ready lighting"]
+    kicker: "Camera-ready environments",
+    copy: "Better image quality without buying random gear. Angles, contrast, skin tones, and practical setups.",
+    points: ["Camera lighting", "Unreal / previz", "Practical gear lists"],
+    priority: "secondary"
   }
+];
+
+const experience = [
+  "Concerts",
+  "Touring",
+  "Contemporary dance",
+  "Festivals",
+  "Clubs / venues",
+  "Streaming productions"
+];
+
+const workflow = [
+  "GrandMA",
+  "EOS",
+  "Unreal / visualization",
+  "Show files",
+  "Busking / timecode",
+  "Touring adaptation"
+];
+
+const topProof = [
+  "Artists",
+  "Touring",
+  "Countries",
+  "Festivals",
+  "Dance"
 ];
 ---
 
 <Layout
   title="Services | De Freitas Lys Design"
-  description="Lighting design, programming, touring, creative direction, and creator consulting services for live performance and visual environments."
+  description="Lighting design, programming, touring, creative direction, and visualization from 18 years of live entertainment work."
 >
   <div class="glow"></div>
 
@@ -46,23 +77,49 @@ const services = [
       <div class="section-kicker">Services</div>
 
       <h1 id="services-title">
-        Lighting systems for artists, stages, and high-pressure rooms.
+        Eighteen years in venues, festivals, black boxes, and tour trucks.
       </h1>
 
       <p>
-        From first visual concept to final show call, De Freitas Lys Design builds lighting
-        that gives clients a clear identity, a reliable workflow, and a stronger live impact.
+        I design, program, operate, and troubleshoot lighting for live work.
+        Concerts, dance, festivals, streams, and international tours.
       </p>
 
+      <ul class="hero-proof" aria-label="Credibility summary">
+        {topProof.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
       <a class="cta" href="/contact">
-        Start a Project
+        Check Availability
       </a>
+    </section>
+
+    <section class="services-proof" aria-label="Experience and workflow">
+      <div class="proof-block">
+        <span>Rooms / formats</span>
+        <ul>
+          {experience.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Desk / workflow</span>
+        <ul>
+          {workflow.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
     </section>
 
     <section class="services-grid" aria-label="Lighting design services">
       {
         services.map((service) => (
-          <article class="service-card">
+          <article class={`service-card service-card--${service.priority}`}>
             <span>{service.kicker}</span>
             <h2>{service.title}</h2>
             <p>{service.copy}</p>
@@ -78,17 +135,16 @@ const services = [
 
     <section class="services-cta" aria-labelledby="services-contact-title">
       <div>
-        <div class="section-kicker">Next step</div>
+        <div class="section-kicker">Advance</div>
         <h2 id="services-contact-title">Bring the brief, the room, the deadline.</h2>
       </div>
 
       <p>
-        Send the artist, event type, venue scale, date, and production needs. The first reply
-        can define the right level of design, programming, or consulting support.
+        Send the project. We'll figure out the rest.
       </p>
 
       <a class="cta" href="/contact">
-        Contact De Freitas Lys Design
+        Send the Details
       </a>
     </section>
   </main>
