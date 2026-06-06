@@ -159,7 +159,10 @@ p {
 }
 
 .work-section,
-.contact-shell {
+.contact-shell,
+.services-hero,
+.services-grid,
+.services-cta {
   width: min(1300px, 90%);
   margin: 0 auto;
   position: relative;
@@ -186,7 +189,9 @@ p {
 }
 
 .section-heading h2,
-.contact-shell h1 {
+.contact-shell h1,
+.services-hero h1,
+.services-cta h2 {
   max-width: 980px;
   font-size: clamp(2.4rem, 6vw, 5.8rem);
   font-weight: 900;
@@ -196,7 +201,9 @@ p {
 }
 
 .section-heading p,
-.contact-shell p {
+.contact-shell p,
+.services-hero p,
+.services-cta p {
   max-width: 720px;
 }
 
@@ -251,6 +258,83 @@ p {
   gap: 24px;
 }
 
+.services-page {
+  padding: 140px 0 110px;
+}
+
+.services-hero {
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.service-card {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: clamp(24px, 4vw, 46px);
+  background:
+    linear-gradient(150deg, rgba(125, 249, 255, 0.09), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018)),
+    rgba(0, 0, 0, 0.38);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.service-card span {
+  color: rgba(125, 249, 255, 0.82);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.service-card h2 {
+  max-width: 620px;
+  font-size: clamp(1.8rem, 4vw, 3.8rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.service-card p {
+  max-width: 620px;
+  font-size: 1rem;
+  opacity: 0.78;
+}
+
+.service-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.service-card li {
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.services-cta {
+  display: grid;
+  gap: 24px;
+  padding-top: 90px;
+}
+
 @media (max-width: 700px) {
   .site-header {
     position: absolute;
@@ -280,7 +364,10 @@ p {
   }
 
   .work-section,
-  .contact-shell {
+  .contact-shell,
+  .services-hero,
+  .services-grid,
+  .services-cta {
     width: min(100% - 32px, 1300px);
   }
 
@@ -294,5 +381,26 @@ p {
 
   .work-card {
     min-height: 230px;
+  }
+
+  .services-page {
+    padding: 110px 0 80px;
+  }
+
+  .services-hero {
+    min-height: 68vh;
+    padding-bottom: 50px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 320px;
+  }
+
+  .services-cta {
+    padding-top: 64px;
   }
 }
