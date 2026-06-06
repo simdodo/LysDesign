@@ -1,71 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
+import SelectedWork from "../components/SelectedWork.astro";
 ---
 
-<div class="glow"></div>
-
-<div class="container">
-
-<div class="hero">
-
-<div class="hero-small">
-
-DE FREITAS LYS DESIGN
-
-</div>
-
-<h1>
-
-LIGHT
-
-SHAPES
-
-EMOTION
-
-</h1>
-
-<p>
-
-Lighting Designer
-
-•
-
-Programmer
-
-•
-
-Creative Technologist
-
-</p>
-
-<p>
-
-Concerts
-
-•
-
-Touring
-
-•
-
-Art Direction
-
-•
-
-Oslo / Europe
-
-</p>
-
-<a
-class="cta"
-href="/contact"
+<Layout
+  title="De Freitas Lys Design | Lighting Design"
+  description="Lighting design, programming, and creative technology for concerts, touring, and live performance across Europe."
 >
+  <div class="glow"></div>
 
-Let's Build Something
+  <main>
+    <section class="container hero-section" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="hero-small">
+          DE FREITAS LYS DESIGN
+        </div>
 
-</a>
+        <h1 id="hero-title">
+          LIGHT
+          <span>SHAPES</span>
+          EMOTION
+        </h1>
 
-</div>
+        <p>
+          Lighting Designer &middot; Programmer &middot; Creative Technologist
+        </p>
 
-</div>
+        <p>
+          Concerts &middot; Touring &middot; Art Direction &middot; Oslo / Europe
+        </p>
+
+        <a class="cta" href="/contact">
+          Let's Build Something
+        </a>
+      </div>
+    </section>
+
+    <SelectedWork />
+  </main>
+</Layout>

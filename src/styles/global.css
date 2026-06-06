@@ -20,9 +20,64 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.025), transparent),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.018) 0,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  pointer-events: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px max(20px, 5vw);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent);
+}
+
+.brand {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 3vw, 34px);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  opacity: 0.68;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  opacity: 1;
 }
 
 .container {
@@ -34,6 +89,10 @@ a {
   padding: 100px 0;
   position: relative;
   z-index: 2;
+}
+
+.hero-section {
+  min-height: 92vh;
 }
 
 .hero {
@@ -52,9 +111,15 @@ h1 {
   font-size: clamp(4.5rem, 13vw, 11rem);
   font-weight: 900;
   line-height: 0.82;
-  letter-spacing: -0.07em;
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-bottom: 48px;
+}
+
+h1 span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.82);
 }
 
 p {
@@ -74,7 +139,8 @@ p {
   transition: 0.25s ease;
 }
 
-.cta:hover {
+.cta:hover,
+.cta:focus-visible {
   background: #fff;
   color: #000;
   transform: translateY(-3px);
@@ -92,27 +158,141 @@ p {
   pointer-events: none;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+.work-section,
+.contact-shell {
+  width: min(1300px, 90%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.work-section {
+  padding: 0 0 120px;
+}
+
+.section-kicker {
+  margin-bottom: 24px;
+  color: #7df9ff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  display: grid;
+  gap: 26px;
+  margin-bottom: 46px;
+}
+
+.section-heading h2,
+.contact-shell h1 {
+  max-width: 980px;
+  font-size: clamp(2.4rem, 6vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-heading p,
+.contact-shell p {
+  max-width: 720px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.work-card {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: clamp(22px, 4vw, 42px);
   background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.025), transparent);
-  pointer-events: none;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+    rgba(0, 0, 0, 0.35);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.work-card span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.work-card h3 {
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.work-card p {
+  font-size: 1rem;
+  opacity: 0.76;
+}
+
+.contact-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+}
+
+.contact-shell {
+  display: grid;
+  gap: 24px;
 }
 
 @media (max-width: 700px) {
+  .site-header {
+    position: absolute;
+    align-items: flex-start;
+    padding-top: 18px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 14px;
+    max-width: 230px;
+    font-size: 0.64rem;
+  }
+
   .container {
     width: min(100% - 32px, 1300px);
     padding: 80px 0;
   }
 
   h1 {
-    font-size: clamp(4rem, 20vw, 7rem);
-    letter-spacing: -0.08em;
+    font-size: clamp(3.6rem, 18vw, 6.6rem);
   }
 
   .hero-small {
     letter-spacing: 0.22em;
+  }
+
+  .work-section,
+  .contact-shell {
+    width: min(100% - 32px, 1300px);
+  }
+
+  .work-section {
+    padding-bottom: 80px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    min-height: 230px;
   }
 }

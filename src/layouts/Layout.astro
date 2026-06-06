@@ -1,8 +1,10 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 
 const {
-  title = "De Freitas Lys Design"
+  title = "De Freitas Lys Design",
+  description = "Premium lighting design, programming, and creative technology for concerts, touring, and live visual environments."
 } = Astro.props;
 ---
 
@@ -10,10 +12,13 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#050505" />
     <title>{title}</title>
   </head>
 
   <body>
+    <Navbar />
     <slot />
   </body>
 </html>

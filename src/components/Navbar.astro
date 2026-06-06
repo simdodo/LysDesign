@@ -1,0 +1,22 @@
+---
+const links = [
+  { href: "/", label: "Index" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" }
+];
+---
+
+<header class="site-header" aria-label="Primary navigation">
+  <a class="brand" href="/" aria-label="De Freitas Lys Design home">
+    DFLD
+  </a>
+
+  <nav class="nav-links">
+    {
+      links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))
+    }
+  </nav>
+</header>
