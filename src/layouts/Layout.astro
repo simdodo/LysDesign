@@ -32,6 +32,13 @@ const ogImageUrl = new URL(image, siteUrl);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <title>{title}</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SGMFRGL79"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-3SGMFRGL79");
+    </script>
   </head>
 
   <body>
