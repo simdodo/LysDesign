@@ -1,0 +1,24 @@
+---
+const {
+  image,
+  alt = "Portfolio project image",
+  width = 1600,
+  height = 900
+} = Astro.props;
+---
+
+{
+  image && (
+    <figure class="portfolio-image-frame">
+      <img
+        src={image}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        onerror="this.closest('.portfolio-image-frame').hidden = true"
+      />
+    </figure>
+  )
+}

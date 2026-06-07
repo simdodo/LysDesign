@@ -1,84 +1,109 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
 
 const projects = [
   {
-    category: "Touring",
-    title: "International Touring",
+    title: "Touring Design / Programming",
     slug: "international-touring",
-    years: "2006 - present",
-    location: "Europe / international",
-    slateRole: "LD / programmer",
-    mediaStatus: "media archive in progress",
-    description: "Adaptable show systems for rooms, crews, and rigs that change every day.",
-    meta: ["GrandMA", "show files", "tour adaptation"],
-    cta: "Selected Touring Work",
-    tone: "cyan"
+    description: "Lighting systems built to travel: clear show files, adaptable looks, and decisions that still work when the room changes.",
+    tags: ["GrandMA", "advance notes", "tour files"],
+    selectedProjects: ["European concert touring", "club-to-theatre packages", "festival versioning"],
+    metadata: {
+      years: "2006-present",
+      location: "Europe / international",
+      role: "Touring LD / programmer",
+      proof: ["changing rigs", "mixed local crews", "limited focus time"]
+    },
+    image: "/images/portfolio/touring/cover.jpg",
+    cta: "Discuss Touring Support",
+    tone: "cyan",
+    layout: "feature"
   },
   {
-    category: "Dance",
-    title: "Contemporary Dance",
+    title: "Contemporary Dance Lighting",
     slug: "contemporary-dance",
-    years: "Selected seasons",
-    location: "Norway / Europe",
-    slateRole: "Lighting design",
-    mediaStatus: "project images coming",
-    description: "Precise light for movement, silence, timing, and black-box conditions.",
-    meta: ["EOS", "cue timing", "focus"],
-    cta: "Dance Productions",
-    tone: "warm"
+    description: "Light for bodies, silence, edges, and timing. Built with choreographers and performers, not pasted on after rehearsal.",
+    tags: ["EOS", "focus", "cue timing"],
+    selectedProjects: ["black-box productions", "touring dance pieces", "repertory remounts"],
+    metadata: {
+      years: "Selected productions",
+      location: "Norway / Europe",
+      role: "Dance lighting designer",
+      proof: ["black-box spaces", "tourable cues", "movement-led timing"]
+    },
+    image: "/images/portfolio/dance/cover.jpg",
+    cta: "Discuss Dance Work",
+    tone: "warm",
+    layout: "standard"
   },
   {
-    category: "Festivals",
-    title: "Festival Work",
+    title: "Festival Adaptation",
     slug: "festival-work",
-    years: "Multiple seasons",
-    location: "Nordics / Europe",
-    slateRole: "Operator / programmer",
-    mediaStatus: "visual documentation pending",
-    description: "Fast translation from touring intent to local rigs, daylight, and short changeovers.",
-    meta: ["busking", "advance notes", "local plots"],
-    cta: "Festival Adaptation",
-    tone: "cyan"
+    description: "Festival lighting that gets to the point fast: short changeovers, daylight problems, patched rigs, and no room for theory.",
+    tags: ["busking", "local plots", "show-day fixes"],
+    selectedProjects: ["festival stages", "support slots", "headline conversions"],
+    metadata: {
+      years: "Multiple seasons",
+      location: "Nordics / Europe",
+      role: "Festival operator / programmer",
+      proof: ["short changeovers", "daylight adaptation", "local rig translation"]
+    },
+    image: "/images/portfolio/festival/cover.jpg",
+    cta: "Plan Festival Version",
+    tone: "cyan",
+    layout: "standard"
   },
   {
-    category: "Artists",
-    title: "Artist Collaboration",
+    title: "Artist-Led Show Looks",
     slug: "artist-collaboration",
-    years: "Ongoing",
-    location: "Oslo / touring rooms",
-    slateRole: "Creative direction",
-    mediaStatus: "media archive in progress",
-    description: "Turning references and rehearsals into stage pictures that artists can trust.",
-    meta: ["rehearsals", "look notes", "live operation"],
-    cta: "Artist Projects",
-    tone: "neutral"
+    description: "Working from taste, references, rehearsal notes, and pressure. The result has to feel like the artist, not the lighting desk.",
+    tags: ["rehearsals", "look notes", "live operation"],
+    selectedProjects: ["artist rehearsals", "single releases", "tour look development"],
+    metadata: {
+      years: "Ongoing",
+      location: "Oslo / touring rooms",
+      role: "Creative lighting direction",
+      proof: ["artist rooms", "rehearsal process", "live revisions"]
+    },
+    image: "/images/portfolio/artist/cover.jpg",
+    cta: "Develop Artist Looks",
+    tone: "neutral",
+    layout: "standard"
   },
   {
-    category: "Visualization",
     title: "Unreal Visualization",
     slug: "unreal-visualization",
-    years: "Preproduction",
-    location: "Studio / remote",
-    slateRole: "Previs",
-    mediaStatus: "visual documentation pending",
-    description: "Previsualization and lighting studies before the rig is in the room.",
-    meta: ["Unreal", "camera framing", "look testing"],
-    cta: "Previs Workflow",
-    tone: "warm"
+    description: "Previsualization for decisions that need to happen before load-in: camera angles, light direction, scale, and cue ideas.",
+    tags: ["Unreal", "previs", "camera framing"],
+    selectedProjects: ["preproduction studies", "look testing", "technical planning"],
+    metadata: {
+      years: "Preproduction",
+      location: "Studio / remote",
+      role: "Visualization / previs",
+      proof: ["camera framing", "look testing", "technical planning"]
+    },
+    image: "/images/portfolio/unreal/cover.jpg",
+    cta: "Build Previs Workflow",
+    tone: "warm",
+    layout: "standard"
   },
   {
-    category: "Live production",
-    title: "Special Projects",
+    title: "Special Builds / Live Systems",
     slug: "special-projects",
-    years: "Selected builds",
-    location: "Venues / studios / hybrid",
-    slateRole: "Systems / support",
-    mediaStatus: "project images coming",
-    description: "One-off builds, hybrid events, streaming setups, and rooms with unusual constraints.",
-    meta: ["control systems", "practical rigs", "troubleshooting"],
-    cta: "Unusual Builds",
-    tone: "neutral"
+    description: "For projects that do not fit a normal show file: hybrid rooms, projection setups, streaming environments, and technical problem-solving.",
+    tags: ["systems", "hybrid rooms", "troubleshooting"],
+    selectedProjects: ["conference environments", "projection setups", "streaming productions"],
+    metadata: {
+      years: "Selected builds",
+      location: "Venues / studios / hybrid",
+      role: "Systems / on-site support",
+      proof: ["hybrid rooms", "streaming setups", "unusual constraints"]
+    },
+    image: "/images/portfolio/special/cover.jpg",
+    cta: "Scope a Special Build",
+    tone: "neutral",
+    layout: "compact"
   }
 ];
 ---
@@ -96,48 +121,48 @@ const projects = [
       <h1 id="portfolio-title">Selected Work</h1>
 
       <p>
-        Concerts, touring, contemporary dance, festivals, visualization and live production.
+        Touring systems, artist-led looks, contemporary dance, festivals, visualization, and live production rooms that need practical decisions fast.
       </p>
     </section>
 
     <section class="portfolio-grid" aria-label="Selected portfolio projects">
       {
         projects.map((project) => (
-          <article class={`portfolio-card portfolio-card--${project.tone}`}>
-            <div class="portfolio-image">
-              <div class="portfolio-slate">
-                <span class="slate-category">{project.category}</span>
-                <strong>{project.title}</strong>
-
-                <dl>
-                  <div>
-                    <dt>Years</dt>
-                    <dd>{project.years}</dd>
-                  </div>
-                  <div>
-                    <dt>Role</dt>
-                    <dd>{project.slateRole}</dd>
-                  </div>
-                  <div>
-                    <dt>Location</dt>
-                    <dd>{project.location}</dd>
-                  </div>
-                </dl>
-
-                <span class="slate-status">{project.mediaStatus}</span>
-              </div>
-            </div>
+          <article
+            class={`portfolio-card portfolio-card--${project.tone} portfolio-card--${project.layout}`}
+            data-project={project.slug}
+          >
+            <PortfolioImage image={project.image} alt={`${project.title} project image`} />
 
             <div class="portfolio-card-body">
-              <span class="portfolio-category">{project.category}</span>
+              <span class="portfolio-category">{project.metadata.role}</span>
               <h2>{project.title}</h2>
               <p>{project.description}</p>
 
+              <div class="portfolio-proof">
+                <ul>
+                  <li>{project.metadata.years}</li>
+                  <li>{project.metadata.location}</li>
+                  {project.metadata.proof.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
               <div class="portfolio-meta">
                 <div>
-                  <span>Setup</span>
+                  <span>Scope</span>
                   <ul>
-                    {project.meta.map((item) => (
+                    {project.tags.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <span>Selected Projects</span>
+                  <ul>
+                    {project.selectedProjects.map((item) => (
                       <li>{item}</li>
                     ))}
                   </ul>
