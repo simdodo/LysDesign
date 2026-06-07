@@ -1,0 +1,45 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { href: "/", label: "Index" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" }
+];
+
+const socialPlaceholders = ["Instagram", "LinkedIn", "Vimeo"];
+---
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="footer-main">
+    <div>
+      <span class="footer-kicker">De Freitas Lys Design</span>
+      <p>
+        Lighting design, programming, touring workflows, and practical live production support.
+      </p>
+    </div>
+
+    <address class="footer-contact">
+      <a href="mailto:hello@defreitaslys.design">hello@defreitaslys.design</a>
+      <span>Oslo based + international</span>
+    </address>
+  </div>
+
+  <div class="footer-bottom">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      {footerLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="footer-social" aria-label="Social profiles to add">
+      {socialPlaceholders.map((item) => (
+        <span>{item}</span>
+      ))}
+    </div>
+
+    <small>© {year} De Freitas Lys Design</small>
+  </div>
+</footer>

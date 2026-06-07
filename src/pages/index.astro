@@ -1,6 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SelectedWork from "../components/SelectedWork.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+
+const credibility = [
+  "16+ years experience",
+  "International touring",
+  "Dance / festivals / music",
+  "GrandMA / EOS / Unreal",
+  "Oslo based + international"
+];
+
+const productions = [
+  "International Touring",
+  "Contemporary Dance",
+  "Festival Productions",
+  "Venue Programming",
+  "Live Operation",
+  "Previsualization"
+];
+
+const services = [
+  {
+    title: "Touring",
+    description: "Showfiles, versions, local crew adaptation, and systems that still work when the room changes.",
+    cta: "Touring support",
+    href: "/services"
+  },
+  {
+    title: "Dance",
+    description: "Cue timing, focus, silence, and black-box constraints built with performers in rehearsal.",
+    cta: "Dance lighting",
+    href: "/services"
+  },
+  {
+    title: "Festival",
+    description: "Fast changeovers, daylight problems, patched rigs, and practical show-day decisions.",
+    cta: "Festival versioning",
+    href: "/services"
+  },
+  {
+    title: "Visualization",
+    description: "Unreal and previs workflows for testing ideas before the venue becomes the first draft.",
+    cta: "Previs workflow",
+    href: "/services"
+  }
+];
+
+const process = [
+  {
+    title: "Understand the room",
+    description: "Start with the venue, rig, schedule, crew, cameras, and what is already locked."
+  },
+  {
+    title: "Build a workable system",
+    description: "Make a plan that can be programmed, toured, adapted, and explained under pressure."
+  },
+  {
+    title: "Adapt on site",
+    description: "Keep the look intact when fixtures move, time disappears, or the local plot is different."
+  }
+];
+
+const featuredProjects = [
+  {
+    title: "Touring Lighting / Showfiles",
+    description: "France, Europe, international dates, GrandMA workflows, and festival versions.",
+    image: "/images/portfolio/touring/cover.jpg"
+  },
+  {
+    title: "Contemporary Dance Lighting",
+    description: "Movement-led cueing, black-box spaces, repertory remounts, and rehearsal-built timing.",
+    image: "/images/portfolio/dance/cover.jpg"
+  },
+  {
+    title: "Festival Adaptation",
+    description: "Short changeovers, daylight adaptation, local rig translation, and show-day fixes.",
+    image: "/images/portfolio/festival/cover.jpg"
+  },
+  {
+    title: "Unreal Visualization",
+    description: "Stage environments, camera angles, lighting concepts, and practical show preparation.",
+    image: "/images/portfolio/unreal/cover.jpg"
+  }
+];
 ---
 
 <Layout
@@ -13,29 +95,150 @@ import SelectedWork from "../components/SelectedWork.astro";
     <section class="container hero-section" aria-labelledby="hero-title">
       <div class="hero">
         <div class="hero-small">
-          DE FREITAS LYS DESIGN
+          DE FREITAS LYSDESIGN
         </div>
 
         <h1 id="hero-title">
-          LIGHT
-          <span>SHAPES</span>
-          EMOTION
+          LIGHTING DESIGN FOR TOURING, DANCE, LIVE EVENTS, AND ARTIST-LED WORK.
         </h1>
 
         <p>
-          Lighting Designer &middot; Programmer &middot; Creative Technologist
+          Lighting systems, programming, visualization, touring support, and practical show
+          solutions built from real productions.
         </p>
 
-        <p>
-          Concerts &middot; Touring &middot; Art Direction &middot; Oslo / Europe
-        </p>
-
-        <a class="cta" href="/contact">
-          Let's Build Something
-        </a>
+        <div class="hero-actions" aria-label="Homepage actions">
+          <a class="cta" href="/portfolio">VIEW WORK</a>
+          <a class="cta cta-secondary" href="/contact">START A PROJECT</a>
+        </div>
       </div>
     </section>
 
-    <SelectedWork />
+    <section class="credibility-strip" aria-label="Experience summary">
+      {
+        credibility.map((item) => (
+          <span>{item}</span>
+        ))
+      }
+    </section>
+
+    <section class="home-section home-section--compact" aria-labelledby="productions-title">
+      <div class="section-kicker">SELECTED PRODUCTIONS</div>
+      <div class="production-grid">
+        <h2 id="productions-title">Work across rooms, formats, and pressure levels.</h2>
+        <ul>
+          {productions.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="home-services-title">
+      <div class="section-kicker">WHAT I DO</div>
+      <div class="section-heading">
+        <h2 id="home-services-title">Lighting work for real production conditions.</h2>
+        <p>
+          Design, programming, operation, and previs support for shows that need to move from
+          idea to stage without losing the point.
+        </p>
+      </div>
+
+      <div class="home-card-grid">
+        {
+          services.map((service) => (
+            <article class="home-card">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <a href={service.href}>{service.cta}</a>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="section-actions" aria-label="Services actions">
+        <a class="cta" href="/services">VIEW SERVICES</a>
+        <a class="cta cta-secondary" href="/contact">START PROJECT</a>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="process-title">
+      <div class="section-kicker">HOW I WORK</div>
+      <div class="section-heading">
+        <h2 id="process-title">A practical workflow before the expensive part starts.</h2>
+      </div>
+
+      <div class="process-grid">
+        {
+          process.map((step, index) => (
+            <article class="process-card">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="section-actions" aria-label="Workflow actions">
+        <a class="cta" href="/contact">DISCUSS WORKFLOW</a>
+        <a class="cta cta-secondary" href="/portfolio">VIEW WORK</a>
+      </div>
+    </section>
+
+    <section class="home-section home-about" aria-labelledby="home-about-title">
+      <div class="section-kicker">WHO I AM</div>
+      <div>
+        <h2 id="home-about-title">Systems, showfiles, and live decisions.</h2>
+        <p>
+          I design lighting systems, showfiles, touring workflows, and practical solutions for
+          productions that need to work outside ideal conditions.
+        </p>
+      </div>
+
+      <div class="section-actions" aria-label="About actions">
+        <a class="cta" href="/contact">CONTACT</a>
+        <a class="cta cta-secondary" href="/services">SERVICES</a>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="portfolio-preview-title">
+      <div class="section-kicker">SELECTED WORK</div>
+      <div class="portfolio-preview-divider">
+        <h2 id="portfolio-preview-title">A few directions from the archive.</h2>
+        <p>
+          Touring, dance, festival, and previs work. More detail sits in the portfolio.
+        </p>
+      </div>
+
+      <div class="home-portfolio-grid">
+        {
+          featuredProjects.map((project) => (
+            <article class="home-portfolio-card">
+              <PortfolioImage image={project.image} alt={`${project.title} project image`} />
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a href="/portfolio">VIEW PORTFOLIO &rarr;</a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="section-actions" aria-label="Portfolio actions">
+        <a class="cta" href="/portfolio">VIEW PORTFOLIO</a>
+        <a class="cta cta-secondary" href="/contact">START PROJECT</a>
+      </div>
+    </section>
+
+    <section class="home-final-cta" aria-labelledby="home-cta-title">
+      <h2 id="home-cta-title">Good shows usually start before load-in.</h2>
+      <p>Bring the room, the deadline, and the problems.</p>
+      <div class="hero-actions" aria-label="Final homepage actions">
+        <a class="cta" href="/contact">CONTACT</a>
+        <a class="cta cta-secondary" href="/portfolio">VIEW PORTFOLIO</a>
+      </div>
+    </section>
   </main>
 </Layout>
