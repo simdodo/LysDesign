@@ -1,10 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const experience = [
+  "18 years live entertainment",
+  "Concerts",
+  "International touring",
+  "Contemporary dance",
+  "Festivals",
+  "Clubs / venues"
+];
+
+const workflow = [
+  "GrandMA / EOS",
+  "Touring showfiles",
+  "Cue timing",
+  "Local rig adaptation",
+  "Unreal / visualization",
+  "Show-day fixes"
+];
+
+const principles = [
+  {
+    title: "Start with the room",
+    kicker: "Production reality",
+    copy: "The best idea still has to work with the venue, rig, crew, schedule, sightlines and budget."
+  },
+  {
+    title: "Build files people can use",
+    kicker: "Programming",
+    copy: "Showfiles need structure. Clear layouts, readable logic, fast updates and enough flexibility for the next room."
+  },
+  {
+    title: "Stay useful on show day",
+    kicker: "Operation",
+    copy: "Good lighting work includes calm decisions when information is late, fixtures change or rehearsal time disappears."
+  },
+  {
+    title: "Protect the artist's intent",
+    kicker: "Collaboration",
+    copy: "The technical system should support the music, movement, camera or director's reference without making the process heavier."
+  }
+];
 ---
 
 <Layout
-  title="About | De Freitas Lys Design"
-  description="About Dorian De Freitas, lighting designer and programmer based in Oslo working across touring, dance, festivals, and live production."
+  title="About Dorian De Freitas | De Freitas Lys Design"
+  description="About Dorian De Freitas, Oslo-based lighting designer, programmer and operator with 18 years of experience across touring, concerts, dance, festivals and live production."
 >
   <div class="glow"></div>
 
@@ -15,13 +56,62 @@ import Layout from "../layouts/Layout.astro";
       <h1 id="about-title">Lighting systems for real production conditions.</h1>
 
       <p>
-        I design lighting systems, showfiles, touring workflows, and practical solutions for
-        productions that need to work outside ideal conditions.
+        I am Dorian De Freitas, a lighting designer, programmer and operator based in Oslo.
+        I build lighting systems, showfiles and touring workflows for productions that need
+        to work outside ideal conditions.
       </p>
 
       <div class="hero-actions" aria-label="About actions">
-        <a class="cta" href="/contact">Contact</a>
-        <a class="cta cta-secondary" href="/portfolio">View Portfolio</a>
+        <a class="cta" href="/contact/">Contact</a>
+        <a class="cta cta-secondary" href="/portfolio/">View Portfolio</a>
+      </div>
+    </section>
+
+    <section class="services-proof" aria-label="Experience and workflow">
+      <div class="proof-block">
+        <span>Experience</span>
+        <ul>
+          {experience.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Workflow</span>
+        <ul>
+          {workflow.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="services-grid" aria-label="How Dorian works">
+      {
+        principles.map((item) => (
+          <article class="service-card service-card--primary">
+            <span>{item.kicker}</span>
+            <h2>{item.title}</h2>
+            <p>{item.copy}</p>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="services-cta" aria-labelledby="about-contact-title">
+      <div>
+        <div class="section-kicker">Working together</div>
+        <h2 id="about-contact-title">Bring the project before it becomes a problem on site.</h2>
+      </div>
+
+      <p>
+        Send the room, dates, rig information, references and what is still unknown.
+      </p>
+
+      <div class="hero-actions" aria-label="About contact actions">
+        <a class="cta" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary" href="/services/">View Services</a>
       </div>
     </section>
   </main>
