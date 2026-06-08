@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Lighting Design",
+    kicker: "Concerts / live rooms",
+    copy: "Looks, cue structure, focus and rig-aware decisions for shows that need to work in the room.",
+    href: "/services/"
+  },
+  {
+    title: "Lighting Programming / Operator",
+    kicker: "GrandMA / EOS",
+    copy: "Clean showfiles, fast updates, busking or timecode workflows, and calm operation under pressure.",
+    href: "/services/"
+  },
+  {
+    title: "Touring & Festival Adaptation",
+    kicker: "Local rigs / short changeovers",
+    copy: "Touring ideas translated to available fixtures, local crews, daylight issues and show-day limits.",
+    href: "/portfolio/"
+  },
+  {
+    title: "Contemporary Dance / Theatre",
+    kicker: "Movement / timing",
+    copy: "Lighting built around bodies, silence, cue timing, black-box conditions and rehearsal processes.",
+    href: "/portfolio/"
+  },
+  {
+    title: "Unreal / Previsualization",
+    kicker: "Previs / 3D lighting",
+    copy: "Stage environments, camera angles and lighting ideas tested before entering the venue.",
+    href: "/contact/"
+  }
+];
+
+const productionReality = [
+  "Local rigs",
+  "Short rehearsal time",
+  "Touring adaptation",
+  "Venue constraints",
+  "Cue precision",
+  "Showfile structure",
+  "Production communication"
+];
+
+const audiences = [
+  "Artists and bands",
+  "Choreographers and dance companies",
+  "Venues and festivals",
+  "Production managers",
+  "Creative teams",
+  "International productions coming to Norway"
+];
+
+const selectedExperience = [
+  "JAIN",
+  "Tim Dup",
+  "Les Tambours du Bronx",
+  "POING",
+  "Dansens Hus",
+  "Rockefeller",
+  "Parkteatret"
+];
+---
+
+<Layout
+  title="Lighting Designer in Oslo | Concerts, Dance & Live Events"
+  description="Oslo-based lighting designer, programmer and technical operator for concerts, touring, contemporary dance, festivals and live events across Norway and Europe."
+>
+  <div class="glow"></div>
+
+  <main class="services-page">
+    <section class="services-hero" aria-labelledby="oslo-title">
+      <div class="section-kicker">OSLO / NORWAY</div>
+
+      <h1 id="oslo-title">Lighting Designer in Oslo</h1>
+
+      <p>
+        De Freitas Lys Design provides lighting design, programming and technical direction
+        for concerts, touring, contemporary dance, festivals and live events in Oslo, Norway
+        and Europe.
+      </p>
+
+      <div class="hero-actions" aria-label="Oslo lighting design actions">
+        <a class="cta" href="/portfolio/">VIEW PORTFOLIO</a>
+        <a class="cta cta-secondary" href="/contact/">START A PROJECT</a>
+      </div>
+    </section>
+
+    <section class="services-proof" aria-labelledby="real-conditions-title">
+      <div class="proof-block">
+        <span>Lighting design for real live conditions</span>
+        <h2 id="real-conditions-title">The plan has to survive the room.</h2>
+        <p>
+          Good lighting work is not only about the first idea. It is also local rigs, short
+          rehearsal time, touring adaptation, venue constraints, cue precision, showfile
+          structure and clear communication with production teams.
+        </p>
+      </div>
+
+      <div class="proof-block">
+        <span>Production reality</span>
+        <ul>
+          {productionReality.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="services-grid" aria-label="Lighting services in Oslo and Norway">
+      {
+        services.map((service) => (
+          <article class="service-card service-card--primary">
+            <span>{service.kicker}</span>
+            <h2>{service.title}</h2>
+            <p>{service.copy}</p>
+            <a class="portfolio-link" href={service.href}>READ MORE</a>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="services-proof" aria-label="Who this lighting work is for">
+      <div class="proof-block">
+        <span>Who this is for</span>
+        <ul>
+          {audiences.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Selected experience / credibility</span>
+        <p>
+          Selected experience across touring, venues and production contexts includes work
+          connected to concerts, contemporary dance, festivals, clubs and artist-led projects
+          in Norway, France and Europe.
+        </p>
+        <ul>
+          {selectedExperience.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="why-dfld-title">
+      <div>
+        <div class="section-kicker">Why work with De Freitas Lys Design</div>
+        <h2 id="why-dfld-title">Artistic choices, technical structure, calm delivery.</h2>
+      </div>
+
+      <p>
+        The work balances visual direction with practical systems. It is built for real-world
+        show conditions, production pressure, available rigs and changing rooms. Based in Oslo,
+        available for projects in Norway and internationally.
+      </p>
+
+      <div class="hero-actions" aria-label="Learn more actions">
+        <a class="cta" href="/about/">ABOUT</a>
+        <a class="cta cta-secondary" href="/services/">SERVICES</a>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="oslo-contact-title">
+      <div>
+        <div class="section-kicker">Next step</div>
+        <h2 id="oslo-contact-title">Planning a show in Oslo or Norway?</h2>
+      </div>
+
+      <p>
+        Send the production brief, venue, dates, console/system information and any references.
+        I will help clarify what is possible and what kind of lighting workflow the project needs.
+      </p>
+
+      <a class="cta" href="/contact/">START A PROJECT</a>
+    </section>
+  </main>
+</Layout>
