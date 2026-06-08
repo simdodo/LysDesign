@@ -298,6 +298,7 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 48px;
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 h1 span {
@@ -546,11 +547,17 @@ p {
 .home-portfolio-card h3,
 .home-final-cta h2 {
   text-transform: uppercase;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+  text-wrap: balance;
 }
 
 .home-card h3 {
-  font-size: clamp(1.45rem, 2.7vw, 2.45rem);
-  line-height: 0.96;
+  font-size: clamp(1.35rem, 2.05vw, 2.12rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
 }
 
 .home-card p,
@@ -830,6 +837,8 @@ p {
   line-height: 0.9;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .section-heading p,
@@ -877,6 +886,8 @@ p {
   font-size: clamp(1.5rem, 3vw, 2.6rem);
   line-height: 1;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .work-card p {
@@ -1472,6 +1483,7 @@ p {
   font-size: clamp(1.65rem, 3.25vw, 3.35rem);
   line-height: 0.96;
   overflow-wrap: anywhere;
+  text-wrap: balance;
   text-transform: uppercase;
   transition: transform 320ms ease;
 }
@@ -1669,11 +1681,11 @@ p {
   bottom: 16px;
   z-index: 80;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   align-items: center;
-  width: min(520px, calc(100% - 32px));
-  padding: 14px;
+  width: min(380px, calc(100% - 32px));
+  padding: 12px;
   border-radius: var(--border-radius);
   border: var(--border-width) solid var(--color-border);
   background:
@@ -1687,7 +1699,7 @@ p {
 }
 
 .cookie-consent h2 {
-  margin-bottom: 7px;
+  margin-bottom: 6px;
   color: rgba(125, 249, 255, 0.86);
   font-size: 0.72rem;
   letter-spacing: 0.2em;
@@ -1696,19 +1708,21 @@ p {
 
 .cookie-consent p {
   margin-bottom: 0;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
   opacity: 0.76;
 }
 
 .cookie-consent-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
 }
 
 .cookie-consent-button {
-  min-width: 88px;
-  padding: 10px 12px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 9px 12px;
   border-radius: var(--border-radius);
   border: var(--border-width) solid rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.055);
