@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const tools = ["GrandMA2", "GrandMA3", "Chamsys", "Vista", "Local plots", "Show-day fixes"];
+const references = ["Europavox", "Rockefeller", "Parkteatret"];
+---
+
+<Layout
+  title="Festival & Venue Adaptation | De Freitas Lys Design"
+  description="Lighting programming and venue adaptation for festivals, clubs, live events and production teams working with real-world constraints."
+>
+  <div class="glow"></div>
+
+  <main class="services-page">
+    <section class="services-hero" aria-labelledby="case-study-title">
+      <div class="section-kicker">Festivals / Venues</div>
+
+      <h1 id="case-study-title">Festival &amp; Venue Adaptation</h1>
+
+      <p>
+        Lighting programming and venue adaptation for festivals, clubs and live event rooms
+        where the plan has to work with the rig that is actually there.
+      </p>
+
+      <div class="hero-actions" aria-label="Festival case study actions">
+        <a class="cta" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary" href="/portfolio/">Back to Portfolio</a>
+      </div>
+    </section>
+
+    <section class="services-proof" aria-labelledby="festival-context-title">
+      <div class="proof-block">
+        <span>Context</span>
+        <h2 id="festival-context-title">Fast rooms need clean decisions.</h2>
+        <p>
+          Festival and venue work often means short changeovers, shared rigs, daylight,
+          partial information and guest operator situations. The existing design still has
+          to read in a new room.
+        </p>
+      </div>
+
+      <div class="proof-block">
+        <span>Role</span>
+        <p>
+          De Freitas Lys Design supports programming, local rig translation, guest operation,
+          festival versions and practical communication with house crews, touring teams and
+          production managers.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-grid" aria-label="Festival and venue adaptation workflow">
+      <article class="service-card service-card--primary">
+        <span>Challenge</span>
+        <h2>Limited time. Real constraints.</h2>
+        <p>
+          Changeovers are short, fixture types vary, plots are not always current and there is
+          rarely time to rebuild a show from scratch.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Approach</span>
+        <h2>Translate the idea locally.</h2>
+        <p>
+          The method is to protect the strongest visual ideas, simplify what needs simplifying,
+          adapt to available fixtures and keep communication clear with the local crew.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Tools / Workflow</span>
+        <h2>Ready for the room.</h2>
+        <ul>
+          {tools.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Outcome</span>
+        <h2>Coherent under pressure.</h2>
+        <p>
+          The result is a workflow that helps the production move faster and stay visually
+          coherent when the room, rig and schedule are not ideal.
+        </p>
+      </article>
+    </section>
+
+    <section class="services-proof" aria-label="Festival references and internal links">
+      <div class="proof-block">
+        <span>Portfolio context</span>
+        <ul>
+          {references.map((reference) => (
+            <li>{reference}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Related services</span>
+        <p>
+          For service scope and production planning, see the
+          {" "}<a href="/services/">services page</a>. For Oslo-based and Norway work,
+          see <a href="/lighting-designer-oslo/">Lighting Designer in Oslo</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="festival-contact-title">
+      <div>
+        <div class="section-kicker">Next Step</div>
+        <h2 id="festival-contact-title">Need this kind of lighting workflow?</h2>
+      </div>
+
+      <p>
+        Send the production brief, venue, dates, console/system information and references.
+      </p>
+
+      <a class="cta" href="/contact/">Start a Project</a>
+    </section>
+  </main>
+</Layout>

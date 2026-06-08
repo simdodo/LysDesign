@@ -16,6 +16,7 @@ const projects = [
       proof: ["local crew adaptation", "fast programming workflows", "rig-to-rig translation"]
     },
     image: "/images/portfolio/touring/cover.jpg",
+    href: "/portfolio/touring-lighting-showfiles/",
     cta: "Discuss Touring Support",
     tone: "cyan",
     layout: "feature"
@@ -33,6 +34,7 @@ const projects = [
       proof: ["BLACK-BOX SPACES", "MOVEMENT-LED TIMING", "REPERTORY REMOUNTS"]
     },
     image: "/images/portfolio/dance/cover.jpg",
+    href: "/portfolio/contemporary-dance-lighting/",
     cta: "DISCUSS DANCE WORK",
     tone: "warm",
     layout: "standard"
@@ -50,6 +52,7 @@ const projects = [
       proof: ["SHORT CHANGEOVERS", "DAYLIGHT ADAPTATION", "LOCAL RIG TRANSLATION"]
     },
     image: "/images/portfolio/festival/cover.jpg",
+    href: "/portfolio/festival-venue-adaptation/",
     cta: "PLAN FESTIVAL VERSION",
     tone: "cyan",
     layout: "standard"
@@ -174,7 +177,7 @@ const projects = [
                 </div>
               </div>
 
-              <a class="portfolio-link" href="/contact">
+              <a class="portfolio-link" href={project.href ?? "/contact/"}>
                 {project.cta}
               </a>
             </div>

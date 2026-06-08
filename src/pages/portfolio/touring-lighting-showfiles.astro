@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const tools = ["GrandMA2", "GrandMA3", "Showfile structure", "Festival versioning", "FOH operation", "Rig translation"];
+const references = ["JAIN", "Tim Dup", "Les Tambours du Bronx"];
+---
+
+<Layout
+  title="Touring Lighting & Showfile Workflow | De Freitas Lys Design"
+  description="Lighting programming, showfile structure and touring adaptation for concerts, artist-led productions and live events across Norway and Europe."
+>
+  <div class="glow"></div>
+
+  <main class="services-page">
+    <section class="services-hero" aria-labelledby="case-study-title">
+      <div class="section-kicker">Touring / Showfiles</div>
+
+      <h1 id="case-study-title">Touring Lighting &amp; Showfile Workflow</h1>
+
+      <p>
+        Lighting programming and touring adaptation for concerts, artist-led productions,
+        festival versions and rooms where the rig changes but the show still has to hold.
+      </p>
+
+      <div class="hero-actions" aria-label="Touring case study actions">
+        <a class="cta" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary" href="/portfolio/">Back to Portfolio</a>
+      </div>
+    </section>
+
+    <section class="services-proof" aria-labelledby="touring-context-title">
+      <div class="proof-block">
+        <span>Context</span>
+        <h2 id="touring-context-title">Touring files need to survive different rooms.</h2>
+        <p>
+          Concert and artist-led work often moves between theatres, clubs, festivals and
+          international venues. The lighting file has to stay readable, adaptable and usable
+          from FOH when time is short.
+        </p>
+      </div>
+
+      <div class="proof-block">
+        <span>Role</span>
+        <p>
+          De Freitas Lys Design supports lighting design, GrandMA2 / MA3 programming,
+          operator work, showfile preparation, festival versioning and local crew adaptation
+          for touring productions in Norway, France, Europe and international contexts.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-grid" aria-label="Touring lighting workflow">
+      <article class="service-card service-card--primary">
+        <span>Challenge</span>
+        <h2>Same show. Different rig.</h2>
+        <p>
+          Touring lighting is rarely ideal. Fixture counts change, patch information arrives
+          late, daylight affects festival sets, and local crews need clear decisions fast.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Approach</span>
+        <h2>Structure before pressure.</h2>
+        <p>
+          The work starts with a showfile that can be understood under pressure: clean layout,
+          usable presets, clear cue logic, adaptable groups and practical operator workflows.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Tools / Workflow</span>
+        <h2>Built for operation.</h2>
+        <ul>
+          {tools.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Outcome</span>
+        <h2>Reliable visual control.</h2>
+        <p>
+          The goal is a lighting workflow that helps the production move faster, stay visually
+          coherent and adapt without losing the artist-led direction.
+        </p>
+      </article>
+    </section>
+
+    <section class="services-proof" aria-label="Touring references and internal links">
+      <div class="proof-block">
+        <span>Portfolio context</span>
+        <ul>
+          {references.map((reference) => (
+            <li>{reference}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Related services</span>
+        <p>
+          For service scope, availability and production planning, see the
+          {" "}<a href="/services/">services page</a>. For Oslo-based and Norway work,
+          see <a href="/lighting-designer-oslo/">Lighting Designer in Oslo</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="touring-contact-title">
+      <div>
+        <div class="section-kicker">Next Step</div>
+        <h2 id="touring-contact-title">Need this kind of lighting workflow?</h2>
+      </div>
+
+      <p>
+        Send the production brief, venue, dates, console/system information and references.
+      </p>
+
+      <a class="cta" href="/contact/">Start a Project</a>
+    </section>
+  </main>
+</Layout>

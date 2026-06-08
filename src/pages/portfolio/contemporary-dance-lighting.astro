@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const tools = ["ETC Eos", "Cue timing", "Focus", "Rehearsal notes", "Black-box adaptation", "Repertory remounts"];
+const references = ["POING", "Dansens Hus"];
+---
+
+<Layout
+  title="Contemporary Dance Lighting | De Freitas Lys Design"
+  description="Lighting design and cue-based workflows for contemporary dance, theatre and movement-led productions in Oslo, Norway and Europe."
+>
+  <div class="glow"></div>
+
+  <main class="services-page">
+    <section class="services-hero" aria-labelledby="case-study-title">
+      <div class="section-kicker">Dance / Theatre</div>
+
+      <h1 id="case-study-title">Contemporary Dance Lighting</h1>
+
+      <p>
+        Lighting design and cue-based workflows for movement-led productions where timing,
+        silence, atmosphere and rehearsal decisions shape the final result.
+      </p>
+
+      <div class="hero-actions" aria-label="Dance case study actions">
+        <a class="cta" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary" href="/portfolio/">Back to Portfolio</a>
+      </div>
+    </section>
+
+    <section class="services-proof" aria-labelledby="dance-context-title">
+      <div class="proof-block">
+        <span>Context</span>
+        <h2 id="dance-context-title">The cue is part of the movement.</h2>
+        <p>
+          Contemporary dance lighting is built with performers, choreographers and rehearsal
+          processes. Black-box constraints, focus positions and silence matter as much as
+          brightness or colour.
+        </p>
+      </div>
+
+      <div class="proof-block">
+        <span>Role</span>
+        <p>
+          De Freitas Lys Design supports lighting design, cue structure, focus work, operator
+          preparation and remount adaptation for contemporary dance, theatre and movement-led
+          work in Oslo, Norway and Europe.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-grid" aria-label="Contemporary dance lighting workflow">
+      <article class="service-card service-card--primary">
+        <span>Challenge</span>
+        <h2>Precision without excess.</h2>
+        <p>
+          Dance rooms often work with limited fixtures, tight rehearsal windows and cue timing
+          that has to follow bodies rather than a fixed production template.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Approach</span>
+        <h2>Build inside rehearsal.</h2>
+        <p>
+          The method is practical: watch the movement, test focus, simplify the cue logic,
+          adjust with performers and keep the lighting system clear enough to remount.
+        </p>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Tools / Workflow</span>
+        <h2>Cues, focus, timing.</h2>
+        <ul>
+          {tools.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="service-card service-card--primary">
+        <span>Outcome</span>
+        <h2>Clear emotional timing.</h2>
+        <p>
+          The work focuses on clarity, adaptability and emotional timing so the lighting
+          supports the physical material without fighting it.
+        </p>
+      </article>
+    </section>
+
+    <section class="services-proof" aria-label="Dance references and internal links">
+      <div class="proof-block">
+        <span>Portfolio context</span>
+        <ul>
+          {references.map((reference) => (
+            <li>{reference}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="proof-block">
+        <span>Related services</span>
+        <p>
+          For service scope and production planning, see the
+          {" "}<a href="/services/">services page</a>. For Oslo-based and Norway work,
+          see <a href="/lighting-designer-oslo/">Lighting Designer in Oslo</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-cta" aria-labelledby="dance-contact-title">
+      <div>
+        <div class="section-kicker">Next Step</div>
+        <h2 id="dance-contact-title">Need this kind of lighting workflow?</h2>
+      </div>
+
+      <p>
+        Send the production brief, venue, dates, console/system information and references.
+      </p>
+
+      <a class="cta" href="/contact/">Start a Project</a>
+    </section>
+  </main>
+</Layout>
