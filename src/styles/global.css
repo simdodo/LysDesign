@@ -27,6 +27,7 @@
   --space-lg: 3rem;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
+  --border-radius: var(--border-radius-sm);
   --transition-fast: 200ms ease;
   --transition-slow: 500ms ease;
   --ease-refined: cubic-bezier(0.22, 1, 0.36, 1);
@@ -104,7 +105,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 1px solid rgba(125, 249, 255, 0.92);
+  outline: 1px solid var(--color-light-cyan);
   outline-offset: 4px;
 }
 
@@ -130,7 +131,7 @@ main {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.72)),
     rgba(0, 0, 0, 0.84);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border-soft);
 }
 
@@ -269,6 +270,7 @@ p {
   display: inline-block;
   margin-top: 34px;
   padding: 18px 32px;
+  border-radius: var(--border-radius);
   border: 1px solid rgba(0, 248, 255, 0.78);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 54%),
@@ -1591,6 +1593,7 @@ p {
   align-items: center;
   width: min(520px, calc(100% - 32px));
   padding: 14px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
   background:
     linear-gradient(150deg, rgba(125, 249, 255, 0.055), transparent 45%),
@@ -1625,6 +1628,7 @@ p {
 .cookie-consent-button {
   min-width: 88px;
   padding: 10px 12px;
+  border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.055);
   color: rgba(255, 255, 255, 0.86);
