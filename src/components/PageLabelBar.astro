@@ -1,10 +1,14 @@
 ---
 interface Props {
   label: string;
+  description?: string;
   className?: string;
 }
 
-const { label, className = "section-kicker" } = Astro.props;
+const { label, description, className = "section-kicker" } = Astro.props;
 ---
 
-<div class={className}>{label}</div>
+<div class={`page-label-bar ${className}`}>
+  <span>{label}</span>
+  {description && <p>{description}</p>}
+</div>
