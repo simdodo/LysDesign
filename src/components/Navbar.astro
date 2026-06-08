@@ -23,7 +23,17 @@ const isActive = (href) => {
     DFLD
   </a>
 
-  <nav class="nav-links">
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-controls="primary-navigation"
+    aria-expanded="false"
+    data-nav-toggle
+  >
+    Menu
+  </button>
+
+  <nav class="nav-links" id="primary-navigation" data-primary-nav>
     {
       links.map((link) => (
         <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
@@ -33,3 +43,15 @@ const isActive = (href) => {
     }
   </nav>
 </header>
+
+<script is:inline>
+  (() => {
+    const toggle = document.querySelector("[data-nav-toggle]");
+    const nav = document.querySelector("[data-primary-nav]");
+
+    toggle?.addEventListener("click", () => {
+      const isOpen = nav?.classList.toggle("is-open") ?? false;
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  })();
+</script>
