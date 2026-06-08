@@ -2,48 +2,59 @@
 const year = new Date().getFullYear();
 
 const footerLinks = [
-  { href: "/", label: "Index" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
+  { href: "/portfolio/", label: "Work" },
+  { href: "/services/", label: "Services" },
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
   { href: "/lighting-designer-oslo/", label: "Lighting Designer Oslo" },
-  { href: "/contact", label: "Contact" }
 ];
 
-const socialPlaceholders = ["Instagram", "LinkedIn", "Vimeo"];
+// TODO: Replace these with real public profile URLs before enabling footer social links.
+const instagramUrl = "REPLACE_WITH_REAL_INSTAGRAM_URL";
+const youtubeUrl = "REPLACE_WITH_REAL_YOUTUBE_URL";
+
+const socialLinks = [
+  { href: instagramUrl, label: "Instagram" },
+  { href: youtubeUrl, label: "YouTube" },
+].filter((link) => !link.href.includes("REPLACE_WITH_REAL"));
 ---
 
 <footer class="site-footer" aria-label="Site footer">
   <div class="footer-main">
-    <div>
+    <div class="footer-brand">
       <span class="footer-kicker">De Freitas Lys Design</span>
       <p>
-        Lighting design, programming, touring workflows, and practical live production support.
+        Oslo-based lighting design, programming &amp; live production.
       </p>
     </div>
 
-    <address class="footer-contact">
-      <a href="mailto:hello@defreitaslys.design">hello@defreitaslys.design</a>
-      <span>Oslo based + international</span>
-    </address>
-  </div>
-
-  <div class="footer-bottom">
     <nav class="footer-nav" aria-label="Footer navigation">
       {footerLinks.map((link) => (
         <a href={link.href}>{link.label}</a>
       ))}
     </nav>
 
-    <div class="footer-social" aria-label="Social profiles to add">
-      {socialPlaceholders.map((item) => (
-        <span>{item}</span>
-      ))}
-    </div>
+    <div class="footer-actions">
+      <a class="footer-email" href="mailto:hello@defreitaslys.design" aria-label="Email De Freitas Lys Design">
+        Email
+      </a>
 
-    <div class="footer-legal">
+      {socialLinks.length > 0 && (
+        <nav class="footer-social" aria-label="Social profiles">
+          {socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${link.label} profile`}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
+
       <button type="button" data-cookie-settings>Cookie settings</button>
-      <small>&copy; {year} De Freitas Lys Design</small>
     </div>
+  </div>
+
+  <div class="footer-bottom">
+    <small>&copy; {year} De Freitas Lys Design</small>
+    <span>Oslo based + international</span>
   </div>
 </footer>
