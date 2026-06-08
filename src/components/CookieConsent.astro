@@ -1,0 +1,97 @@
+<aside class="cookie-consent" data-cookie-consent hidden aria-labelledby="cookie-consent-title">
+  <div>
+    <h2 id="cookie-consent-title">Analytics cookies</h2>
+    <p>
+      This site uses analytics cookies to understand how visitors use the website. You can
+      accept or reject analytics tracking.
+    </p>
+  </div>
+
+  <div class="cookie-consent-actions" aria-label="Analytics cookie choices">
+    <button class="cookie-consent-button" type="button" data-cookie-accept>
+      Accept
+    </button>
+    <button class="cookie-consent-button" type="button" data-cookie-reject>
+      Reject
+    </button>
+  </div>
+</aside>
+
+<script is:inline>
+  (() => {
+    const storageKey = "dfld_cookie_consent";
+    const banner = document.querySelector("[data-cookie-consent]");
+    const acceptButton = document.querySelector("[data-cookie-accept]");
+    const rejectButton = document.querySelector("[data-cookie-reject]");
+    const settingsButtons = document.querySelectorAll("[data-cookie-settings]");
+
+    const getStoredConsent = () => {
+      try {
+        return window.localStorage.getItem(storageKey);
+      } catch {
+        return null;
+      }
+    };
+
+    const setStoredConsent = (value) => {
+      try {
+        window.localStorage.setItem(storageKey, value);
+      } catch {}
+    };
+
+    const updateAnalyticsConsent = (analyticsStorage) => {
+      window.gtag?.("consent", "update", {
+        analytics_storage: analyticsStorage
+      });
+    };
+
+    const configureAnalytics = () => {
+      if (window.__dfldAnalyticsConfigured) {
+        return;
+      }
+
+      window.__dfldAnalyticsConfigured = true;
+      window.gtag?.("config", "G-3SGMFRGL79", {
+        page_path: window.location.pathname + window.location.search
+      });
+    };
+
+    const hideBanner = () => {
+      banner?.setAttribute("hidden", "");
+    };
+
+    const showBanner = () => {
+      banner?.removeAttribute("hidden");
+    };
+
+    const acceptAnalytics = () => {
+      setStoredConsent("accepted");
+      updateAnalyticsConsent("granted");
+      configureAnalytics();
+      hideBanner();
+    };
+
+    const rejectAnalytics = () => {
+      setStoredConsent("rejected");
+      updateAnalyticsConsent("denied");
+      hideBanner();
+    };
+
+    const storedConsent = getStoredConsent();
+
+    if (storedConsent === "accepted") {
+      updateAnalyticsConsent("granted");
+      configureAnalytics();
+    } else if (storedConsent === "rejected") {
+      updateAnalyticsConsent("denied");
+    } else {
+      showBanner();
+    }
+
+    acceptButton?.addEventListener("click", acceptAnalytics);
+    rejectButton?.addEventListener("click", rejectAnalytics);
+    settingsButtons.forEach((button) => {
+      button.addEventListener("click", showBanner);
+    });
+  })();
+</script>

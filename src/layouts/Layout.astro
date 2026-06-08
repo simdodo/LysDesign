@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 
 const {
   title = "De Freitas Lys Design",
@@ -9,7 +10,7 @@ const {
   image = "/images/portfolio/touring/cover.jpg"
 } = Astro.props;
 
-const siteUrl = Astro.site ?? "https://defreitaslys.design";
+const siteUrl = Astro.site ?? "https://defreitaslysdesign.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
 const ogImageUrl = new URL(image, siteUrl);
 ---
@@ -20,6 +21,7 @@ const ogImageUrl = new URL(image, siteUrl);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#050505" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -32,18 +34,21 @@ const ogImageUrl = new URL(image, siteUrl);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <title>{title}</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SGMFRGL79"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag("consent", "default", {
+        analytics_storage: "denied"
+      });
       gtag("js", new Date());
-      gtag("config", "G-3SGMFRGL79");
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SGMFRGL79"></script>
   </head>
 
   <body>
     <Navbar />
     <slot />
     <Footer />
+    <CookieConsent />
   </body>
 </html>
