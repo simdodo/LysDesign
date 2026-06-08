@@ -31,6 +31,10 @@
   --border-radius-md: var(--radius-small);
   --border-radius: var(--border-radius-sm);
   --font-size-base: 16px;
+  --font-display: clamp(4.8rem, 13.6vw, 11.6rem);
+  --font-hero: clamp(3rem, 7.8vw, 7.9rem);
+  --font-section: clamp(2.6rem, 6.4vw, 6.25rem);
+  --font-card-title: clamp(1.35rem, 2.05vw, 2.12rem);
   --transition-fast: 200ms ease;
   --transition-slow: 500ms ease;
   --ease-refined: cubic-bezier(0.22, 1, 0.36, 1);
@@ -278,20 +282,25 @@ main {
   position: relative;
   z-index: 1;
   max-width: 1180px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .hero-small {
+  display: inline-block;
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-accent);
   opacity: 0.78;
   margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: var(--border-width) solid var(--color-border);
   text-shadow: none;
 }
 
 h1 {
-  font-size: clamp(4.8rem, 13.6vw, 11.6rem);
+  font-size: var(--font-display);
   font-weight: 900;
   line-height: 0.82;
   letter-spacing: -0.02em;
@@ -309,8 +318,13 @@ h1 span {
 
 .hero h1 {
   max-width: 1180px;
-  font-size: clamp(3rem, 7.8vw, 7.9rem);
+  margin-inline: auto;
+  font-size: var(--font-hero);
   line-height: 0.88;
+}
+
+.hero p {
+  margin-inline: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -363,6 +377,7 @@ p {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 18px;
 }
@@ -555,7 +570,7 @@ p {
 }
 
 .home-card h3 {
-  font-size: clamp(1.35rem, 2.05vw, 2.12rem);
+  font-size: var(--font-card-title);
   line-height: 0.98;
   letter-spacing: -0.015em;
 }
@@ -773,6 +788,7 @@ p {
 .contact-hero {
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .portfolio-hero::before,
@@ -798,6 +814,15 @@ p {
   z-index: 1;
 }
 
+.portfolio-hero h1,
+.portfolio-hero p,
+.services-hero h1,
+.services-hero p,
+.contact-hero h1,
+.contact-hero p {
+  margin-inline: auto;
+}
+
 .home-section + .home-section,
 .services-proof + .services-grid,
 .services-grid + .services-proof,
@@ -810,7 +835,10 @@ p {
 }
 
 .section-kicker {
+  display: inline-block;
   margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: var(--border-width) solid var(--color-border);
   color: var(--color-accent);
   font-size: 0.76rem;
   font-weight: 700;
@@ -832,7 +860,7 @@ p {
 .services-cta h2,
 .portfolio-hero h1 {
   max-width: 980px;
-  font-size: clamp(2.6rem, 6.4vw, 6.25rem);
+  font-size: var(--font-section);
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -908,7 +936,7 @@ p {
 }
 
 .contact-hero h1 {
-  font-size: clamp(2.4rem, 6vw, 5.8rem);
+  font-size: var(--font-section);
 }
 
 .contact-shell {
@@ -1038,7 +1066,7 @@ p {
 }
 
 .services-hero h1 {
-  font-size: clamp(2.1rem, 5.1vw, 5rem);
+  font-size: var(--font-section);
 }
 
 .hero-proof {
@@ -1228,7 +1256,7 @@ p {
 }
 
 .portfolio-hero h1 {
-  font-size: clamp(3.2rem, 8vw, 8rem);
+  font-size: var(--font-hero);
 }
 
 .portfolio-grid {
