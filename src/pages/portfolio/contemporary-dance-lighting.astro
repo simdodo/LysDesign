@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageLabelBar from "../../components/PageLabelBar.astro";
 
 const tools = ["ETC Eos", "Cue timing", "Focus", "Rehearsal notes", "Black-box adaptation", "Repertory remounts"];
 const references = ["POING", "Dansens Hus"];
@@ -13,7 +14,7 @@ const references = ["POING", "Dansens Hus"];
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="case-study-title">
-      <div class="section-kicker">Dance / Theatre</div>
+      <PageLabelBar label="Dance / Theatre" />
 
       <h1 id="case-study-title">Contemporary Dance Lighting</h1>
 

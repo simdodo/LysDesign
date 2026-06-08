@@ -1,0 +1,10 @@
+---
+interface Props {
+  label: string;
+  className?: string;
+}
+
+const { label, className = "section-kicker" } = Astro.props;
+---
+
+<div class={className}>{label}</div>

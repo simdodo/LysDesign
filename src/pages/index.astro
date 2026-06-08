@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
 import PortfolioImage from "../components/PortfolioImage.astro";
 
 const credibility = [
@@ -94,9 +95,7 @@ const featuredProjects = [
   <main>
     <section class="container hero-section" aria-labelledby="hero-title">
       <div class="hero">
-        <div class="hero-small">
-          DE FREITAS LYSDESIGN
-        </div>
+        <PageLabelBar label="DE FREITAS LYSDESIGN" className="hero-small" />
 
         <h1 id="hero-title">
           LIGHTING DESIGN FOR TOURING, DANCE, LIVE EVENTS, AND ARTIST-LED WORK.

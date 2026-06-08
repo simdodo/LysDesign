@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
 
 const services = [
   {
@@ -72,7 +73,7 @@ const selectedExperience = [
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="oslo-title">
-      <div class="section-kicker">OSLO / NORWAY</div>
+      <PageLabelBar label="OSLO / NORWAY" />
 
       <h1 id="oslo-title">Lighting Designer in Oslo</h1>
 

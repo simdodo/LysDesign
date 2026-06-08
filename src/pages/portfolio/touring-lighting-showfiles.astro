@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageLabelBar from "../../components/PageLabelBar.astro";
 
 const tools = ["GrandMA2", "GrandMA3", "Showfile structure", "Festival versioning", "FOH operation", "Rig translation"];
 const references = ["JAIN", "Tim Dup", "Les Tambours du Bronx"];
@@ -13,7 +14,7 @@ const references = ["JAIN", "Tim Dup", "Les Tambours du Bronx"];
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="case-study-title">
-      <div class="section-kicker">Touring / Showfiles</div>
+      <PageLabelBar label="Touring / Showfiles" />
 
       <h1 id="case-study-title">Touring Lighting &amp; Showfile Workflow</h1>
 

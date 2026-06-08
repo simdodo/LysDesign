@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
 import PortfolioImage from "../components/PortfolioImage.astro";
 
 const projects = [
@@ -119,7 +120,7 @@ const projects = [
 
   <main class="portfolio-page">
     <section class="portfolio-hero" aria-labelledby="portfolio-title">
-      <div class="section-kicker">Portfolio</div>
+      <PageLabelBar label="Portfolio" />
 
       <h1 id="portfolio-title">Selected Work &amp; Case Studies</h1>
 

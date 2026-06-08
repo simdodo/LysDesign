@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageLabelBar from "../../components/PageLabelBar.astro";
 
 const tools = ["GrandMA2", "GrandMA3", "Chamsys", "Vista", "Local plots", "Show-day fixes"];
 const references = ["Europavox", "Rockefeller", "Parkteatret"];
@@ -13,7 +14,7 @@ const references = ["Europavox", "Rockefeller", "Parkteatret"];
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="case-study-title">
-      <div class="section-kicker">Festivals / Venues</div>
+      <PageLabelBar label="Festivals / Venues" />
 
       <h1 id="case-study-title">Festival &amp; Venue Adaptation</h1>
 

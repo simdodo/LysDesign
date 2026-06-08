@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
 
 const experience = [
   "16+ years in live entertainment, concerts, touring and stage lighting",
@@ -49,7 +50,7 @@ const productionValue = [
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="about-title">
-      <div class="section-kicker">WHO I AM</div>
+      <PageLabelBar label="WHO I AM" />
 
       <h1 id="about-title">About Dorian De Freitas</h1>
 

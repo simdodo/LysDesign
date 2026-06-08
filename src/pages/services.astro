@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
 
 const services = [
   {
@@ -74,7 +75,7 @@ const topProof = [
 
   <main class="services-page">
     <section class="services-hero" aria-labelledby="services-title">
-      <div class="section-kicker">Services</div>
+      <PageLabelBar label="Services" />
 
       <h1 id="services-title">
         Lighting Design &amp; Live Production Services
