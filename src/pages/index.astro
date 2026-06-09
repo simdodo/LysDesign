@@ -1,7 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PageLabelBar from "../components/PageLabelBar.astro";
-import PortfolioImage from "../components/PortfolioImage.astro";
+import CinematicHero from "../components/CinematicHero.astro";
+import ProofStrip from "../components/ProofStrip.astro";
+import WhatBreaksAShow from "../components/WhatBreaksAShow.astro";
+import ServiceTeaser from "../components/ServiceTeaser.astro";
+import ProductionTimeline from "../components/ProductionTimeline.astro";
+import SelectedWork from "../components/SelectedWork.astro";
+import FinalCTA from "../components/FinalCTA.astro";
 import { getCollection } from "astro:content";
 
 const credibility = [
@@ -71,114 +76,25 @@ const featuredProjects = (await getCollection("portfolio", ({ data }) => data.pu
 <Layout
   title="De Freitas Lys Design | Lighting Design for Live Production"
   description="Lighting design, programming, touring systems and previs for concerts, dance, festivals and live productions across Norway and Europe."
-  preloadImage="/images/portfolio/touring/cover.jpg"
+  preloadImage="/images/portfolio/festival/cover.jpg"
 >
   <div class="glow"></div>
 
   <main id="main-content">
-    <section class="container hero-section" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true">
-        <img
-          src="/images/portfolio/touring/cover.jpg"
-          alt=""
-          width="1600"
-          height="900"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
-      </div>
+    <CinematicHero
+      title="LIGHT THAT SURVIVES THE ROOM."
+      subtitle="Lighting design, programming and touring systems for concerts, dance, festivals and live productions across Norway and Europe."
+      image="/images/portfolio/festival/cover.jpg"
+      imageAlt="Festival crowd and lighting console under cyan stage beams"
+    />
 
-      <div class="hero">
-        <PageLabelBar label="Home" description="De Freitas Lys Design" className="hero-small" />
+    <ProofStrip items={credibility} />
 
-        <h1 id="hero-title">
-          LIGHT THAT SURVIVES THE ROOM.
-        </h1>
+    <WhatBreaksAShow productions={productions} />
 
-        <p>
-          Lighting design, programming and touring systems for concerts, dance, festivals and
-          live productions across Norway and Europe.
-        </p>
+    <ServiceTeaser services={services} />
 
-        <div class="hero-actions" aria-label="Homepage actions">
-          <a class="cta btn-primary" href="/contact/" data-track-event="start_project" data-astro-prefetch>Start a Project</a>
-          <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="view_work" data-astro-prefetch>View Work</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="credibility-strip" aria-label="Experience summary">
-      {
-        credibility.map((item) => (
-          <span>{item}</span>
-        ))
-      }
-    </section>
-
-    <section class="home-section home-section--compact" aria-labelledby="productions-title">
-      <div class="section-kicker">SELECTED PRODUCTIONS</div>
-      <div class="production-grid">
-        <h2 id="productions-title">Work across rooms, formats, and pressure levels.</h2>
-        <ul>
-          {productions.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <section class="home-section" aria-labelledby="home-services-title">
-      <div class="section-kicker">WHAT I DO</div>
-      <div class="section-heading">
-        <h2 id="home-services-title">Lighting work for real production conditions.</h2>
-        <p>
-          Design, programming, operation, and previs support for shows that need to move from
-          idea to stage without losing the point.
-        </p>
-      </div>
-
-      <div class="home-card-grid">
-        {
-          services.map((service) => (
-            <article class="home-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <a href={service.href}>{service.cta}</a>
-            </article>
-          ))
-        }
-      </div>
-
-      <div class="section-actions" aria-label="Services actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/services/">View Services</a>
-      </div>
-    </section>
-
-    <section class="home-section" aria-labelledby="process-title">
-      <div class="section-kicker">HOW I WORK</div>
-      <div class="section-heading">
-        <h2 id="process-title">A practical workflow before the expensive part starts.</h2>
-      </div>
-
-      <div class="process-grid">
-        {
-          process.map((step, index) => (
-            <article class="process-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </article>
-          ))
-        }
-      </div>
-
-      <div class="section-actions" aria-label="Workflow actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
-      </div>
-    </section>
+    <ProductionTimeline process={process} />
 
     <section class="home-section home-about" aria-labelledby="home-about-title">
       <div class="section-kicker">ABOUT</div>
@@ -196,43 +112,8 @@ const featuredProjects = (await getCollection("portfolio", ({ data }) => data.pu
       </div>
     </section>
 
-    <section class="home-section" aria-labelledby="portfolio-preview-title">
-      <div class="section-kicker">SELECTED WORK</div>
-      <div class="portfolio-preview-divider">
-        <h2 id="portfolio-preview-title">A few directions from the archive.</h2>
-        <p>
-          Touring, dance, festival, and previs work. More detail sits in the portfolio.
-        </p>
-      </div>
+    <SelectedWork projects={featuredProjects} />
 
-      <div class="home-portfolio-grid">
-        {
-          featuredProjects.map((project) => (
-            <article class="home-portfolio-card">
-              <PortfolioImage image={project.data.cover} alt={project.data.coverAlt} />
-              <div>
-                <h3>{project.data.title}</h3>
-                <p>{project.data.description}</p>
-                <a href={`/portfolio/${project.id}/`} data-astro-prefetch>View Work &rarr;</a>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-
-      <div class="section-actions" aria-label="Portfolio actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
-      </div>
-    </section>
-
-    <section class="home-final-cta" aria-labelledby="home-cta-title">
-      <h2 id="home-cta-title">Good shows usually start before load-in.</h2>
-      <p>Bring the room, the deadline, and the problems.</p>
-      <div class="hero-actions" aria-label="Final homepage actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
-      </div>
-    </section>
+    <FinalCTA />
   </main>
 </Layout>

@@ -1,0 +1,31 @@
+---
+const { services } = Astro.props;
+---
+
+<section class="home-section" aria-labelledby="home-services-title">
+  <div class="section-kicker">WHAT I DO</div>
+  <div class="section-heading">
+    <h2 id="home-services-title">Lighting work for real production conditions.</h2>
+    <p>
+      Design, programming, operation, and previs support for shows that need to move from
+      idea to stage without losing the point.
+    </p>
+  </div>
+
+  <div class="home-card-grid">
+    {
+      services.map((service) => (
+        <article class="home-card">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <a href={service.href}>{service.cta}</a>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="section-actions" aria-label="Services actions">
+    <a class="cta btn-primary" href="/contact/">Start a Project</a>
+    <a class="cta cta-secondary btn-secondary" href="/services/">View Services</a>
+  </div>
+</section>

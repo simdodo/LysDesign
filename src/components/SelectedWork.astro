@@ -1,0 +1,35 @@
+---
+import PortfolioImage from "./PortfolioImage.astro";
+
+const { projects } = Astro.props;
+---
+
+<section class="home-section" aria-labelledby="portfolio-preview-title">
+  <div class="section-kicker">SELECTED WORK</div>
+  <div class="portfolio-preview-divider">
+    <h2 id="portfolio-preview-title">A few directions from the archive.</h2>
+    <p>
+      Touring, dance, festival, and previs work. More detail sits in the portfolio.
+    </p>
+  </div>
+
+  <div class="home-portfolio-grid">
+    {
+      projects.map((project) => (
+        <article class="home-portfolio-card">
+          <PortfolioImage image={project.data.cover} alt={project.data.coverAlt} />
+          <div>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.description}</p>
+            <a href={`/portfolio/${project.id}/`} data-astro-prefetch>View Work &rarr;</a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="section-actions" aria-label="Portfolio actions">
+    <a class="cta btn-primary" href="/contact/">Start a Project</a>
+    <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+  </div>
+</section>

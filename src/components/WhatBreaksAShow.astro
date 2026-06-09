@@ -1,0 +1,15 @@
+---
+const { productions } = Astro.props;
+---
+
+<section class="home-section home-section--compact" aria-labelledby="productions-title">
+  <div class="section-kicker">SELECTED PRODUCTIONS</div>
+  <div class="production-grid">
+    <h2 id="productions-title">Work across rooms, formats, and pressure levels.</h2>
+    <ul>
+      {productions.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>

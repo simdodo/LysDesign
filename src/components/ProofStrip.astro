@@ -1,0 +1,11 @@
+---
+const { items, ariaLabel = "Experience summary" } = Astro.props;
+---
+
+<section class="credibility-strip" aria-label={ariaLabel}>
+  {
+    items.map((item) => (
+      <span>{item}</span>
+    ))
+  }
+</section>
