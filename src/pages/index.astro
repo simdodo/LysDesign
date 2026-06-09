@@ -1,20 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import ProofStrip from "../components/ProofStrip.astro";
 import WhatBreaksAShow from "../components/WhatBreaksAShow.astro";
 import ServiceTeaser from "../components/ServiceTeaser.astro";
-import ProductionTimeline from "../components/ProductionTimeline.astro";
+import CueSequence from "../components/CueSequence.astro";
 import SelectedWork from "../components/SelectedWork.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 import { getCollection } from "astro:content";
 
 const credibility = [
   "16+ years experience",
-  "International touring",
-  "Dance / festivals / music",
+  "Oslo / Norway / Europe",
+  "Concerts / dance / festivals",
   "GrandMA / EOS / Unreal",
-  "Oslo based + international"
+  "JAIN / Tim Dup / POING"
 ];
 
 const productions = [
@@ -31,25 +30,25 @@ const services = [
     title: "Touring",
     description: "Showfiles, versions, local crew adaptation, and systems that still work when the room changes.",
     cta: "Touring support",
-    href: "/services/"
+    href: "/services/touring-showfiles/"
   },
   {
     title: "Dance",
     description: "Cue timing, focus, silence, and black-box constraints built with performers in rehearsal.",
     cta: "Dance lighting",
-    href: "/services/"
+    href: "/services/dance-theatre-lighting/"
   },
   {
     title: "Festival",
     description: "Fast changeovers, daylight problems, patched rigs, and practical show-day decisions.",
     cta: "Festival versioning",
-    href: "/services/"
+    href: "/services/festival-lighting/"
   },
   {
     title: "Visualization",
     description: "Unreal and previs workflows for testing ideas before the venue becomes the first draft.",
     cta: "Previs workflow",
-    href: "/services/"
+    href: "/services/unreal-previs/"
   }
 ];
 
@@ -59,7 +58,7 @@ const process = [
     description: "Start with the venue, rig, schedule, crew, cameras, and what is already locked."
   },
   {
-    title: "Build a workable system",
+    title: "Build the system",
     description: "Make a plan that can be programmed, toured, adapted, and explained under pressure."
   },
   {
@@ -75,7 +74,7 @@ const featuredProjects = (await getCollection("portfolio", ({ data }) => data.pu
 
 <Layout
   title="De Freitas Lys Design | Lighting Design for Live Production"
-  description="Lighting design, programming, touring systems and previs for concerts, dance, festivals and live productions across Norway and Europe."
+  description="Lighting design, programming, touring/live production systems and previs for concerts, dance and festivals in Oslo, Norway and across Europe."
   preloadImage="/images/portfolio/festival/cover.jpg"
 >
   <div class="glow"></div>
@@ -83,18 +82,17 @@ const featuredProjects = (await getCollection("portfolio", ({ data }) => data.pu
   <main id="main-content">
     <CinematicHero
       title="LIGHT THAT SURVIVES THE ROOM."
-      subtitle="Lighting design, programming and touring systems for concerts, dance, festivals and live productions across Norway and Europe."
+      subtitle="Lighting design, programming and touring/live production systems for concerts, dance and festivals in Oslo, Norway and across Europe."
       image="/images/portfolio/festival/cover.jpg"
       imageAlt="Festival crowd and lighting console under cyan stage beams"
+      proofPoints={credibility}
     />
-
-    <ProofStrip items={credibility} />
 
     <WhatBreaksAShow productions={productions} />
 
     <ServiceTeaser services={services} />
 
-    <ProductionTimeline process={process} />
+    <CueSequence cues={process} />
 
     <section class="home-section home-about" aria-labelledby="home-about-title">
       <div class="section-kicker">ABOUT</div>

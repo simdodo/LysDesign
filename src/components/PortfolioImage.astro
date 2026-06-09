@@ -7,7 +7,8 @@ const {
   width = 1600,
   height = 900,
   loading = "lazy",
-  fetchpriority
+  fetchpriority,
+  caption
 } = Astro.props;
 
 const isPublicPath = typeof image === "string";
@@ -35,6 +36,8 @@ const isPublicPath = typeof image === "string";
           fetchpriority={fetchpriority}
         />
       )}
+
+      {caption && <figcaption>{caption}</figcaption>}
     </figure>
   )
 }

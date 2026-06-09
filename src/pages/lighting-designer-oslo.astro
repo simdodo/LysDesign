@@ -7,31 +7,31 @@ const services = [
     title: "Lighting Design",
     kicker: "Concerts / live rooms",
     copy: "Looks, cue structure, focus and rig-aware decisions for shows that need to work in the room.",
-    href: "/services/"
+    href: "/services/lighting-design/"
   },
   {
     title: "Lighting Programming / Operator",
     kicker: "GrandMA / EOS",
     copy: "Clean showfiles, fast updates, busking or timecode workflows, and calm operation under pressure.",
-    href: "/services/"
+    href: "/services/lighting-programming/"
   },
   {
     title: "Touring & Festival Adaptation",
     kicker: "Local rigs / short changeovers",
     copy: "Touring ideas translated to available fixtures, local crews, daylight issues and show-day limits.",
-    href: "/portfolio/"
+    href: "/services/touring-showfiles/"
   },
   {
     title: "Contemporary Dance / Theatre",
     kicker: "Movement / timing",
     copy: "Lighting built around bodies, silence, cue timing, black-box conditions and rehearsal processes.",
-    href: "/portfolio/"
+    href: "/services/dance-theatre-lighting/"
   },
   {
     title: "Unreal / Previsualization",
     kicker: "Previs / 3D lighting",
     copy: "Stage environments, camera angles and lighting ideas tested before entering the venue.",
-    href: "/contact/"
+    href: "/services/unreal-previs/"
   }
 ];
 
@@ -117,7 +117,7 @@ const selectedExperience = [
             <span>{service.kicker}</span>
             <h2>{service.title}</h2>
             <p>{service.copy}</p>
-            <a class="portfolio-link" href={service.href}>READ MORE</a>
+            <a class="portfolio-link" href={service.href}>Explore {service.title}</a>
           </article>
         ))
       }

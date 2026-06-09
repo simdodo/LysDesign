@@ -27,6 +27,26 @@ productionProblem: "Hybrid setups, installations, streaming and mixed-discipline
 response: "Custom workflow design and practical technical development."
 changedOnSite: "Venue constraints, signal paths, control needs and available equipment."
 stayedConsistent: "The production goal and a clear operating logic."
+productionContext: "Anonymized hybrid productions, streaming setups, interactive work and immersive projects where public naming is not currently cleared."
+venueContext: "Venues, studios, conference rooms and hybrid production environments."
+systemWorkflow: "Lighting, video, projection, control, streaming and custom workflow development."
+constraint: "Unusual venues, mixed disciplines, unclear signal paths and production needs that do not fit a standard show model."
+solution: "Define a readable operating logic, connect the technical systems and simplify the workflow enough to run under pressure."
+outcome: "A practical technical path for non-standard productions without pretending they are normal shows."
+mediaCredits: "Special-project media is shown as technical context; client or production names are anonymized unless cleared."
+mediaItems:
+  - label: "Hybrid technical setup image"
+    detail: "Current public image shows conference, projection and mixed technical production context."
+    credit: "Client or production credits remain anonymized unless publication approval is available."
+  - label: "Workflow documentation"
+    detail: "Proof is represented through signal-path decisions, control needs and custom operating logic."
+  - label: "Anonymized production contexts"
+    detail: "Streaming setups, interactive work and immersive projects are grouped by type when names are not public."
+relatedServices:
+  - label: "Lighting programming service"
+    href: "/services/lighting-programming/"
+  - label: "Unreal previs service"
+    href: "/services/unreal-previs/"
 selectedProjects:
   - Streaming Setups
   - Interactive Work
@@ -34,4 +54,6 @@ selectedProjects:
 published: true
 ---
 
-This workflow is adapted to the room, available system, schedule and level of technical information shared before production.
+Special projects usually fail when nobody defines the operating logic early enough. Lighting, video, projection, streaming, control and interaction can all work separately and still become confusing when they meet in the same room.
+
+The useful work is making the system readable. What triggers what, who operates which layer, what can fail safely, what needs redundancy, and what information does the crew need before show day. The result does not have to be complicated; it has to be buildable and understandable.

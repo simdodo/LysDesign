@@ -7,6 +7,75 @@ const { project } = Astro.props;
 const data = project.data;
 const canonicalPath = `/portfolio/${project.id}/`;
 const ogImage = data.cover?.src ?? "/images/portfolio/touring/cover.jpg";
+const serviceLinks = {
+  Touring: {
+    href: "/services/touring-showfiles/",
+    label: "Touring showfile service"
+  },
+  Dance: {
+    href: "/services/dance-theatre-lighting/",
+    label: "Dance and theatre lighting service"
+  },
+  Festival: {
+    href: "/services/festival-lighting/",
+    label: "Festival lighting service"
+  },
+  "Visual Direction": {
+    href: "/services/lighting-design/",
+    label: "Lighting design service"
+  },
+  Previsualization: {
+    href: "/services/unreal-previs/",
+    label: "Unreal previs service"
+  },
+  "Special Project": {
+    href: "/services/lighting-programming/",
+    label: "Lighting programming service"
+  }
+};
+const relatedService = serviceLinks[data.format];
+const relatedServices = data.relatedServices.length > 0
+  ? data.relatedServices
+  : relatedService
+    ? [relatedService]
+    : [];
+const productionContext = data.productionContext ?? (
+  data.selectedProjects.length > 0
+    ? data.selectedProjects.join(" / ")
+    : data.format
+);
+const structuredSnapshot = [
+  {
+    label: "Project / production",
+    title: productionContext,
+    copy: data.venueContext ?? data.location
+  },
+  {
+    label: "System / workflow",
+    title: data.systemWorkflow ?? data.systems.join(" / "),
+    copy: data.role
+  },
+  {
+    label: "Constraint",
+    title: data.constraint ?? data.productionProblem ?? data.challenge,
+    copy: data.truth ?? data.challenge
+  },
+  {
+    label: "Solution",
+    title: data.solution ?? data.response ?? "Practical production workflow",
+    copy: data.approach
+  },
+  {
+    label: "Outcome",
+    title: data.outcome ?? data.stayedConsistent ?? "Readable show result",
+    copy: data.result
+  },
+  {
+    label: "Media / credits",
+    title: data.mediaCredits ?? "Project media shown with limited public credits.",
+    copy: "Additional names, venues or production details can be added when cleared for publication."
+  }
+];
 
 const creativeWork = {
   "@context": "https://schema.org",
@@ -39,12 +108,13 @@ const creativeWork = {
         alt={data.coverAlt}
         loading="eager"
         fetchpriority="high"
+        caption={`${data.format} / ${data.role} / ${data.location} / ${data.year}`}
       />
 
       <h1 id="case-study-title">{data.title}</h1>
       <p>{data.subtitle}</p>
 
-      <dl class="case-study-meta" aria-label="Project metadata">
+      <dl class="case-study-meta case-technical-panel" aria-label="Technical project panel">
         <div>
           <dt>Role</dt>
           <dd>{data.role}</dd>
@@ -61,6 +131,18 @@ const creativeWork = {
           <dt>Format</dt>
           <dd>{data.format}</dd>
         </div>
+        <div>
+          <dt>System</dt>
+          <dd>{data.systemWorkflow ?? data.systems.join(" / ")}</dd>
+        </div>
+        <div>
+          <dt>Constraint</dt>
+          <dd>{data.constraint ?? data.productionProblem ?? data.challenge}</dd>
+        </div>
+        <div>
+          <dt>Result</dt>
+          <dd>{data.outcome ?? data.stayedConsistent ?? data.result}</dd>
+        </div>
       </dl>
 
       <ul class="hero-proof" aria-label="Tags and systems">
@@ -71,9 +153,44 @@ const creativeWork = {
 
       <div class="hero-actions" aria-label="Case study actions">
         <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+        {relatedService && <a class="cta cta-secondary btn-secondary" href={relatedService.href}>{relatedService.label}</a>}
       </div>
     </section>
+
+    <section class="case-study-sections" aria-label="Structured production details">
+      {structuredSnapshot.map((item) => (
+        <article>
+          <span>{item.label}</span>
+          <h2>{item.title}</h2>
+          <p>{item.copy}</p>
+        </article>
+      ))}
+
+      {relatedServices.length > 0 && (
+        <article>
+          <span>Related services</span>
+          <h2>Production support connected to this case.</h2>
+          <ul>
+            {relatedServices.map((service) => (
+              <li><a href={service.href}>{service.label}</a></li>
+            ))}
+          </ul>
+        </article>
+      )}
+    </section>
+
+    {data.mediaItems.length > 0 && (
+      <section class="case-study-sections" aria-label="Media and documentation proof">
+        {data.mediaItems.map((item) => (
+          <article>
+            <span>Media / documentation</span>
+            <h2>{item.label}</h2>
+            <p>{item.detail}</p>
+            {item.credit && <p>{item.credit}</p>}
+          </article>
+        ))}
+      </section>
+    )}
 
     <section class="case-study-sections" aria-label="Case study details">
       <article>
@@ -95,8 +212,8 @@ const creativeWork = {
       </article>
 
       {data.changedOnSite && (
-        <article>
-          <span>Changed on site</span>
+        <article class="case-study-change">
+          <span>What changed on site</span>
           <h2>{data.changedOnSite}</h2>
           <p>{data.truth ?? "The workflow had to stay readable under production pressure."}</p>
         </article>
@@ -114,7 +231,7 @@ const creativeWork = {
     {data.gallery.length > 0 && (
       <section class="case-study-gallery" aria-label="Project gallery">
         {data.gallery.map((image) => (
-          <PortfolioImage image={image} alt={`${data.title} gallery image`} />
+          <PortfolioImage image={image} alt={`${data.title} gallery image`} caption={`${data.title} / detail documentation`} />
         ))}
       </section>
     )}
@@ -129,7 +246,7 @@ const creativeWork = {
 
       <div class="hero-actions" aria-label="Case study contact actions">
         <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+        {relatedService && <a class="cta cta-secondary btn-secondary" href={relatedService.href}>{relatedService.label}</a>}
       </div>
     </section>
   </main>

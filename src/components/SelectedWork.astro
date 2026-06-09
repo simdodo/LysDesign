@@ -17,7 +17,11 @@ const { projects } = Astro.props;
     {
       projects.map((project) => (
         <article class="home-portfolio-card">
-          <PortfolioImage image={project.data.cover} alt={project.data.coverAlt} />
+          <PortfolioImage
+            image={project.data.cover}
+            alt={project.data.coverAlt}
+            caption={`${project.data.format} / ${project.data.role} / ${project.data.year}`}
+          />
           <div>
             <h3>{project.data.title}</h3>
             <p>{project.data.description}</p>

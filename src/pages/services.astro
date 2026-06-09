@@ -8,35 +8,45 @@ const services = [
     kicker: "Concerts / dance / festivals",
     copy: "Lighting systems that stay beautiful when production gets complicated: tight rooms, limited fixtures, moving schedules, and late creative changes.",
     points: ["Show looks", "Rig-aware design", "Cue structure"],
-    priority: "primary"
+    priority: "primary",
+    href: "/services/lighting-design/",
+    cta: "Explore lighting design"
   },
   {
     title: "Lighting Programming / Operator",
     kicker: "GrandMA / EOS / show control",
     copy: "Touring showfiles built for changing rooms, local crews, short load-ins, and fast programming without losing the show.",
     points: ["GrandMA / EOS", "Busking / timecode", "Tourable show files"],
-    priority: "primary"
+    priority: "primary",
+    href: "/services/lighting-programming/",
+    cta: "Explore lighting programming"
   },
   {
     title: "Touring / Live Events",
     kicker: "International touring",
     copy: "Advancing, adaptation, and on-site decisions for shows that need to survive different plots, crews, venues, and festival versions.",
     points: ["Advancing", "Local rig translation", "Show-day decisions"],
-    priority: "primary"
+    priority: "primary",
+    href: "/services/touring-showfiles/",
+    cta: "Explore touring showfiles"
   },
   {
     title: "Creative Direction",
     kicker: "Artist collaboration",
     copy: "Turning references, movement, music, and stage constraints into a visual system the artist can recognize night after night.",
     points: ["Artist process", "Music / movement", "Stage picture"],
-    priority: "primary"
+    priority: "primary",
+    href: "/services/lighting-design/",
+    cta: "Explore visual design"
   },
   {
     title: "Consulting for Creators / Streamers",
     kicker: "Camera-ready environments",
     copy: "Camera lighting and previs decisions that solve expensive problems before the room, stream, or shoot becomes the test.",
     points: ["Camera lighting", "Unreal / previz", "Practical gear lists"],
-    priority: "secondary"
+    priority: "secondary",
+    href: "/services/unreal-previs/",
+    cta: "Explore previs workflow"
   }
 ];
 
@@ -65,11 +75,75 @@ const topProof = [
   "Festivals",
   "Dance"
 ];
+
+const serviceComparison = [
+  {
+    service: "Lighting Design",
+    bestFor: "New show looks, concert packages, dance work and artist-led productions that need a clear visual direction.",
+    deliverables: ["Visual language", "Cue structure", "Rig-aware looks"],
+    relatedHref: "/portfolio/visual-direction/",
+    relatedLabel: "See visual direction work"
+  },
+  {
+    service: "Programming / Operator",
+    bestFor: "Productions that need a readable showfile, fast programming workflow, or a calm operator on the desk.",
+    deliverables: ["GrandMA / EOS programming", "Busking pages", "Timecode / cue playback"],
+    relatedHref: "/portfolio/touring-lighting-showfiles/",
+    relatedLabel: "See touring showfile work"
+  },
+  {
+    service: "Touring Showfiles",
+    bestFor: "Artists and productions moving between venues, countries, festivals and local lighting systems.",
+    deliverables: ["Advance notes", "Festival versions", "Local rig translation"],
+    relatedHref: "/portfolio/touring-lighting-showfiles/",
+    relatedLabel: "See touring adaptation"
+  },
+  {
+    service: "Festival Lighting",
+    bestFor: "Short changeovers, daylight problems, patched rigs and festival days where decisions have to be practical.",
+    deliverables: ["Show-day fixes", "Local plot adaptation", "Busking workflow"],
+    relatedHref: "/portfolio/festival-venue-adaptation/",
+    relatedLabel: "See festival workflow"
+  },
+  {
+    service: "Dance / Theatre",
+    bestFor: "Rehearsal-led work where movement, timing, silence and black-box constraints matter.",
+    deliverables: ["Cue timing", "Focus notes", "Remount support"],
+    relatedHref: "/portfolio/contemporary-dance-lighting/",
+    relatedLabel: "See dance lighting work"
+  },
+  {
+    service: "Unreal / Previs",
+    bestFor: "Shows, clips and live concepts that need visual decisions tested before entering the venue.",
+    deliverables: ["Stage environments", "Camera checks", "Lighting concepts"],
+    relatedHref: "/portfolio/unreal-visualization/",
+    relatedLabel: "See previs workflow"
+  }
+];
+
+const globalProcess = [
+  {
+    title: "Brief",
+    copy: "Collect the room, artist references, confirmed dates, known constraints and what is still missing."
+  },
+  {
+    title: "Advance",
+    copy: "Read the plot, venue information, console situation and crew reality before the first production day."
+  },
+  {
+    title: "Design / programming",
+    copy: "Build looks, cue structure and showfile logic around the actual system instead of an ideal one."
+  },
+  {
+    title: "Adaptation / show day",
+    copy: "Translate the work to the rig, solve practical gaps and keep the show readable under pressure."
+  }
+];
 ---
 
 <Layout
-  title="Services | De Freitas Lys Design"
-  description="Lighting design, programming, touring, creative direction, and visualization from 18 years of live entertainment work."
+  title="Lighting Services for Live Production | De Freitas"
+  description="Lighting design, programming, touring showfiles, festival adaptation, dance lighting and Unreal previs for productions in Oslo, Norway and Europe."
 >
   <div class="glow"></div>
 
@@ -134,9 +208,71 @@ const topProof = [
                 <li>{point}</li>
               ))}
             </ul>
+            <a class="link-tertiary" href={service.href}>{service.cta}</a>
           </article>
         ))
       }
+    </section>
+
+    <section class="services-cta" aria-labelledby="service-comparison-title">
+      <div>
+        <div class="section-kicker">Decision Hub</div>
+        <h2 id="service-comparison-title">Pick the support that fits the pressure.</h2>
+      </div>
+
+      <p>
+        Most productions need a mix of design, programming, advancing and on-site adaptation.
+        These routes make the first conversation faster.
+      </p>
+    </section>
+
+    <section class="services-grid" aria-label="Service comparison">
+      {
+        serviceComparison.map((item) => (
+          <article class="service-card service-card--secondary">
+            <span>{item.service}</span>
+            <h2>{item.bestFor}</h2>
+            <ul>
+              {item.deliverables.map((deliverable) => (
+                <li>{deliverable}</li>
+              ))}
+            </ul>
+            <a class="link-tertiary" href={item.relatedHref}>{item.relatedLabel}</a>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="services-proof" aria-label="Global production process">
+      {
+        globalProcess.map((step) => (
+          <div class="proof-block">
+            <span>{step.title}</span>
+            <p>{step.copy}</p>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="services-cta" aria-labelledby="service-uncertain-title">
+      <div>
+        <div class="section-kicker">Not Sure?</div>
+        <h2 id="service-uncertain-title">If the brief is incomplete, send it anyway.</h2>
+      </div>
+
+      <p>
+        A half-confirmed room, a deadline and a list of unknowns is enough to start.
+        The first step is making the production problem clear.
+      </p>
+
+      <div class="hero-actions" aria-label="Project clarity actions">
+        <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">
+          Start a Project
+        </a>
+        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">
+          View Portfolio
+        </a>
+      </div>
     </section>
 
     <section class="services-cta" aria-labelledby="services-contact-title">

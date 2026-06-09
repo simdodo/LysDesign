@@ -27,6 +27,26 @@ productionProblem: "Local rigs, festival versions and short rehearsal windows."
 response: "Modular showfile structure and adaptable cue logic."
 changedOnSite: "Fixture availability, trim, positions and time."
 stayedConsistent: "Artist identity, cue logic and show rhythm."
+productionContext: "Publishable touring references include JAIN, Tim Dup and Les Tambours du Bronx, with other touring contexts grouped by production type."
+venueContext: "France, Europe and international touring rooms, including venue and festival conditions."
+systemWorkflow: "GrandMA2 / GrandMA3 touring showfiles, local-rig translation, festival versioning and fast programming updates."
+constraint: "Each stop can change fixture availability, trim, positions, patch, local crew and programming time."
+solution: "Use modular showfile structure, clear palettes, fixture roles and fallback looks so the artist picture survives different rigs."
+outcome: "The show keeps its identity while the file stays readable enough for short load-ins and show-day adaptation."
+mediaCredits: "Touring media is represented with front-of-house production imagery; full artist or venue credits are added only when cleared."
+mediaItems:
+  - label: "Front-of-house production image"
+    detail: "Current public image shows the touring lighting context from FOH, with console and stage relationship visible."
+    credit: "Additional photographer or production credits can be added when cleared."
+  - label: "Showfile workflow proof"
+    detail: "Documented through GrandMA2 / GrandMA3 touring showfile structure, festival versions and local rig translation notes."
+  - label: "Publishable references"
+    detail: "JAIN, Tim Dup and Les Tambours du Bronx are listed as public reference contexts where appropriate."
+relatedServices:
+  - label: "Touring showfile service"
+    href: "/services/touring-showfiles/"
+  - label: "Lighting programming service"
+    href: "/services/lighting-programming/"
 selectedProjects:
   - JAIN
   - Tim Dup
@@ -34,4 +54,6 @@ selectedProjects:
 published: true
 ---
 
-This workflow is adapted to the room, available system, schedule and level of technical information shared before production.
+Touring files need a hierarchy. The first layer is the show identity: core looks, song structure, cue timing and the stage picture the artist recognizes. The second layer is translation: what happens when the rig is smaller, the positions change, the festival package has different fixtures, or the local crew has limited focus time.
+
+The practical work is keeping those layers separate enough that the file can move. Groups, palettes, layouts and executor logic have to stay readable when updates are made quickly. Notes from each room are useful because they show what should become a proper touring version and what was only a one-night fix.

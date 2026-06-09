@@ -37,6 +37,30 @@ const portfolio = defineCollection({
       response: z.string().optional(),
       changedOnSite: z.string().optional(),
       stayedConsistent: z.string().optional(),
+      productionContext: z.string().optional(),
+      venueContext: z.string().optional(),
+      systemWorkflow: z.string().optional(),
+      constraint: z.string().optional(),
+      solution: z.string().optional(),
+      outcome: z.string().optional(),
+      mediaCredits: z.string().optional(),
+      mediaItems: z
+        .array(
+          z.object({
+            label: z.string(),
+            detail: z.string(),
+            credit: z.string().optional(),
+          })
+        )
+        .default([]),
+      relatedServices: z
+        .array(
+          z.object({
+            label: z.string(),
+            href: z.string(),
+          })
+        )
+        .default([]),
       selectedProjects: z.array(z.string()).default([]),
       published: z.boolean().default(true),
     }),

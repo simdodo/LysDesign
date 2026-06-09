@@ -1,0 +1,27 @@
+---
+const { cues } = Astro.props;
+---
+
+<section class="home-section cue-sequence" aria-labelledby="cue-sequence-title">
+  <div class="section-kicker">CUE SEQUENCE</div>
+  <div class="section-heading">
+    <h2 id="cue-sequence-title">A practical workflow before the expensive part starts.</h2>
+  </div>
+
+  <div class="cue-sequence-track" aria-label="Production workflow cues">
+    {
+      cues.map((cue, index) => (
+        <article class="cue-sequence-card">
+          <span>{`CUE ${String(index + 1).padStart(2, "0")} —`}</span>
+          <h3>{cue.title}</h3>
+          <p>{cue.description}</p>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="section-actions" aria-label="Workflow actions">
+    <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+    <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+  </div>
+</section>

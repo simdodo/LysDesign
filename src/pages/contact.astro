@@ -4,8 +4,8 @@ import PageLabelBar from "../components/PageLabelBar.astro";
 ---
 
 <Layout
-  title="Contact | De Freitas Lys Design"
-  description="Send project details to De Freitas Lys Design for lighting design, programming, touring, previs, streaming, and special live production work."
+  title="Contact Dorian De Freitas | Lighting Projects"
+  description="Send project details for lighting design, programming, touring, festival, dance or previs work with De Freitas Lys Design in Oslo."
 >
   <main class="contact-page" id="main-content">
     <section class="contact-hero" aria-labelledby="contact-title">
@@ -15,7 +15,8 @@ import PageLabelBar from "../components/PageLabelBar.astro";
 
       <p>
         Send the project brief, venue, dates, console or system information, and references.
-        I will help make the plan workable before it becomes an expensive problem on site.
+        Incomplete briefs are fine. I will help make the plan workable before it becomes an
+        expensive problem on site.
       </p>
 
       <div class="hero-actions" aria-label="Contact page actions">
@@ -32,6 +33,7 @@ import PageLabelBar from "../components/PageLabelBar.astro";
         action="https://formsubmit.co/hello@defreitaslysdesign.com"
         method="post"
         data-track-event="contact_form_submit"
+        aria-describedby="form-status contact-fallback"
       >
         <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="_subject" value="New De Freitas Lys Design project inquiry" />
@@ -39,30 +41,30 @@ import PageLabelBar from "../components/PageLabelBar.astro";
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value="https://defreitaslysdesign.com/contact/?sent=true" />
 
-        <p class="form-status" data-form-status hidden>
+        <p class="form-status" id="form-status" data-form-status hidden aria-live="polite">
           Message sent. I will come back to you as soon as possible.
         </p>
 
         <div class="form-grid">
-          <label>
+          <label for="contact-name">
             <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required />
+            <input id="contact-name" type="text" name="name" autocomplete="name" required />
           </label>
 
-          <label>
+          <label for="contact-email">
             <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required />
+            <input id="contact-email" type="email" name="email" autocomplete="email" required />
           </label>
         </div>
 
-        <label>
+        <label for="contact-production">
           <span>Company / Artist / Production</span>
-          <input type="text" name="production" autocomplete="organization" />
+          <input id="contact-production" type="text" name="production" autocomplete="organization" />
         </label>
 
-        <label>
+        <label for="contact-project-type">
           <span>Project type</span>
-          <select name="project_type" required>
+          <select id="contact-project-type" name="project_type" required>
             <option value="">Select one</option>
             <option>Lighting Design</option>
             <option>Programming / Operator</option>
@@ -75,36 +77,48 @@ import PageLabelBar from "../components/PageLabelBar.astro";
         </label>
 
         <div class="form-grid">
-          <label>
+          <label for="contact-dates">
             <span>Dates</span>
-            <input type="text" name="dates" placeholder="Show day, rehearsals, load-in" />
+            <input id="contact-dates" type="text" name="dates" placeholder="Show day, rehearsals, load-in" />
           </label>
 
-          <label>
+          <label for="contact-location">
             <span>Location / Venue</span>
-            <input type="text" name="location" autocomplete="address-level2" />
+            <input id="contact-location" type="text" name="location" autocomplete="address-level2" />
           </label>
         </div>
 
-        <label>
+        <label for="contact-console-system">
           <span>Console / System if known</span>
-          <input type="text" name="console_system" placeholder="GrandMA, EOS, local desk, unknown" />
+          <input id="contact-console-system" type="text" name="console_system" placeholder="GrandMA, EOS, local desk, unknown" />
         </label>
 
-        <label>
+        <label for="contact-message">
           <span>Message / Brief</span>
-          <textarea name="message" rows="8" placeholder="What is confirmed, what is missing, and where the pressure is." required></textarea>
+          <textarea id="contact-message" name="message" rows="8" placeholder="What is confirmed, what is missing, and where the pressure is." required></textarea>
         </label>
 
         <button class="cta btn-primary" type="submit">Send Project Details</button>
 
-        <p class="contact-fallback">
-          Prefer email?
+        <p class="contact-fallback" id="contact-fallback">
+          If the form fails, or the brief is easier by email:
           <a href="mailto:hello@defreitaslysdesign.com" data-track-event="contact_email_click">hello@defreitaslysdesign.com</a>
         </p>
       </form>
 
       <aside class="contact-details" aria-labelledby="useful-details-title">
+        <div>
+          <h2>What happens next</h2>
+          <p>
+            I usually reply within 1-2 working days. If the project is urgent, include the show
+            date, load-in time and the decision that has to be made first.
+          </p>
+          <p>
+            You do not need a finished technical package. Send what exists now: a rough brief,
+            venue name, references, confirmed dates or even the unknowns.
+          </p>
+        </div>
+
         <h2 id="useful-details-title">Useful details to include</h2>
         <ul>
           <li>artist / production</li>

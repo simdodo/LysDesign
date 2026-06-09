@@ -6,8 +6,9 @@ const {
   subtitle,
   image,
   imageAlt = "",
-  label = "Home",
-  description = "De Freitas Lys Design"
+  label = "CUE 00 — BLACKOUT / FADE UP",
+  description = "De Freitas Lys Design",
+  proofPoints = []
 } = Astro.props;
 ---
 
@@ -36,8 +37,22 @@ const {
     </p>
 
     <div class="hero-actions" aria-label="Homepage actions">
-      <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project" data-astro-prefetch>Start a Project</a>
-      <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work" data-astro-prefetch>View Work</a>
+      <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project" data-astro-prefetch>Send the Brief</a>
+      <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work" data-astro-prefetch>View the Work</a>
     </div>
   </div>
+
+  {proofPoints.length > 0 && (
+    <aside class="hero-technical-panel" aria-label="Production proof">
+      <span>SHOWFILE / PROOF</span>
+      <dl>
+        {proofPoints.map((item, index) => (
+          <div>
+            <dt>{`SYS ${String(index + 1).padStart(2, "0")}`}</dt>
+            <dd>{item}</dd>
+          </div>
+        ))}
+      </dl>
+    </aside>
+  )}
 </section>

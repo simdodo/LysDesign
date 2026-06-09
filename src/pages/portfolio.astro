@@ -6,11 +6,31 @@ import { getCollection } from "astro:content";
 
 const projects = (await getCollection("portfolio", ({ data }) => data.published))
   .sort((a, b) => a.data.order - b.data.order);
+
+const [featuredProject, ...remainingProjects] = projects;
+const secondaryProjects = remainingProjects.slice(0, 2);
+const indexProjects = remainingProjects.slice(2);
+
+const caseStudyCtas = {
+  Touring: "Touring showfile case study",
+  Dance: "Contemporary dance lighting case study",
+  Festival: "Festival lighting adaptation case study",
+  "Visual Direction": "Artist visual direction case study",
+  Previsualization: "Unreal previs workflow case study",
+  "Special Project": "Special project workflow case study"
+};
+
+const getTone = (format) =>
+  format === "Dance" || format === "Previsualization"
+    ? "warm"
+    : format === "Touring" || format === "Festival"
+      ? "cyan"
+      : "neutral";
 ---
 
 <Layout
-  title="Portfolio | De Freitas Lys Design"
-  description="Selected lighting design, programming, touring, festival, contemporary dance, and visualization work by Dorian De Freitas."
+  title="Lighting Portfolio & Case Studies | De Freitas Lys"
+  description="Selected lighting design, programming, touring, festival, dance and Unreal previs case studies from real live production work."
 >
   <div class="glow"></div>
 
@@ -31,18 +51,73 @@ const projects = (await getCollection("portfolio", ({ data }) => data.published)
       </div>
     </section>
 
-    <section class="portfolio-grid" aria-label="Selected portfolio projects">
-      {
-        projects.map((project, index) => (
-          <article
-            class={`portfolio-card portfolio-card--${project.data.format === "Dance" || project.data.format === "Previsualization" ? "warm" : project.data.format === "Touring" || project.data.format === "Festival" ? "cyan" : "neutral"} portfolio-card--${project.data.order === 1 ? "feature" : project.data.format === "Special Project" ? "compact" : "standard"}`}
-            data-project={project.id}
-          >
+    <section class="portfolio-grid portfolio-grid--cinematic" aria-label="Selected portfolio projects">
+      {featuredProject && (
+        <article
+          class={`portfolio-card portfolio-card--${getTone(featuredProject.data.format)} portfolio-card--feature portfolio-card--cinematic-feature`}
+          data-project={featuredProject.id}
+        >
+          <PortfolioImage
+            image={featuredProject.data.cover}
+            alt={`${featuredProject.data.title}: ${featuredProject.data.coverAlt}`}
+            loading="eager"
+            fetchpriority="high"
+            caption={`${featuredProject.data.format} / ${featuredProject.data.role} / ${featuredProject.data.location}`}
+          />
+
+          <div class="portfolio-card-body">
+            <span class="portfolio-category">{featuredProject.data.role}</span>
+            <h2>{featuredProject.data.title}</h2>
+            <p>{featuredProject.data.description}</p>
+
+            <div class="portfolio-proof">
+              <ul>
+                <li>{featuredProject.data.year}</li>
+                <li>{featuredProject.data.location}</li>
+                {[featuredProject.data.productionProblem, featuredProject.data.changedOnSite, featuredProject.data.stayedConsistent].filter(Boolean).map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <dl class="portfolio-case-notes" aria-label={`${featuredProject.data.title} case study summary`}>
+              <div>
+                <dt>Role</dt>
+                <dd>{featuredProject.data.role}</dd>
+              </div>
+              <div>
+                <dt>System</dt>
+                <dd>{featuredProject.data.systems.join(" / ")}</dd>
+              </div>
+              <div>
+                <dt>Constraint</dt>
+                <dd>{featuredProject.data.productionProblem ?? featuredProject.data.challenge}</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>{featuredProject.data.result}</dd>
+              </div>
+            </dl>
+
+            <a class="portfolio-link" href={`/portfolio/${featuredProject.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>
+              {caseStudyCtas[featuredProject.data.format] ?? `${featuredProject.data.title} case study`}
+            </a>
+          </div>
+        </article>
+      )}
+
+      {secondaryProjects.length > 0 && (
+        <div class="portfolio-secondary-grid" aria-label="Secondary case studies">
+          {secondaryProjects.map((project, index) => (
+            <article
+              class={`portfolio-card portfolio-card--${getTone(project.data.format)} portfolio-card--standard`}
+              data-project={project.id}
+            >
             <PortfolioImage
               image={project.data.cover}
               alt={`${project.data.title}: ${project.data.coverAlt}`}
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchpriority={index === 0 ? "high" : undefined}
+              loading="lazy"
+              caption={`${project.data.format} / ${project.data.systems.join(" / ")} / ${project.data.year}`}
             />
 
             <div class="portfolio-card-body">
@@ -104,12 +179,28 @@ const projects = (await getCollection("portfolio", ({ data }) => data.published)
               </dl>
 
               <a class="portfolio-link" href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>
-                {project.data.order === 1 ? "Touring Case Study" : project.data.format === "Dance" ? "Dance Case Study" : project.data.format === "Festival" ? "Festival Case Study" : "View Case Study"}
+                {caseStudyCtas[project.data.format] ?? `${project.data.title} case study`}
               </a>
             </div>
           </article>
-        ))
-      }
+          ))}
+        </div>
+      )}
+
+      {indexProjects.length > 0 && (
+        <div class="portfolio-compact-index" aria-label="Compact case study index">
+          <div class="section-kicker">CASE INDEX</div>
+          {indexProjects.map((project) => (
+            <article class="portfolio-index-row">
+              <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>
+                <span>{project.data.format}</span>
+                <strong>{project.data.title}</strong>
+                <small>{project.data.role} / {project.data.year} / {project.data.systems.join(" / ")}</small>
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
 
     <section class="services-cta portfolio-cta" aria-labelledby="portfolio-contact-title">
