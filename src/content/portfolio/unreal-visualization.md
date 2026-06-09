@@ -28,10 +28,10 @@ response: "Real-time previs, stage environments and camera-angle checks."
 changedOnSite: "Scale, camera positions and final rig details."
 stayedConsistent: "Core visual direction and technical intent."
 selectedProjects:
-  - Dream Venue
-  - Concert Previs
-  - Virtual Stage Design
+  - Previsualization studies
+  - Concert lighting previs
+  - Virtual stage environments
 published: true
 ---
 
-Technical notes can be expanded here when specific production details are ready to publish.
+This workflow is adapted to the room, available system, schedule and level of technical information shared before production.

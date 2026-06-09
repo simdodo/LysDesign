@@ -34,4 +34,4 @@ selectedProjects:
 published: true
 ---
 
-Technical notes can be expanded here when specific production details are ready to publish.
+This workflow is adapted to the room, available system, schedule and level of technical information shared before production.
