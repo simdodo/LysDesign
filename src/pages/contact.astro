@@ -7,7 +7,7 @@ import PageLabelBar from "../components/PageLabelBar.astro";
   title="Contact | De Freitas Lys Design"
   description="Send project details to De Freitas Lys Design for lighting design, programming, touring, previs, streaming, and special live production work."
 >
-  <main class="contact-page">
+  <main class="contact-page" id="main-content">
     <section class="contact-hero" aria-labelledby="contact-title">
       <PageLabelBar label="Contact" />
 
@@ -25,7 +25,24 @@ import PageLabelBar from "../components/PageLabelBar.astro";
     </section>
 
     <section class="contact-shell" id="project-contact-form" aria-label="Project contact form">
-      <form class="contact-form" action="mailto:hello@defreitaslys.design" method="post" enctype="text/plain">
+      <form
+        class="contact-form"
+        id="contact-form"
+        name="project-inquiry"
+        action="https://formsubmit.co/hello@defreitaslys.design"
+        method="post"
+        data-track-event="submit_project_form"
+      >
+        <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="New De Freitas Lys Design project inquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://defreitaslysdesign.com/contact/?sent=true" />
+
+        <p class="form-status" data-form-status hidden>
+          Message sent. I will come back to you as soon as possible.
+        </p>
+
         <div class="form-grid">
           <label>
             <span>Name</span>
@@ -80,6 +97,11 @@ import PageLabelBar from "../components/PageLabelBar.astro";
         </label>
 
         <button class="cta btn-primary" type="submit">Send Project Details</button>
+
+        <p class="contact-fallback">
+          Prefer email?
+          <a href="mailto:hello@defreitaslys.design" data-track-event="click_email">hello@defreitaslys.design</a>
+        </p>
       </form>
 
       <aside class="contact-details" aria-labelledby="useful-details-title">
@@ -98,3 +120,13 @@ import PageLabelBar from "../components/PageLabelBar.astro";
     </section>
   </main>
 </Layout>
+
+<script is:inline>
+  (() => {
+    const status = document.querySelector("[data-form-status]");
+    const params = new URLSearchParams(window.location.search);
+    if (status && params.get("sent") === "true") {
+      status.hidden = false;
+    }
+  })();
+</script>

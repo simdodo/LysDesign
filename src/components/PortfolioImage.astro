@@ -1,24 +1,40 @@
 ---
+import OptimizedPicture from "./OptimizedPicture.astro";
+
 const {
   image,
   alt = "Portfolio project image",
   width = 1600,
-  height = 900
+  height = 900,
+  loading = "lazy",
+  fetchpriority
 } = Astro.props;
+
+const isPublicPath = typeof image === "string";
 ---
 
 {
   image && (
     <figure class="portfolio-image-frame">
-      <img
-        src={image}
-        alt={alt}
-        width={width}
-        height={height}
-        loading="lazy"
-        decoding="async"
-        onerror="this.closest('.portfolio-image-frame').hidden = true"
-      />
+      {isPublicPath ? (
+        <img
+          src={image}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={loading}
+          decoding="async"
+          fetchpriority={fetchpriority}
+          onerror="this.closest('.portfolio-image-frame').hidden = true"
+        />
+      ) : (
+        <OptimizedPicture
+          image={image}
+          alt={alt}
+          loading={loading}
+          fetchpriority={fetchpriority}
+        />
+      )}
     </figure>
   )
 }

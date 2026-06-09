@@ -1,0 +1,136 @@
+---
+import Layout from "./Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+
+const { project } = Astro.props;
+const data = project.data;
+const canonicalPath = `/portfolio/${project.id}/`;
+const ogImage = data.cover?.src ?? "/images/portfolio/touring/cover.jpg";
+
+const creativeWork = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: data.title,
+  description: data.description,
+  url: `https://defreitaslysdesign.com${canonicalPath}`,
+  image: `https://defreitaslysdesign.com${ogImage}`,
+  creator: {
+    "@type": "Person",
+    name: "Dorian De Freitas"
+  },
+  genre: data.format,
+  keywords: [...data.tags, ...data.systems].join(", ")
+};
+---
+
+<Layout
+  title={`${data.title} | De Freitas Lys Design`}
+  description={data.description}
+  image={ogImage}
+  structuredData={creativeWork}
+>
+  <main class="services-page case-study-page" id="main-content">
+    <section class="services-hero case-study-hero" aria-labelledby="case-study-title">
+      <PageLabelBar label={data.format} description="Case Study" />
+
+      <PortfolioImage
+        image={data.cover}
+        alt={data.coverAlt}
+        loading="eager"
+        fetchpriority="high"
+      />
+
+      <h1 id="case-study-title">{data.title}</h1>
+      <p>{data.subtitle}</p>
+
+      <dl class="case-study-meta" aria-label="Project metadata">
+        <div>
+          <dt>Role</dt>
+          <dd>{data.role}</dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>{data.location}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{data.year}</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>{data.format}</dd>
+        </div>
+      </dl>
+
+      <ul class="hero-proof" aria-label="Tags and systems">
+        {[...data.tags, ...data.systems].map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+      <div class="hero-actions" aria-label="Case study actions">
+        <a class="cta btn-primary" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+      </div>
+    </section>
+
+    <section class="case-study-sections" aria-label="Case study details">
+      <article>
+        <span>Challenge</span>
+        <h2>{data.productionProblem ?? data.challenge}</h2>
+        <p>{data.challenge}</p>
+      </article>
+
+      <article>
+        <span>Approach</span>
+        <h2>{data.response ?? "Professional response"}</h2>
+        <p>{data.approach}</p>
+      </article>
+
+      <article>
+        <span>Result</span>
+        <h2>{data.stayedConsistent ?? "What stayed consistent"}</h2>
+        <p>{data.result}</p>
+      </article>
+
+      {data.changedOnSite && (
+        <article>
+          <span>Changed on site</span>
+          <h2>{data.changedOnSite}</h2>
+          <p>{data.truth ?? "The workflow had to stay readable under production pressure."}</p>
+        </article>
+      )}
+    </section>
+
+    <section class="case-study-notes" aria-labelledby="technical-notes-title">
+      <div class="section-kicker">Technical Notes</div>
+      <div class="case-study-note-body">
+        <h2 id="technical-notes-title">Notes from the workflow</h2>
+        <slot />
+      </div>
+    </section>
+
+    {data.gallery.length > 0 && (
+      <section class="case-study-gallery" aria-label="Project gallery">
+        {data.gallery.map((image) => (
+          <PortfolioImage image={image} alt={`${data.title} gallery image`} />
+        ))}
+      </section>
+    )}
+
+    <section class="services-cta" aria-labelledby="case-study-contact-title">
+      <div>
+        <div class="section-kicker">Next Step</div>
+        <h2 id="case-study-contact-title">Need this kind of workflow on your production?</h2>
+      </div>
+
+      <p>Send the room, dates, system information and what is still unknown.</p>
+
+      <div class="hero-actions" aria-label="Case study contact actions">
+        <a class="cta btn-primary" href="/contact/">Start a Project</a>
+        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+      </div>
+    </section>
+  </main>
+</Layout>

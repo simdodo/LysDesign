@@ -1,0 +1,24 @@
+---
+import { Picture } from "astro:assets";
+
+const {
+  image,
+  alt,
+  widths = [480, 768, 1024, 1280, 1600],
+  sizes = "(min-width: 980px) 50vw, 100vw",
+  loading = "lazy",
+  decoding = "async",
+  fetchpriority
+} = Astro.props;
+---
+
+<Picture
+  src={image}
+  alt={alt}
+  formats={["avif", "webp"]}
+  widths={widths}
+  sizes={sizes}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+/>

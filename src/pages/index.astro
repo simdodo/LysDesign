@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PageLabelBar from "../components/PageLabelBar.astro";
 import PortfolioImage from "../components/PortfolioImage.astro";
+import { getCollection } from "astro:content";
 
 const credibility = [
   "16+ years experience",
@@ -62,53 +63,47 @@ const process = [
   }
 ];
 
-const featuredProjects = [
-  {
-    title: "Touring Lighting / Showfiles",
-    description: "France, Europe, international dates, GrandMA workflows, and festival versions.",
-    image: "/images/portfolio/touring/cover.jpg"
-  },
-  {
-    title: "Contemporary Dance Lighting",
-    description: "Movement-led cueing, black-box spaces, repertory remounts, and rehearsal-built timing.",
-    image: "/images/portfolio/dance/cover.jpg"
-  },
-  {
-    title: "Festival Adaptation",
-    description: "Short changeovers, daylight adaptation, local rig translation, and show-day fixes.",
-    image: "/images/portfolio/festival/cover.jpg"
-  },
-  {
-    title: "Unreal Visualization",
-    description: "Stage environments, camera angles, lighting concepts, and practical show preparation.",
-    image: "/images/portfolio/unreal/cover.jpg"
-  }
-];
+const featuredProjects = (await getCollection("portfolio", ({ data }) => data.published && data.featured))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
 ---
 
 <Layout
-  title="De Freitas Lys Design | Lighting Design"
-  description="Lighting design, programming, and creative technology for concerts, touring, and live performance across Europe."
+  title="De Freitas Lys Design | Lighting Design for Live Production"
+  description="Lighting design, programming, touring systems and previs for concerts, dance, festivals and live productions across Norway and Europe."
+  preloadImage="/images/portfolio/touring/cover.jpg"
 >
   <div class="glow"></div>
 
-  <main>
+  <main id="main-content">
     <section class="container hero-section" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          src="/images/portfolio/touring/cover.jpg"
+          alt=""
+          width="1600"
+          height="900"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+
       <div class="hero">
         <PageLabelBar label="Home" description="De Freitas Lys Design" className="hero-small" />
 
         <h1 id="hero-title">
-          LIGHTING WORK FOR REAL PRODUCTION CONDITIONS.
+          LIGHT THAT SURVIVES THE ROOM.
         </h1>
 
         <p>
-          Lighting systems, programming, visualization, touring support, and practical show
-          solutions built from real productions.
+          Lighting design, programming and touring systems for concerts, dance, festivals and
+          live productions across Norway and Europe.
         </p>
 
         <div class="hero-actions" aria-label="Homepage actions">
-          <a class="cta btn-primary" href="/contact/">Start a Project</a>
-          <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+          <a class="cta btn-primary" href="/contact/" data-track-event="start_project" data-astro-prefetch>Start a Project</a>
+          <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="view_work" data-astro-prefetch>View Work</a>
         </div>
       </div>
     </section>
@@ -214,11 +209,11 @@ const featuredProjects = [
         {
           featuredProjects.map((project) => (
             <article class="home-portfolio-card">
-              <PortfolioImage image={project.image} alt={`${project.title} project image`} />
+              <PortfolioImage image={project.data.cover} alt={project.data.coverAlt} />
               <div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <a href="/portfolio/">View Portfolio &rarr;</a>
+                <h3>{project.data.title}</h3>
+                <p>{project.data.description}</p>
+                <a href={`/portfolio/${project.id}/`} data-astro-prefetch>View Work &rarr;</a>
               </div>
             </article>
           ))

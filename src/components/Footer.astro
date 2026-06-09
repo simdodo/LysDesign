@@ -34,14 +34,25 @@ const socialLinks = [
     </nav>
 
     <div class="footer-actions">
-      <a class="footer-email" href="mailto:hello@defreitaslys.design" aria-label="Email De Freitas Lys Design">
+      <a
+        class="footer-email"
+        href="mailto:hello@defreitaslys.design"
+        aria-label="Email De Freitas Lys Design"
+        data-track-event="click_email"
+      >
         Email
       </a>
 
       {socialLinks.length > 0 && (
         <nav class="footer-social" aria-label="Social profiles">
           {socialLinks.map((link) => (
-            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${link.label} profile`}>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${link.label} profile`}
+              data-track-event="click_social"
+            >
               {link.label}
             </a>
           ))}
