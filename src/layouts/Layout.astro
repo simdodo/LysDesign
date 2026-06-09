@@ -122,7 +122,27 @@ const jsonLd = [
     <CookieConsent />
     <script is:inline>
       (() => {
+        const allowedEvents = new Set([
+          "cta_start_project",
+          "cta_view_work",
+          "contact_form_submit",
+          "contact_email_click",
+          "social_instagram_click",
+          "social_youtube_click",
+          "portfolio_case_study_click"
+        ]);
+
+        const hasAnalyticsConsent = () => {
+          try {
+            return window.localStorage.getItem("dfld_cookie_consent") === "accepted";
+          } catch {
+            return false;
+          }
+        };
+
         const sendEvent = (name, parameters = {}) => {
+          if (!allowedEvents.has(name)) return;
+          if (!hasAnalyticsConsent()) return;
           if (typeof window.gtag !== "function") return;
           window.gtag("event", name, parameters);
         };
@@ -135,12 +155,10 @@ const jsonLd = [
           const label = link.textContent?.trim() || "";
           const href = link.href || "";
           const inferredEvent = label === "Start a Project"
-            ? "start_project"
+            ? "cta_start_project"
             : label === "View Work" || label === "View Portfolio"
-              ? "view_work"
-              : label === "View Services"
-                ? "view_services"
-                : "";
+              ? "cta_view_work"
+              : "";
           const eventName = target?.dataset.trackEvent || inferredEvent;
           if (!eventName) return;
 

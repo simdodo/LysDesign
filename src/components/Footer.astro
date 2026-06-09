@@ -38,7 +38,7 @@ const socialLinks = [
         class="footer-email"
         href="mailto:hello@defreitaslysdesign.com"
         aria-label="Email De Freitas Lys Design"
-        data-track-event="click_email"
+        data-track-event="contact_email_click"
       >
         Email
       </a>
@@ -51,7 +51,7 @@ const socialLinks = [
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${link.label} profile`}
-              data-track-event="click_social"
+              data-track-event={link.label === "Instagram" ? "social_instagram_click" : "social_youtube_click"}
             >
               {link.label}
             </a>

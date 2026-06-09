@@ -19,8 +19,8 @@ import PageLabelBar from "../components/PageLabelBar.astro";
       </p>
 
       <div class="hero-actions" aria-label="Contact page actions">
-        <a class="cta btn-primary" href="#project-contact-form">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+        <a class="cta btn-primary" href="#project-contact-form" data-track-event="cta_start_project">Start a Project</a>
+        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
       </div>
     </section>
 
@@ -31,7 +31,7 @@ import PageLabelBar from "../components/PageLabelBar.astro";
         name="project-inquiry"
         action="https://formsubmit.co/hello@defreitaslysdesign.com"
         method="post"
-        data-track-event="submit_project_form"
+        data-track-event="contact_form_submit"
       >
         <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="_subject" value="New De Freitas Lys Design project inquiry" />
@@ -100,7 +100,7 @@ import PageLabelBar from "../components/PageLabelBar.astro";
 
         <p class="contact-fallback">
           Prefer email?
-          <a href="mailto:hello@defreitaslysdesign.com" data-track-event="click_email">hello@defreitaslysdesign.com</a>
+          <a href="mailto:hello@defreitaslysdesign.com" data-track-event="contact_email_click">hello@defreitaslysdesign.com</a>
         </p>
       </form>
 

@@ -26,7 +26,7 @@ const projects = (await getCollection("portfolio", ({ data }) => data.published)
       </p>
 
       <div class="hero-actions" aria-label="Portfolio actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
+        <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
         <a class="cta cta-secondary btn-secondary" href="/services/">View Services</a>
       </div>
     </section>
@@ -103,7 +103,7 @@ const projects = (await getCollection("portfolio", ({ data }) => data.published)
                 </div>
               </dl>
 
-              <a class="portfolio-link" href={`/portfolio/${project.id}/`} data-astro-prefetch>
+              <a class="portfolio-link" href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>
                 {project.data.order === 1 ? "Touring Case Study" : project.data.format === "Dance" ? "Dance Case Study" : project.data.format === "Festival" ? "Festival Case Study" : "View Case Study"}
               </a>
             </div>
@@ -119,7 +119,7 @@ const projects = (await getCollection("portfolio", ({ data }) => data.published)
       </div>
 
       <div class="hero-actions" aria-label="Portfolio contact actions">
-        <a class="cta btn-primary" href="/contact/">Start a Project</a>
+        <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
         <a class="cta cta-secondary btn-secondary" href="/services/">View Services</a>
       </div>
     </section>

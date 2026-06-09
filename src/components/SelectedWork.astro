@@ -21,7 +21,7 @@ const { projects } = Astro.props;
           <div>
             <h3>{project.data.title}</h3>
             <p>{project.data.description}</p>
-            <a href={`/portfolio/${project.id}/`} data-astro-prefetch>View Work &rarr;</a>
+            <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>View Work &rarr;</a>
           </div>
         </article>
       ))
@@ -29,7 +29,7 @@ const { projects } = Astro.props;
   </div>
 
   <div class="section-actions" aria-label="Portfolio actions">
-    <a class="cta btn-primary" href="/contact/">Start a Project</a>
-    <a class="cta cta-secondary btn-secondary" href="/portfolio/">View Portfolio</a>
+    <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+    <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
   </div>
 </section>
