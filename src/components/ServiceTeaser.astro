@@ -12,20 +12,19 @@ const { services } = Astro.props;
     </p>
   </div>
 
-  <div class="home-card-grid">
+  <div class="home-service-index">
     {
       services.map((service) => (
-        <article class="home-card">
-          <h3>{service.title}</h3>
+        <a class="home-service-row" href={service.href}>
+          <span>{service.title}</span>
           <p>{service.description}</p>
-          <a href={service.href}>{service.cta}</a>
-        </article>
+          <strong>{service.cta}</strong>
+        </a>
       ))
     }
   </div>
 
-  <div class="section-actions" aria-label="Services actions">
-    <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-    <a class="cta cta-secondary btn-secondary" href="/services/">View Services</a>
+  <div class="section-actions section-actions--quiet" aria-label="Services actions">
+    <a class="link-tertiary" href="/services/">Open the service index</a>
   </div>
 </section>

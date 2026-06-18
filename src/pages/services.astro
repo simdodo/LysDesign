@@ -76,6 +76,34 @@ const topProof = [
   "Dance"
 ];
 
+const pressureRows = [
+  {
+    pressure: "IF THE ROOM CHANGES",
+    service: "Touring / Showfiles",
+    href: "/services/touring-showfiles/"
+  },
+  {
+    pressure: "IF TIME DISAPPEARS",
+    service: "Programming / Operator",
+    href: "/services/lighting-programming/"
+  },
+  {
+    pressure: "IF MOVEMENT LEADS",
+    service: "Dance / Theatre",
+    href: "/services/dance-theatre-lighting/"
+  },
+  {
+    pressure: "IF THE RIG IS NOT YOURS",
+    service: "Festival Adaptation",
+    href: "/services/festival-lighting/"
+  },
+  {
+    pressure: "IF THE VENUE IS TOO LATE",
+    service: "Unreal / Previs",
+    href: "/services/unreal-previs/"
+  }
+];
+
 const serviceComparison = [
   {
     service: "Lighting Design",
@@ -193,6 +221,20 @@ const globalProcess = [
             <li>{item}</li>
           ))}
         </ul>
+      </div>
+    </section>
+
+    <section class="pressure-module" aria-labelledby="pressure-title">
+      <div class="section-kicker">CHOOSE BY PRESSURE</div>
+      <h2 id="pressure-title">Start with the problem, not the service name.</h2>
+
+      <div class="pressure-list">
+        {pressureRows.map((row) => (
+          <a href={row.href}>
+            <span>{row.pressure}</span>
+            <strong>{row.service}</strong>
+          </a>
+        ))}
       </div>
     </section>
 

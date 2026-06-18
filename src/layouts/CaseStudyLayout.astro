@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import PageLabelBar from "../components/PageLabelBar.astro";
 import PortfolioImage from "../components/PortfolioImage.astro";
+import SceneGallery from "../components/SceneGallery.astro";
 
 const { project } = Astro.props;
 const data = project.data;
@@ -44,34 +45,59 @@ const productionContext = data.productionContext ?? (
     ? data.selectedProjects.join(" / ")
     : data.format
 );
+const sceneGalleryFormats = new Set(["Touring", "Festival", "Dance"]);
+const sceneGalleryTitles = {
+  Touring: "FOH, file, room.",
+  Festival: "Changeover, daylight, local rig.",
+  Dance: "Body, silence, focus."
+};
+const sceneCaptions = {
+  Touring: "Emotional read: stage depth, artist picture and the console position in one frame.",
+  Festival: "Pressure read: crowd, daylight and local rig limits visible before the show starts.",
+  Dance: "Focus read: bodies, darkness and silence deciding where the cue can land."
+};
+const sceneGalleryItems = [
+  {
+    image: data.cover,
+    alt: data.coverAlt,
+    caption: sceneCaptions[data.format] ?? `${data.format} / ${data.role} / ${data.location} / ${data.year}`
+  },
+  ...data.gallery.slice(0, 2).map((image, index) => ({
+    image,
+    alt: `${data.title} detail image ${index + 1}`,
+    caption: index === 0
+      ? `Technical read: ${data.systemWorkflow ?? data.systems.join(" / ")} translated into the room.`
+      : `Detail read: ${data.constraint ?? data.productionProblem ?? data.challenge}`
+  }))
+];
 const structuredSnapshot = [
   {
-    label: "Project / production",
+    label: "PRODUCTION",
     title: productionContext,
     copy: data.venueContext ?? data.location
   },
   {
-    label: "System / workflow",
+    label: "SYSTEM",
     title: data.systemWorkflow ?? data.systems.join(" / "),
     copy: data.role
   },
   {
-    label: "Constraint",
+    label: "CONSTRAINT",
     title: data.constraint ?? data.productionProblem ?? data.challenge,
     copy: data.truth ?? data.challenge
   },
   {
-    label: "Solution",
+    label: "SOLUTION",
     title: data.solution ?? data.response ?? "Practical production workflow",
     copy: data.approach
   },
   {
-    label: "Outcome",
+    label: "RESULT",
     title: data.outcome ?? data.stayedConsistent ?? "Readable show result",
     copy: data.result
   },
   {
-    label: "Media / credits",
+    label: "CREDITS",
     title: data.mediaCredits ?? "Project media shown with limited public credits.",
     copy: "Additional names, venues or production details can be added when cleared for publication."
   }
@@ -103,13 +129,15 @@ const creativeWork = {
     <section class="services-hero case-study-hero" aria-labelledby="case-study-title">
       <PageLabelBar label={data.format} description="Case Study" />
 
-      <PortfolioImage
-        image={data.cover}
-        alt={data.coverAlt}
-        loading="eager"
-        fetchpriority="high"
-        caption={`${data.format} / ${data.role} / ${data.location} / ${data.year}`}
-      />
+      {!sceneGalleryFormats.has(data.format) && (
+        <PortfolioImage
+          image={data.cover}
+          alt={data.coverAlt}
+          loading="eager"
+          fetchpriority="high"
+          caption={`${data.format} / ${data.role} / ${data.location} / ${data.year}`}
+        />
+      )}
 
       <h1 id="case-study-title">{data.title}</h1>
       <p>{data.subtitle}</p>
@@ -151,11 +179,14 @@ const creativeWork = {
         ))}
       </ul>
 
-      <div class="hero-actions" aria-label="Case study actions">
-        <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        {relatedService && <a class="cta cta-secondary btn-secondary" href={relatedService.href}>{relatedService.label}</a>}
-      </div>
     </section>
+
+    {sceneGalleryFormats.has(data.format) && (
+      <SceneGallery
+        scenes={sceneGalleryItems}
+        title={sceneGalleryTitles[data.format] ?? `${data.title} documented as a scene.`}
+      />
+    )}
 
     <section class="case-study-sections" aria-label="Structured production details">
       {structuredSnapshot.map((item) => (
@@ -228,7 +259,7 @@ const creativeWork = {
       </div>
     </section>
 
-    {data.gallery.length > 0 && (
+    {!sceneGalleryFormats.has(data.format) && data.gallery.length > 0 && (
       <section class="case-study-gallery" aria-label="Project gallery">
         {data.gallery.map((image) => (
           <PortfolioImage image={image} alt={`${data.title} gallery image`} caption={`${data.title} / detail documentation`} />
@@ -246,7 +277,7 @@ const creativeWork = {
 
       <div class="hero-actions" aria-label="Case study contact actions">
         <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        {relatedService && <a class="cta cta-secondary btn-secondary" href={relatedService.href}>{relatedService.label}</a>}
+        {relatedService && <a class="link-tertiary" href={relatedService.href}>{relatedService.label}</a>}
       </div>
     </section>
   </main>

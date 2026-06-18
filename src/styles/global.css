@@ -429,16 +429,61 @@ h1 span {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.82);
 }
 
-.hero h1 {
+.hero h1,
+.hero-title {
   max-width: 1120px;
   margin-inline: auto;
-  font-size: var(--font-hero);
+  font-size: clamp(3.2rem, 10.5vw, 9rem);
   line-height: 0.84;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.28);
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+.hero-title .hero-title-line {
+  display: block;
+  color: inherit;
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
 }
 
 .hero p {
   margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    display: grid;
+    align-items: center;
+    gap: 24px;
+    min-height: auto;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(3.1rem, 11.2vw, 6.6rem);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-technical-panel {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(100%, 720px);
+    margin: clamp(22px, 4vw, 36px) auto 0;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -689,6 +734,38 @@ h3 {
   margin-top: 0;
 }
 
+.section-actions--quiet {
+  margin-top: 18px;
+}
+
+.blackout-break {
+  width: min(1300px, 90%);
+  min-height: clamp(220px, 36vw, 480px);
+  display: grid;
+  align-items: center;
+  margin: 0 auto clamp(58px, 8vw, 112px);
+  position: relative;
+  z-index: 2;
+  border-top: var(--border-width) solid rgba(255, 255, 255, 0.08);
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(242, 251, 255, 0.045), transparent 42%),
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72), transparent);
+}
+
+.blackout-break p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: rgba(242, 251, 255, 0.82);
+  font-family: var(--font-display-family);
+  font-size: clamp(1.55rem, 4.2vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .production-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
@@ -744,6 +821,49 @@ h3 {
 
 .home-card-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-service-index {
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.home-service-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.34fr) minmax(260px, 1fr) auto;
+  gap: clamp(14px, 3vw, 32px);
+  align-items: center;
+  padding: clamp(18px, 3vw, 30px);
+  background:
+    linear-gradient(90deg, rgba(0, 250, 255, 0.035), transparent 58%),
+    rgba(0, 0, 0, 0.7);
+  transition: background 260ms var(--ease-refined), transform 260ms var(--ease-refined);
+}
+
+.home-service-row span,
+.home-service-row strong {
+  font-family: var(--font-mono-family);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.home-service-row span {
+  color: rgba(242, 251, 255, 0.76);
+}
+
+.home-service-row p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 0.96rem;
+  opacity: 0.72;
+}
+
+.home-service-row strong {
+  color: rgba(0, 250, 255, 0.78);
 }
 
 .home-card,
@@ -949,8 +1069,7 @@ h3 {
 .home-portfolio-card .portfolio-image-frame img {
   height: 100%;
   filter: brightness(0.92) contrast(1.03);
-  transition: transform 620ms ease;
-  will-change: transform;
+  transition: filter 500ms ease, transform 500ms ease;
 }
 
 .home-portfolio-card > div {
@@ -999,7 +1118,7 @@ h3 {
   .home-portfolio-card:hover .portfolio-image-frame img,
   .home-portfolio-card:focus-within .portfolio-image-frame img {
     filter: brightness(1) contrast(1.03);
-    transform: scale(1.04);
+    transform: scale(1.012);
   }
 
   .home-portfolio-card:hover .portfolio-image-frame::after,
@@ -1010,18 +1129,22 @@ h3 {
 
   .home-portfolio-card:hover h3,
   .home-portfolio-card:focus-within h3 {
-    transform: translateY(-6px);
+    transform: translateY(-2px);
   }
 
   .home-portfolio-card:hover a,
   .home-portfolio-card:focus-within a {
-    transform: translateX(6px);
+    transform: translateX(3px);
   }
 }
 
 @media (max-width: 980px) {
   .home-portfolio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .portfolio-card--feature .portfolio-case-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1242,6 +1365,26 @@ h3 {
   gap: 18px;
 }
 
+.form-fieldset {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 22px;
+  border: 0;
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.12);
+}
+
+.form-fieldset legend {
+  margin-bottom: 18px;
+  color: rgba(255, 154, 61, 0.86);
+  font-family: var(--font-mono-family);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .form-honeypot {
   position: absolute;
   left: -9999px;
@@ -1400,6 +1543,47 @@ h3 {
   color: rgba(125, 249, 255, 0.72);
 }
 
+.about-incarnation {
+  width: min(1300px, 90%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(280px, 0.84fr);
+  gap: 1px;
+  align-items: stretch;
+  margin: 0 auto 48px;
+  background: var(--color-border);
+  position: relative;
+  z-index: 2;
+}
+
+.about-incarnation > div {
+  display: grid;
+  align-content: end;
+  gap: 18px;
+  min-height: 420px;
+  padding: clamp(24px, 4vw, 52px);
+  background:
+    linear-gradient(150deg, rgba(255, 154, 61, 0.08), transparent 46%),
+    rgba(0, 0, 0, 0.72);
+}
+
+.about-incarnation h2 {
+  max-width: 620px;
+  font-size: clamp(2rem, 5vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.about-incarnation p {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+}
+
+.about-incarnation .portfolio-image-frame {
+  min-height: 420px;
+}
+
 .services-proof {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1407,6 +1591,58 @@ h3 {
   margin-bottom: 48px;
   background: var(--color-border);
   box-shadow: none;
+}
+
+.pressure-module {
+  width: min(1300px, 90%);
+  margin: 0 auto 48px;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 24px;
+}
+
+.pressure-module h2 {
+  max-width: 780px;
+  font-size: clamp(1.6rem, 4vw, 4.2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.pressure-list {
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.pressure-list a {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.55fr) minmax(220px, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: clamp(15px, 2vw, 22px);
+  background:
+    linear-gradient(90deg, rgba(0, 250, 255, 0.055), transparent 58%),
+    rgba(0, 0, 0, 0.72);
+  transition: background 260ms var(--ease-refined), transform 260ms var(--ease-refined);
+}
+
+.pressure-list span,
+.pressure-list strong {
+  font-family: var(--font-mono-family);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.pressure-list span {
+  color: rgba(255, 154, 61, 0.82);
+}
+
+.pressure-list strong {
+  color: rgba(242, 251, 255, 0.84);
 }
 
 .proof-block {
@@ -1557,15 +1793,15 @@ h3 {
 }
 
 .portfolio-hero {
-  min-height: 42vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 48px;
+  padding-bottom: 34px;
 }
 
 .portfolio-hero h1 {
-  font-size: var(--font-hero);
+  font-size: clamp(3.4rem, 10vw, 8.8rem);
 }
 
 .portfolio-grid {
@@ -1584,9 +1820,9 @@ h3 {
 
 .portfolio-secondary-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  gap: 1px;
-  background: var(--color-border);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 32px);
+  background: transparent;
 }
 
 .portfolio-card {
@@ -1594,23 +1830,28 @@ h3 {
   display: grid;
   grid-template-rows: minmax(300px, 42vh) auto;
   min-height: 640px;
-  background: rgba(0, 0, 0, 0.74);
+  border: var(--border-width) solid rgba(255, 255, 255, 0.12);
+  background: rgba(3, 4, 6, 0.82);
   overflow: hidden;
-  transition: background 520ms var(--ease-refined), transform 520ms var(--ease-refined);
+  transition: border-color 500ms ease, background 500ms ease;
 }
 
 .portfolio-card--feature {
   grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1.22fr) minmax(320px, 0.78fr);
-  grid-template-rows: auto;
-  min-height: 620px;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(480px, 68vh) auto;
+  min-height: auto;
 }
 
 .portfolio-card--cinematic-feature {
-  border: var(--border-width) solid rgba(0, 250, 255, 0.34);
+  border-color: rgba(242, 251, 255, 0.18);
   background:
-    linear-gradient(135deg, rgba(0, 250, 255, 0.08), transparent 44%),
-    rgba(0, 0, 0, 0.78);
+    linear-gradient(180deg, rgba(242, 251, 255, 0.035), transparent 46%),
+    rgba(3, 4, 6, 0.88);
+}
+
+.portfolio-card--cinematic-feature .portfolio-image-frame {
+  min-height: clamp(480px, 68vh, 780px);
 }
 
 .portfolio-card--compact {
@@ -1624,13 +1865,13 @@ h3 {
 .portfolio-compact-index {
   display: grid;
   gap: 1px;
-  padding-top: 8px;
+  padding-top: 0;
   background: rgba(255, 255, 255, 0.13);
 }
 
 .portfolio-compact-index .section-kicker {
   margin: 0;
-  padding: 18px;
+  padding: 14px 16px;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -1643,9 +1884,9 @@ h3 {
   grid-template-columns: minmax(120px, 0.42fr) minmax(220px, 1fr) minmax(220px, 1.1fr);
   gap: 16px;
   align-items: center;
-  padding: clamp(16px, 2.2vw, 24px);
+  padding: clamp(12px, 1.6vw, 18px);
   background:
-    linear-gradient(90deg, rgba(0, 250, 255, 0.05), transparent 45%),
+    linear-gradient(90deg, rgba(0, 250, 255, 0.035), transparent 45%),
     rgba(0, 0, 0, 0.72);
   transition: background 260ms var(--ease-refined), transform 260ms var(--ease-refined);
 }
@@ -1663,7 +1904,7 @@ h3 {
 
 .portfolio-index-row strong {
   font-family: var(--font-display-family);
-  font-size: clamp(1.1rem, 2.3vw, 2.4rem);
+  font-size: clamp(1rem, 1.85vw, 1.95rem);
   letter-spacing: -0.035em;
   line-height: 0.96;
   text-transform: uppercase;
@@ -1688,10 +1929,10 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(105deg, transparent 0 38%, rgba(242, 251, 255, 0.18) 47%, transparent 58%);
-  opacity: 0;
-  transform: translateX(-28%);
-  transition: opacity 520ms var(--ease-refined), transform 720ms var(--ease-refined);
+  background: linear-gradient(180deg, transparent 0 56%, rgba(0, 0, 0, 0.18));
+  opacity: 1;
+  transform: none;
+  transition: opacity 500ms ease;
   pointer-events: none;
 }
 
@@ -1730,8 +1971,8 @@ h3 {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: center;
-  filter: brightness(1.04) contrast(1.05) saturate(0.94);
-  transition: filter 520ms var(--ease-refined), transform 620ms var(--ease-refined);
+  filter: brightness(1.03) contrast(1.03) saturate(0.94);
+  transition: filter 500ms ease, transform 500ms ease, opacity 500ms ease;
 }
 
 @media (hover: hover) {
@@ -1744,24 +1985,38 @@ h3 {
   .work-card:hover,
   .work-card:focus-within,
   .service-card:hover,
-  .service-card:focus-within,
-  .portfolio-card:hover,
-  .portfolio-card:focus-within {
+  .service-card:focus-within {
     transform: translateY(-2px);
     box-shadow: inset 0 0 0 1px rgba(125, 249, 255, 0.34);
+  }
+
+  .portfolio-card:hover,
+  .portfolio-card:focus-within {
+    border-color: rgba(125, 249, 255, 0.28);
+    box-shadow: none;
   }
 
   .portfolio-index-row a:hover,
   .portfolio-index-row a:focus-visible {
     background:
-      linear-gradient(90deg, rgba(0, 250, 255, 0.1), rgba(255, 154, 61, 0.035), transparent 70%),
+      linear-gradient(90deg, rgba(0, 250, 255, 0.08), rgba(242, 251, 255, 0.025), transparent 70%),
       rgba(0, 0, 0, 0.84);
     transform: translateX(4px);
   }
 
+  .pressure-list a:hover,
+  .pressure-list a:focus-visible,
+  .home-service-row:hover,
+  .home-service-row:focus-visible {
+    background:
+      linear-gradient(90deg, rgba(0, 250, 255, 0.075), rgba(242, 251, 255, 0.035), transparent 70%),
+      rgba(0, 0, 0, 0.86);
+    transform: translateX(4px);
+  }
+
   .portfolio-image-frame:hover img {
-    filter: brightness(1.08) contrast(1.06) saturate(0.98);
-    transform: scale(1.02);
+    filter: brightness(1.06) contrast(1.04) saturate(0.96);
+    transform: scale(1.012);
   }
 
   .portfolio-image-frame:hover::before,
@@ -1769,14 +2024,14 @@ h3 {
   .portfolio-card:focus-within .portfolio-image-frame::before,
   .home-portfolio-card:hover .portfolio-image-frame::before,
   .home-portfolio-card:focus-within .portfolio-image-frame::before {
-    opacity: 1;
-    transform: translateX(34%);
+    opacity: 0.72;
+    transform: none;
   }
 
   .portfolio-card:hover .portfolio-image-frame img,
   .portfolio-card:focus-within .portfolio-image-frame img {
-    filter: brightness(1.08) contrast(1.06) saturate(0.98);
-    transform: scale(1.025);
+    filter: brightness(1.06) contrast(1.04) saturate(0.96);
+    transform: scale(1.012);
   }
 
   .portfolio-card:hover .portfolio-image-frame::after,
@@ -1929,27 +2184,40 @@ h3 {
 .portfolio-card-body {
   display: grid;
   align-content: end;
-  gap: 16px;
-  padding: clamp(24px, 4vw, 42px);
+  gap: clamp(14px, 2vw, 22px);
+  padding: clamp(24px, 4vw, 52px);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.014)),
-    rgba(0, 0, 0, 0.48);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.034), rgba(255, 255, 255, 0.01)),
+    rgba(2, 3, 4, 0.72);
 }
 
 .portfolio-card-body h2 {
-  max-width: 620px;
-  font-size: clamp(1.65rem, 3.25vw, 3.35rem);
-  line-height: 0.96;
-  overflow-wrap: anywhere;
+  max-width: 940px;
+  font-size: clamp(1.9rem, 4.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
   text-wrap: balance;
-  text-transform: uppercase;
+  text-transform: none;
   transition: transform 320ms ease;
 }
 
 .portfolio-card-body p {
-  max-width: 620px;
+  max-width: 760px;
   font-size: clamp(1rem, 1.3vw, 1.12rem);
   opacity: 0.82;
+}
+
+.portfolio-card--feature .portfolio-card-body {
+  align-content: start;
+}
+
+.portfolio-card--feature .portfolio-card-body h2 {
+  max-width: 980px;
+  font-size: clamp(2.35rem, 5.2vw, 5.8rem);
+  line-height: 1.03;
 }
 
 .portfolio-proof ul {
@@ -2003,52 +2271,41 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
-  max-width: 720px;
-  background: rgba(255, 255, 255, 0.12);
+  max-width: 980px;
+  border-top: var(--border-width) solid rgba(255, 255, 255, 0.12);
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.12);
+  background: transparent;
 }
 
 .portfolio-case-notes div {
   min-width: 0;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 14px 16px 14px 0;
+  background: transparent;
 }
 
 .portfolio-case-notes dt {
   margin-bottom: 7px;
-  color: rgba(125, 249, 255, 0.72);
+  color: rgba(125, 249, 255, 0.62);
   font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .portfolio-case-notes dd {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+.portfolio-card--feature .portfolio-case-notes {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .portfolio-link {
   width: fit-content;
   margin-top: 10px;
-  padding: 13px 18px;
-  border: var(--border-width) solid rgba(255, 255, 255, 0.28);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  box-shadow: none;
-  transition: background 260ms ease, color 260ms ease, border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
   white-space: normal;
-}
-
-.portfolio-link:hover,
-.portfolio-link:focus-visible {
-  background: #fff;
-  border-color: rgba(125, 249, 255, 0.65);
-  color: #000;
-  box-shadow: inset 0 0 0 var(--border-width) rgba(0, 250, 255, 0.34);
-  transform: translateX(4px);
 }
 
 .case-study-page {
@@ -2127,11 +2384,53 @@ h3 {
 
 .case-study-sections,
 .case-study-notes,
-.case-study-gallery {
+.case-study-gallery,
+.scene-gallery {
   width: min(1300px, 90%);
   margin: 0 auto 72px;
   position: relative;
   z-index: 2;
+}
+
+.scene-gallery {
+  display: grid;
+  gap: 22px;
+}
+
+.scene-gallery h2 {
+  max-width: 980px;
+  font-size: clamp(1.9rem, 5vw, 5.1rem);
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+.scene-gallery-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(260px, 0.76fr);
+  grid-auto-rows: minmax(220px, auto);
+  gap: 1px;
+  background: var(--color-border);
+}
+
+.scene-gallery-grid .portfolio-image-frame {
+  min-height: 300px;
+}
+
+.scene-gallery-primary {
+  grid-row: span 2;
+  min-height: clamp(420px, 56vw, 720px);
+}
+
+.scene-gallery--count-1 .scene-gallery-grid {
+  display: block;
+  background: transparent;
+}
+
+.scene-gallery--count-1 .scene-gallery-primary {
+  grid-row: auto;
+  width: min(100%, 1040px);
+  min-height: clamp(420px, 58vw, 760px);
+  margin-left: auto;
 }
 
 .case-study-sections {
@@ -2168,7 +2467,7 @@ h3 {
 @media (hover: hover) {
   .portfolio-card:hover .portfolio-card-body h2,
   .portfolio-card:focus-within .portfolio-card-body h2 {
-    transform: translateY(-4px);
+    transform: none;
   }
 }
 
@@ -2408,9 +2707,14 @@ h3 {
     filter: brightness(0.72) contrast(1.08) saturate(0.82);
   }
 
-  .hero h1 {
-    font-size: clamp(2.18rem, 10.6vw, 4.25rem);
+  .hero h1,
+  .hero-title {
+    font-size: clamp(2.75rem, 14.6vw, 4rem);
     line-height: 0.92;
+    letter-spacing: -0.045em;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: manual;
   }
 
   .hero-small {
@@ -2418,12 +2722,18 @@ h3 {
     letter-spacing: 0.22em;
   }
 
-  .hero-actions {
+  .hero-section .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
   }
 
-  .hero-actions .cta {
+  .hero-section .hero-actions .cta {
+    width: 100%;
     padding: 15px 20px;
+    text-align: center;
+    white-space: normal;
   }
 
   .hero-technical-panel {
@@ -2440,8 +2750,14 @@ h3 {
 
   .credibility-strip,
   .home-section,
-  .home-final-cta {
+  .home-final-cta,
+  .blackout-break {
     width: min(100% - 32px, 1300px);
+  }
+
+  .blackout-break {
+    min-height: 260px;
+    margin-bottom: 58px;
   }
 
   .credibility-strip {
@@ -2474,10 +2790,15 @@ h3 {
   }
 
   .home-card-grid,
+  .home-service-row,
   .process-grid,
   .cue-sequence-track,
   .home-portfolio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-service-row {
+    gap: 10px;
   }
 
   .home-card,
@@ -2575,6 +2896,27 @@ h3 {
     margin-bottom: 38px;
   }
 
+  .about-incarnation {
+    width: min(100% - 32px, 1300px);
+    grid-template-columns: 1fr;
+    margin-bottom: 38px;
+  }
+
+  .about-incarnation > div,
+  .about-incarnation .portfolio-image-frame {
+    min-height: 280px;
+  }
+
+  .pressure-module {
+    width: min(100% - 32px, 1300px);
+    margin-bottom: 38px;
+  }
+
+  .pressure-list a {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -2623,6 +2965,10 @@ h3 {
     min-height: auto;
   }
 
+  .portfolio-card--cinematic-feature .portfolio-image-frame {
+    min-height: 320px;
+  }
+
   .portfolio-card--compact {
     min-height: auto;
   }
@@ -2654,8 +3000,21 @@ h3 {
 
   .case-study-meta,
   .case-study-sections,
-  .case-study-gallery {
+  .case-study-gallery,
+  .scene-gallery-grid {
     grid-template-columns: 1fr;
+  }
+
+  .scene-gallery {
+    width: min(100% - 32px, 1300px);
+    margin-bottom: 48px;
+  }
+
+  .scene-gallery-primary,
+  .scene-gallery-grid .portfolio-image-frame {
+    grid-row: auto;
+    width: 100%;
+    min-height: 260px;
   }
 
   .case-technical-panel {
@@ -2664,7 +3023,8 @@ h3 {
 
   .case-study-sections,
   .case-study-notes,
-  .case-study-gallery {
+  .case-study-gallery,
+  .scene-gallery {
     width: min(100% - 32px, 1300px);
     margin-bottom: 48px;
   }
@@ -2702,6 +3062,17 @@ h3 {
     flex: 1 1 130px;
   }
 
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    max-width: 11ch;
+    font-size: clamp(2.65rem, 14vw, 3.15rem);
+  }
+
+  .hero-title .hero-title-line {
+    white-space: normal;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

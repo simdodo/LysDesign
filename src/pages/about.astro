@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageLabelBar from "../components/PageLabelBar.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+import fohImage from "../assets/portfolio/touring/cover.jpg";
 
 const experience = [
   "16+ years in live entertainment, concerts, touring and stage lighting",
@@ -55,7 +57,7 @@ const productionValue = [
       <h1 id="about-title">About Dorian De Freitas</h1>
 
       <p>
-        I’m Dorian De Freitas, an Oslo-based lighting designer, programmer and operator working
+        I'm Dorian De Freitas, an Oslo-based lighting designer, programmer and operator working
         across touring, contemporary dance, festivals, venues and artist-led productions.
       </p>
 
@@ -65,9 +67,22 @@ const productionValue = [
         local rigs and production pressure.
       </p>
 
-      <div class="hero-actions" aria-label="About actions">
-        <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+    </section>
+
+    <section class="about-incarnation" aria-labelledby="about-room-title">
+      <PortfolioImage
+        image={fohImage}
+        alt="Front of house lighting position with console and concert stage view"
+        caption="FOH / reading the room before the showfile takes over."
+      />
+
+      <div>
+        <div class="section-kicker">ROOM READ</div>
+        <h2 id="about-room-title">I read the room before I light it.</h2>
+        <p>
+          Trim height, dark corners, crew rhythm, sightlines, silence, and where the artist
+          actually stands. The room usually tells you what will work before the console does.
+        </p>
       </div>
     </section>
 
@@ -146,7 +161,7 @@ const productionValue = [
 
       <p>
         Send the project brief, venue, dates, console/system information and references.
-        I’ll help clarify what the production needs and how to approach it.
+        I'll help clarify what the production needs and how to approach it.
       </p>
 
       <div class="hero-actions" aria-label="About contact actions">

@@ -2,6 +2,15 @@
 import PortfolioImage from "./PortfolioImage.astro";
 
 const { projects } = Astro.props;
+
+const linkLabels = {
+  Touring: "Touring notes",
+  Dance: "Dance notes",
+  Festival: "Festival notes",
+  Previsualization: "Previs notes",
+  "Visual Direction": "Visual notes",
+  "Special Project": "Project notes"
+};
 ---
 
 <section class="home-section" aria-labelledby="portfolio-preview-title">
@@ -25,15 +34,16 @@ const { projects } = Astro.props;
           <div>
             <h3>{project.data.title}</h3>
             <p>{project.data.description}</p>
-            <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>View Work &rarr;</a>
+            <a class="link-tertiary" href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click" data-astro-prefetch>
+              {linkLabels[project.data.format] ?? "Case notes"}
+            </a>
           </div>
         </article>
       ))
     }
   </div>
 
-  <div class="section-actions" aria-label="Portfolio actions">
-    <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-    <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+  <div class="section-actions section-actions--quiet" aria-label="Portfolio actions">
+    <a class="link-tertiary" href="/portfolio/" data-track-event="cta_view_work">Open the showfile index</a>
   </div>
 </section>

@@ -10,6 +10,10 @@ const {
   description = "De Freitas Lys Design",
   proofPoints = []
 } = Astro.props;
+
+const titleLines = title === "LIGHT THAT SURVIVES THE ROOM."
+  ? ["LIGHT THAT", "SURVIVES", "THE ROOM."]
+  : [title];
 ---
 
 <section class="container hero-section" aria-labelledby="hero-title">
@@ -28,8 +32,10 @@ const {
   <div class="hero">
     <PageLabelBar label={label} description={description} className="hero-small" />
 
-    <h1 id="hero-title">
-      {title}
+    <h1 id="hero-title" class="hero-title">
+      {titleLines.map((line) => (
+        <span class="hero-title-line">{line}</span>
+      ))}
     </h1>
 
     <p>
