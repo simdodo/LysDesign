@@ -7,7 +7,7 @@ export default defineConfig({
   site: 'https://defreitaslysdesign.com',
   integrations: [
     sitemap({
-      filter: (page) => !page.endsWith('/design-lab/')
+      filter: (page) => !page.endsWith('/design-lab/') && !page.endsWith('/home-v2/')
     })
   ]
 });

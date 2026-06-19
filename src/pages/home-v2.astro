@@ -1,0 +1,151 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageLabelBar from "../components/PageLabelBar.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+import festivalImage from "../assets/portfolio/festival/cover.jpg";
+import { getCollection } from "astro:content";
+import "../styles/home-v2.css";
+
+const selectedProjects = (await getCollection("portfolio", ({ data }) => data.published && data.featured))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const breakPoints = [
+  {
+    problem: "The rig changed.",
+    response: "Adapt the system."
+  },
+  {
+    problem: "Rehearsal time got shorter.",
+    response: "Protect the rhythm."
+  },
+  {
+    problem: "The room killed the original look.",
+    response: "Keep the identity."
+  },
+  {
+    problem: "The artist still needs to feel like themselves.",
+    response: "Make it work live."
+  }
+];
+
+const systems = [
+  "GrandMA",
+  "EOS",
+  "Unreal",
+  "Touring systems"
+];
+
+const process = [
+  "Understand the room.",
+  "Build the system.",
+  "Adapt on site.",
+  "Keep the show recognizable."
+];
+---
+
+<Layout
+  title="Home V2 Prototype | De Freitas Lys Design"
+  description="Private cinematic homepage prototype for De Freitas Lys Design."
+  robots="noindex,nofollow"
+  image="/images/portfolio/festival/cover.jpg"
+  preloadImage="/images/portfolio/festival/cover.jpg"
+>
+  <main class="home-v2" id="main-content">
+    <section class="home-v2-hero" aria-labelledby="home-v2-title">
+      <div class="home-v2-hero-media" aria-hidden="true">
+        <PortfolioImage
+          image={festivalImage}
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          caption="Festival / room pressure / live system"
+        />
+      </div>
+
+      <div class="home-v2-hero-content">
+        <PageLabelBar label="BLACKOUT / SIGNAL" description="Private prototype" />
+        <h1 id="home-v2-title">LIGHT THAT SURVIVES THE ROOM.</h1>
+        <p>
+          Lighting design, programming and touring systems for concerts, dance, festivals
+          and live productions across Norway and Europe.
+        </p>
+
+        <div class="hero-actions" aria-label="Home v2 actions">
+          <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+          <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-v2-work" aria-labelledby="home-v2-work-title">
+      <div class="section-kicker">Selected Work</div>
+      <h2 id="home-v2-work-title">Three ways the work has to hold.</h2>
+
+      <div class="home-v2-work-grid">
+        {selectedProjects.map((project) => (
+          <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click">
+            <PortfolioImage
+              image={project.data.cover}
+              alt={project.data.coverAlt}
+              caption={`${project.data.format} / ${project.data.role}`}
+            />
+            <span>{project.data.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-v2-breaks" aria-labelledby="home-v2-breaks-title">
+      <div class="section-kicker">What Breaks A Show</div>
+      <h2 id="home-v2-breaks-title">Pressure first. Service name second.</h2>
+
+      <div class="home-v2-break-grid">
+        {breakPoints.map((item) => (
+          <article>
+            <span>{item.problem}</span>
+            <strong>{item.response}</strong>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-v2-systems" aria-labelledby="home-v2-systems-title">
+      <div>
+        <div class="section-kicker">Systems Preview</div>
+        <h2 id="home-v2-systems-title">Tools are only useful when the room is honest.</h2>
+      </div>
+
+      <ul>
+        {systems.map((system) => (
+          <li>{system}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-v2-states" aria-labelledby="home-v2-states-title">
+      <div class="section-kicker">Light States Teaser</div>
+      <h2 id="home-v2-states-title">Opening. Build. Peak. Blackout.</h2>
+      <p>
+        Future project pages can document real light states when the media is cleared:
+        emotional image, technical image, crop/detail.
+      </p>
+    </section>
+
+    <section class="home-v2-process" aria-labelledby="home-v2-process-title">
+      <div class="section-kicker">Process</div>
+      <h2 id="home-v2-process-title">Make the show readable before show day.</h2>
+
+      <ol>
+        {process.map((step) => (
+          <li>{step}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="home-v2-final" aria-labelledby="home-v2-final-title">
+      <h2 id="home-v2-final-title">Bring the brief, the room and the deadline.</h2>
+      <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+    </section>
+  </main>
+</Layout>
