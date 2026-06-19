@@ -7,6 +7,7 @@ import CueSequence from "../components/CueSequence.astro";
 import SelectedWork from "../components/SelectedWork.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 import BlackoutBreak from "../components/BlackoutBreak.astro";
+import festivalHeroImage from "../assets/portfolio/festival/cover.jpg";
 import { getCollection } from "astro:content";
 
 const credibility = [
@@ -84,7 +85,7 @@ const featuredProjects = (await getCollection("portfolio", ({ data }) => data.pu
     <CinematicHero
       title="LIGHT THAT SURVIVES THE ROOM."
       subtitle="Lighting design, programming and touring/live production systems for concerts, dance and festivals in Oslo, Norway and across Europe."
-      image="/images/portfolio/festival/cover.jpg"
+      image={festivalHeroImage}
       imageAlt="Festival crowd and lighting console under cyan stage beams"
       proofPoints={credibility}
     />

@@ -1,10 +1,11 @@
 ---
 import PageLabelBar from "./PageLabelBar.astro";
+import OptimizedPicture from "./OptimizedPicture.astro";
 
 interface Props {
   title: string;
   subtitle: string;
-  image: string;
+  image: string | unknown;
   imageAlt?: string;
   label?: string;
   description?: string;
@@ -24,19 +25,31 @@ const {
 const titleLines = title === "LIGHT THAT SURVIVES THE ROOM."
   ? ["LIGHT THAT", "SURVIVES", "THE ROOM."]
   : [title];
+const isPublicPath = typeof image === "string";
 ---
 
 <section class="container hero-section" aria-labelledby="hero-title">
   <div class="hero-media" aria-hidden="true">
-    <img
-      src={image}
-      alt={imageAlt}
-      width="1600"
-      height="900"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
+    {isPublicPath ? (
+      <img
+        src={image}
+        alt={imageAlt}
+        width="1600"
+        height="900"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    ) : (
+      <OptimizedPicture
+        image={image}
+        alt={imageAlt}
+        widths={[768, 1024, 1280, 1600, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    )}
   </div>
 
   <div class="hero">
