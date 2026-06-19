@@ -1,5 +1,14 @@
 ---
-const { cues } = Astro.props;
+interface Cue {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  cues: Cue[];
+}
+
+const { cues } = Astro.props as Props;
 ---
 
 <section class="home-section cue-sequence" aria-labelledby="cue-sequence-title">

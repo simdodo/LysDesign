@@ -1,9 +1,26 @@
 ---
 import PortfolioImage from "./PortfolioImage.astro";
 
-const { projects } = Astro.props;
+interface Project {
+  id: string;
+  data: {
+    cover: unknown;
+    coverAlt: string;
+    format: string;
+    role: string;
+    year: string;
+    title: string;
+    description: string;
+  };
+}
 
-const linkLabels = {
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props as Props;
+
+const linkLabels: Record<string, string> = {
   Touring: "Touring notes",
   Dance: "Dance notes",
   Festival: "Festival notes",

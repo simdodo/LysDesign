@@ -1,7 +1,18 @@
 ---
 import PortfolioImage from "./PortfolioImage.astro";
 
-const { scenes = [], title = "Documented scene" } = Astro.props;
+interface Scene {
+  image?: unknown;
+  alt?: string;
+  caption?: string;
+}
+
+interface Props {
+  scenes?: Scene[];
+  title?: string;
+}
+
+const { scenes = [], title = "Documented scene" } = Astro.props as Props;
 const visibleScenes = scenes.filter((scene) => scene?.image).slice(0, 3);
 ---
 

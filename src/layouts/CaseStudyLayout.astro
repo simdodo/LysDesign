@@ -8,7 +8,7 @@ const { project } = Astro.props;
 const data = project.data;
 const canonicalPath = `/portfolio/${project.id}/`;
 const ogImage = data.cover?.src ?? "/images/portfolio/touring/cover.jpg";
-const serviceLinks = {
+const serviceLinks: Record<string, { href: string; label: string }> = {
   Touring: {
     href: "/services/touring-showfiles/",
     label: "Touring showfile service"
@@ -46,12 +46,12 @@ const productionContext = data.productionContext ?? (
     : data.format
 );
 const sceneGalleryFormats = new Set(["Touring", "Festival", "Dance"]);
-const sceneGalleryTitles = {
+const sceneGalleryTitles: Record<string, string> = {
   Touring: "FOH, file, room.",
   Festival: "Changeover, daylight, local rig.",
   Dance: "Body, silence, focus."
 };
-const sceneCaptions = {
+const sceneCaptions: Record<string, string> = {
   Touring: "Emotional read: stage depth, artist picture and the console position in one frame.",
   Festival: "Pressure read: crowd, daylight and local rig limits visible before the show starts.",
   Dance: "Focus read: bodies, darkness and silence deciding where the cue can land."
@@ -62,7 +62,7 @@ const sceneGalleryItems = [
     alt: data.coverAlt,
     caption: sceneCaptions[data.format] ?? `${data.format} / ${data.role} / ${data.location} / ${data.year}`
   },
-  ...data.gallery.slice(0, 2).map((image, index) => ({
+  ...data.gallery.slice(0, 2).map((image: unknown, index: number) => ({
     image,
     alt: `${data.title} detail image ${index + 1}`,
     caption: index === 0
@@ -202,7 +202,7 @@ const creativeWork = {
           <span>Related services</span>
           <h2>Production support connected to this case.</h2>
           <ul>
-            {relatedServices.map((service) => (
+            {relatedServices.map((service: { href: string; label: string }) => (
               <li><a href={service.href}>{service.label}</a></li>
             ))}
           </ul>
@@ -212,7 +212,7 @@ const creativeWork = {
 
     {data.mediaItems.length > 0 && (
       <section class="case-study-sections" aria-label="Media and documentation proof">
-        {data.mediaItems.map((item) => (
+        {data.mediaItems.map((item: { label: string; detail: string; credit?: string }) => (
           <article>
             <span>Media / documentation</span>
             <h2>{item.label}</h2>
@@ -261,7 +261,7 @@ const creativeWork = {
 
     {!sceneGalleryFormats.has(data.format) && data.gallery.length > 0 && (
       <section class="case-study-gallery" aria-label="Project gallery">
-        {data.gallery.map((image) => (
+        {data.gallery.map((image: unknown) => (
           <PortfolioImage image={image} alt={`${data.title} gallery image`} caption={`${data.title} / detail documentation`} />
         ))}
       </section>

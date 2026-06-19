@@ -1,5 +1,9 @@
 ---
-const { productions } = Astro.props;
+interface Props {
+  productions: string[];
+}
+
+const { productions } = Astro.props as Props;
 ---
 
 <section class="home-section home-section--compact" aria-labelledby="productions-title">

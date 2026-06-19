@@ -1,5 +1,16 @@
 ---
-const { services } = Astro.props;
+interface Service {
+  title: string;
+  description: string;
+  cta: string;
+  href: string;
+}
+
+interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props as Props;
 ---
 
 <section class="home-section" aria-labelledby="home-services-title">

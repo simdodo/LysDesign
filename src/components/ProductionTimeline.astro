@@ -1,5 +1,14 @@
 ---
-const { process } = Astro.props;
+interface ProcessStep {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  process: ProcessStep[];
+}
+
+const { process } = Astro.props as Props;
 ---
 
 <section class="home-section" aria-labelledby="process-title">

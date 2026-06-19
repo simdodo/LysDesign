@@ -9,7 +9,7 @@ const links = [
 
 const currentPath = Astro.url.pathname;
 
-const isActive = (href) => {
+const isActive = (href: string) => {
   if (href === "/") {
     return currentPath === "/";
   }

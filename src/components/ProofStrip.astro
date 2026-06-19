@@ -1,5 +1,10 @@
 ---
-const { items, ariaLabel = "Experience summary" } = Astro.props;
+interface Props {
+  items: string[];
+  ariaLabel?: string;
+}
+
+const { items, ariaLabel = "Experience summary" } = Astro.props as Props;
 ---
 
 <section class="credibility-strip" aria-label={ariaLabel}>

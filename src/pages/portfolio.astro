@@ -15,6 +15,7 @@ const caseStudyCtas = {
   Touring: "Open touring case notes",
   Dance: "Open dance case notes",
   Festival: "Open festival case notes",
+  Programming: "Open programming notes",
   "Visual Direction": "Open visual direction notes",
   Previsualization: "Open previs notes",
   "Special Project": "Open special project notes"
@@ -24,12 +25,13 @@ const editorialCaptions = {
   Touring: "FOH / touring file pressure — the show has to survive another room.",
   Dance: "Black-box read — movement, timing and silence decide the cue.",
   Festival: "Festival translation — local rig, daylight and changeover pressure.",
+  Programming: "Programming read ? showfile structure built for live operation.",
   "Visual Direction": "Artist-led scene — references become a repeatable visual language.",
   Previsualization: "Previs study — decisions tested before the venue becomes the first draft.",
   "Special Project": "Hybrid setup — technical solution outside normal production categories."
 };
 
-const getTone = (format) =>
+const getTone = (format: string) =>
   format === "Dance" || format === "Previsualization"
     ? "warm"
     : format === "Touring" || format === "Festival"
@@ -103,7 +105,7 @@ const getTone = (format) =>
 
       {secondaryProjects.length > 0 && (
         <div class="portfolio-secondary-grid" aria-label="Secondary case studies">
-          {secondaryProjects.map((project, index) => (
+          {secondaryProjects.map((project) => (
             <article
               class={`portfolio-card portfolio-card--${getTone(project.data.format)} portfolio-card--standard`}
               data-project={project.id}
