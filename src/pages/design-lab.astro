@@ -1,0 +1,173 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+import "../styles/design-lab.css";
+import touringCover from "../assets/portfolio/touring/cover.jpg";
+import festivalCover from "../assets/portfolio/festival/cover.jpg";
+import danceCover from "../assets/portfolio/dance/cover.jpg";
+
+const portfolioCards = [
+  {
+    image: touringCover,
+    alt: "Touring lighting scene used for design lab visual prototype",
+    caption: "TOURING / FILE PRESSURE",
+    title: "Touring file",
+    role: "Lighting designer / programmer",
+    system: "GrandMA / local rig translation",
+    pressure: "Room changes after advance",
+    result: "The show keeps its identity without rebuilding from zero"
+  },
+  {
+    image: festivalCover,
+    alt: "Festival crowd and lighting console used for design lab visual prototype",
+    caption: "FESTIVAL / CHANGEOVER",
+    title: "Festival cut",
+    role: "Operator / programmer",
+    system: "Busking pages / daylight adaptation",
+    pressure: "Short changeover, rig not yours",
+    result: "Readable looks prioritized before time disappears"
+  },
+  {
+    image: danceCover,
+    alt: "Contemporary dance lighting scene used for design lab visual prototype",
+    caption: "DANCE / BLACK BOX",
+    title: "Movement cue",
+    role: "Lighting designer",
+    system: "Eos / cue timing / focus",
+    pressure: "Silence and movement decide the fade",
+    result: "The cue supports the body instead of decorating it"
+  }
+];
+
+const breakCards = [
+  {
+    problem: "The plot arrives late",
+    solution: "Build around fixture roles, not one perfect rig."
+  },
+  {
+    problem: "The room eats contrast",
+    solution: "Cut color, tighten focus, protect dark space."
+  },
+  {
+    problem: "The changeover is shorter than promised",
+    solution: "Keep the version simple enough to execute."
+  },
+  {
+    problem: "The file becomes unreadable",
+    solution: "Label the pressure points before show day."
+  }
+];
+---
+
+<Layout
+  title="Design Lab | De Freitas Lys Design"
+  description="Experimental design prototypes for De Freitas Lys Design. Noindex page for visual exploration."
+  robots="noindex,nofollow"
+>
+  <main class="design-lab-page" id="main-content">
+    <section class="lab-section lab-hero" aria-labelledby="lab-title">
+      <div class="lab-flash-cut" aria-hidden="true"></div>
+
+      <div class="lab-hero-grid">
+        <div>
+          <p class="lab-cue-label">CUE LAB 00 / BLACKOUT REVEAL</p>
+          <h1 id="lab-title" class="lab-title">
+            <span class="lab-glitch" data-text="BLACK LILY / UV SIGNAL">BLACK LILY / UV SIGNAL</span>
+          </h1>
+          <p class="lab-hero-copy">
+            A private visual lab for testing a darker, sharper De Freitas Lys Design language:
+            blackout first, UV signal second, technical clarity always.
+          </p>
+        </div>
+
+        <dl class="lab-spec" aria-label="Design lab tokens">
+          <div>
+            <dt>Base</dt>
+            <dd>UV Black</dd>
+          </div>
+          <div>
+            <dt>Accent</dt>
+            <dd>Technical Cyan</dd>
+          </div>
+          <div>
+            <dt>Cut</dt>
+            <dd>White Hot</dd>
+          </div>
+          <div>
+            <dt>Warning</dt>
+            <dd>Signal Red</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="lab-section lab-filament" aria-labelledby="filament-title">
+      <div>
+        <p class="lab-section-label">SVG FILAMENT / LILY CABLE STUDY</p>
+        <h2 id="filament-title" class="lab-title">Filament mark</h2>
+      </div>
+
+      <svg viewBox="0 0 420 360" role="img" aria-labelledby="filament-svg-title filament-svg-desc">
+        <title id="filament-svg-title">Minimal lily transformed into cables and light filaments</title>
+        <desc id="filament-svg-desc">
+          Abstract line drawing of a lily shape built from white and cyan cable-like filaments.
+        </desc>
+        <path d="M210 318 C210 250 210 205 210 138" fill="none" stroke="var(--color-ash)" stroke-width="4" stroke-linecap="round" />
+        <path d="M210 142 C150 112 118 74 96 28 C152 42 197 80 210 142Z" fill="none" stroke="var(--color-white-hot)" stroke-width="5" stroke-linejoin="round" />
+        <path d="M210 142 C270 112 302 74 324 28 C268 42 223 80 210 142Z" fill="none" stroke="var(--color-white-hot)" stroke-width="5" stroke-linejoin="round" />
+        <path d="M210 148 C182 184 145 208 92 220 C116 174 160 142 210 148Z" fill="none" stroke="var(--color-technical-cyan)" stroke-width="4" stroke-linejoin="round" />
+        <path d="M210 148 C238 184 275 208 328 220 C304 174 260 142 210 148Z" fill="none" stroke="var(--color-technical-cyan)" stroke-width="4" stroke-linejoin="round" />
+        <line x1="210" y1="318" x2="102" y2="338" stroke="var(--color-congo-blue)" stroke-width="3" stroke-linecap="round" />
+        <line x1="210" y1="318" x2="318" y2="338" stroke="var(--color-congo-blue)" stroke-width="3" stroke-linecap="round" />
+        <circle cx="210" cy="142" r="7" fill="var(--color-signal-red)" />
+      </svg>
+    </section>
+
+    <section class="lab-section" aria-labelledby="portfolio-prototypes-title">
+      <p class="lab-section-label">PORTFOLIO CARD PROTOTYPES</p>
+      <h2 id="portfolio-prototypes-title" class="lab-title">Pressure cards</h2>
+
+      <div class="lab-grid lab-grid--portfolio">
+        {portfolioCards.map((card) => (
+          <article class="lab-card">
+            <PortfolioImage image={card.image} alt={card.alt} caption={card.caption} />
+            <h3>{card.title}</h3>
+            <dl>
+              <div>
+                <dt>Role</dt>
+                <dd>{card.role}</dd>
+              </div>
+              <div>
+                <dt>System</dt>
+                <dd>{card.system}</dd>
+              </div>
+              <div>
+                <dt>Pressure</dt>
+                <dd>{card.pressure}</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>{card.result}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="lab-section" aria-labelledby="breaks-title">
+      <p class="lab-section-label">WHAT BREAKS A SHOW</p>
+      <h2 id="breaks-title" class="lab-title">Failure points</h2>
+
+      <div class="lab-grid">
+        {breakCards.map((card) => (
+          <article class="lab-card lab-break-card">
+            <span>Problem</span>
+            <h3>{card.problem}</h3>
+            <p>{card.solution}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

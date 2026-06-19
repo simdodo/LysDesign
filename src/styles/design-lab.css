@@ -1,0 +1,247 @@
+@import "./tokens.css";
+
+.design-lab-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--color-congo-blue), transparent 72%), transparent 28rem),
+    radial-gradient(circle at 80% 0%, color-mix(in srgb, var(--color-technical-cyan), transparent 86%), transparent 24rem),
+    var(--color-uv-black);
+  color: var(--color-white-hot);
+}
+
+.design-lab-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(circle at 17% 23%, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px),
+    radial-gradient(circle at 73% 61%, rgba(0, 250, 255, 0.12) 0 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 11px);
+  background-size: 19px 19px, 23px 23px, 100% 100%;
+  mix-blend-mode: screen;
+}
+
+.lab-section {
+  width: min(100%, 1180px);
+  margin-inline: auto;
+  padding: clamp(4rem, 10vw, 8rem) 1rem;
+}
+
+.lab-hero {
+  display: grid;
+  min-height: min(820px, calc(100vh - 5rem));
+  align-content: end;
+  gap: 2rem;
+  padding-top: 6rem;
+}
+
+.lab-cue-label,
+.lab-section-label,
+.lab-card span,
+.lab-spec dt {
+  font-family: var(--font-mono-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-technical-cyan);
+}
+
+.lab-title {
+  max-width: 9ch;
+  margin: 0;
+  font-family: var(--font-display-family);
+  font-size: clamp(4rem, 17vw, 11rem);
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.lab-hero-copy {
+  max-width: 46rem;
+  margin: 0;
+  color: color-mix(in srgb, var(--color-white-hot), var(--color-ash) 28%);
+  font-size: clamp(1rem, 2.6vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.lab-hero-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.lab-spec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid color-mix(in srgb, var(--color-technical-cyan), transparent 64%);
+  background: color-mix(in srgb, var(--color-technical-cyan), transparent 84%);
+}
+
+.lab-spec div {
+  padding: 1rem;
+  background: color-mix(in srgb, var(--color-uv-black), transparent 8%);
+}
+
+.lab-spec dd {
+  margin: 0.35rem 0 0;
+  color: var(--color-white-hot);
+  font-family: var(--font-display-family);
+  font-size: clamp(1.15rem, 4vw, 2rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lab-glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--color-white-hot);
+}
+
+.lab-glitch::before,
+.lab-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.lab-glitch::before {
+  color: var(--color-technical-cyan);
+  transform: translate(-0.04em, 0);
+}
+
+.lab-glitch::after {
+  color: var(--color-signal-red);
+  transform: translate(0.04em, 0);
+}
+
+.lab-flash-cut {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 52% 36%, rgba(247, 251, 255, 0.32), transparent 34%);
+}
+
+.lab-filament {
+  display: grid;
+  gap: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-white-hot), transparent 84%);
+}
+
+.lab-filament svg {
+  width: min(100%, 34rem);
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(0, 250, 255, 0.08));
+}
+
+.lab-filament path,
+.lab-filament line {
+  vector-effect: non-scaling-stroke;
+}
+
+.lab-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.lab-card {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-technical-cyan), transparent 76%);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-congo-blue), transparent 90%), transparent 48%),
+    color-mix(in srgb, var(--color-uv-black), var(--color-white-hot) 3%);
+}
+
+.lab-card h2,
+.lab-card h3 {
+  margin: 0;
+  font-family: var(--font-display-family);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.lab-card p {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-white-hot), var(--color-ash) 35%);
+}
+
+.lab-card dl {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.lab-card dd {
+  margin: 0.2rem 0 0;
+  color: var(--color-white-hot);
+}
+
+.lab-break-card {
+  border-color: color-mix(in srgb, var(--color-signal-red), transparent 68%);
+}
+
+@media (min-width: 720px) {
+  .lab-section {
+    padding-inline: 2rem;
+  }
+
+  .lab-hero-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: end;
+  }
+
+  .lab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .lab-grid--portfolio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lab-glitch::before {
+    animation: lab-glitch-cyan 7s steps(1, end) infinite;
+  }
+
+  .lab-glitch::after {
+    animation: lab-glitch-red 7s steps(1, end) infinite;
+  }
+
+  .lab-flash-cut {
+    animation: lab-flash-cut 9s steps(1, end) infinite;
+  }
+}
+
+@keyframes lab-glitch-cyan {
+  0%, 92%, 100% { opacity: 0; clip-path: inset(0); }
+  93% { opacity: 0.72; clip-path: inset(12% 0 63% 0); }
+  94% { opacity: 0; clip-path: inset(0); }
+}
+
+@keyframes lab-glitch-red {
+  0%, 94%, 100% { opacity: 0; clip-path: inset(0); }
+  95% { opacity: 0.55; clip-path: inset(58% 0 18% 0); }
+  96% { opacity: 0; clip-path: inset(0); }
+}
+
+@keyframes lab-flash-cut {
+  0%, 78%, 100% { opacity: 0; }
+  78.5% { opacity: 1; }
+  79% { opacity: 0; }
+}

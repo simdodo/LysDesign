@@ -9,6 +9,7 @@ const {
   description = "Premium lighting design, programming, and creative technology for concerts, touring, and live visual environments.",
   image = "/images/portfolio/touring/cover.jpg",
   preloadImage,
+  robots,
   structuredData = []
 } = Astro.props;
 
@@ -85,6 +86,7 @@ const jsonLd = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <meta name="theme-color" content="#020304" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
