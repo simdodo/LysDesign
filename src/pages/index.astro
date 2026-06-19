@@ -1,84 +1,95 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CinematicHero from "../components/CinematicHero.astro";
-import WhatBreaksAShow from "../components/WhatBreaksAShow.astro";
-import ServiceTeaser from "../components/ServiceTeaser.astro";
-import CueSequence from "../components/CueSequence.astro";
-import SelectedWork from "../components/SelectedWork.astro";
-import FinalCTA from "../components/FinalCTA.astro";
-import BlackoutBreak from "../components/BlackoutBreak.astro";
-import festivalHeroImage from "../assets/portfolio/festival/cover.jpg";
+import PageLabelBar from "../components/PageLabelBar.astro";
+import PortfolioImage from "../components/PortfolioImage.astro";
+import festivalImage from "../assets/portfolio/festival/cover.jpg";
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
+import "../styles/home.css";
 
-const credibility = [
-  "16+ years experience",
-  "Oslo / Norway / Europe",
-  "Concerts / dance / festivals",
-  "GrandMA / EOS / Unreal",
-  "JAIN / Tim Dup / POING"
+const portfolioProjects = await getCollection("portfolio", ({ data }) => data.published);
+const projectMap = new Map(portfolioProjects.map((project) => [project.id, project]));
+const selectedProjectIds = [
+  "touring-lighting-showfiles",
+  "contemporary-dance-lighting",
+  "festival-venue-adaptation",
+  "unreal-visualization"
+];
+const selectedProjects = selectedProjectIds.flatMap((id) => {
+  const project = projectMap.get(id);
+  return project ? [project] : [];
+});
+
+const breakPoints = [
+  {
+    problem: "The rig changed.",
+    response: "Adapt the system."
+  },
+  {
+    problem: "Rehearsal time got shorter.",
+    response: "Protect the rhythm."
+  },
+  {
+    problem: "The room killed the original look.",
+    response: "Keep the identity."
+  },
+  {
+    problem: "The artist still needs to feel like themselves.",
+    response: "Make it work live."
+  }
 ];
 
-const productions = [
-  "International Touring",
-  "Contemporary Dance",
-  "Festival Productions",
-  "Venue Programming",
-  "Live Operation",
-  "Previsualization"
-];
-
-const services = [
+const systems = [
   {
-    title: "Touring",
-    description: "Showfiles, versions, local crew adaptation, and systems that still work when the room changes.",
-    cta: "Touring support",
-    href: "/services/touring-showfiles/"
+    label: "GrandMA",
+    detail: "Touring showfiles, live programming and festival versions."
   },
   {
-    title: "Dance",
-    description: "Cue timing, focus, silence, and black-box constraints built with performers in rehearsal.",
-    cta: "Dance lighting",
-    href: "/services/dance-theatre-lighting/"
+    label: "EOS",
+    detail: "Cue timing, focus and theatre / dance environments."
   },
   {
-    title: "Festival",
-    description: "Fast changeovers, daylight problems, patched rigs, and practical show-day decisions.",
-    cta: "Festival versioning",
-    href: "/services/festival-lighting/"
+    label: "Unreal / previs",
+    detail: "Stage environments before the room sets the limits."
   },
   {
-    title: "Visualization",
-    description: "Unreal and previs workflows for testing ideas before the venue becomes the first draft.",
-    cta: "Previs workflow",
-    href: "/services/unreal-previs/"
+    label: "Touring systems / showfiles",
+    detail: "Readable systems that can move between rooms and crews."
   }
 ];
 
 const process = [
   {
-    title: "Understand the room",
-    description: "Start with the venue, rig, schedule, crew, cameras, and what is already locked."
+    step: "Understand the room.",
+    detail: "Start with the venue, rig, time, crew and unknowns."
   },
   {
-    title: "Build the system",
-    description: "Make a plan that can be programmed, toured, adapted, and explained under pressure."
+    step: "Build the system.",
+    detail: "Make the file and workflow readable before pressure arrives."
   },
   {
-    title: "Adapt on site",
-    description: "Keep the look intact when fixtures move, time disappears, or the local plot is different."
+    step: "Adapt on site.",
+    detail: "Translate the idea when the room or plot changes."
+  },
+  {
+    step: "Keep the show recognizable.",
+    detail: "Protect the artist picture through practical decisions."
   }
 ];
 
-const featuredProjects = (await getCollection("portfolio", ({ data }) => data.published && data.featured))
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 4);
+const proofPoints = [
+  "16+ years in live entertainment",
+  "Oslo based",
+  "Norway / Europe",
+  "Concerts / dance / festivals",
+  "Lighting design / programming / operation"
+];
 
 const heroImageWidths = [768, 1024, 1280, 1600, 1920];
 const heroPreloadSources = await Promise.all(
   heroImageWidths.map((width) =>
     getImage({
-      src: festivalHeroImage,
+      src: festivalImage,
       width,
       format: "avif"
     })
@@ -95,46 +106,121 @@ const heroPreloadImage = {
 ---
 
 <Layout
-  title="De Freitas Lys Design | Lighting Design for Live Production"
-  description="Lighting design, programming, touring/live production systems and previs for concerts, dance and festivals in Oslo, Norway and across Europe."
+  title="De Freitas Lys Design | Lighting Design & Programming"
+  description="Lighting design, programming and touring systems for concerts, dance, festivals and live productions — based in Oslo, working across Norway and Europe."
+  image="/images/portfolio/festival/cover.jpg"
   preloadImage={heroPreloadImage}
 >
-  <div class="glow"></div>
-
-  <main id="main-content">
-    <CinematicHero
-      title="LIGHT THAT SURVIVES THE ROOM."
-      subtitle="Lighting design, programming and touring/live production systems for concerts, dance and festivals in Oslo, Norway and across Europe."
-      image={festivalHeroImage}
-      imageAlt="Festival crowd and lighting console under cyan stage beams"
-      proofPoints={credibility}
-    />
-
-    <WhatBreaksAShow productions={productions} />
-
-    <ServiceTeaser services={services} />
-
-    <BlackoutBreak text="The best cue is often the one that gives the room back to the artist." />
-
-    <CueSequence cues={process} />
-
-    <section class="home-section home-about" aria-labelledby="home-about-title">
-      <div class="section-kicker">ABOUT</div>
-      <div>
-        <h2 id="home-about-title">Systems, showfiles, and live decisions.</h2>
-        <p>
-          I design lighting systems, showfiles, touring workflows, and practical solutions for
-          productions that need to work outside ideal conditions.
-        </p>
+  <main class="home" id="main-content">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero-media" aria-hidden="true">
+        <PortfolioImage
+          image={festivalImage}
+          alt="Festival lighting and crowd seen from a production perspective"
+          loading="eager"
+          fetchpriority="high"
+          widths={[768, 1024, 1280, 1600, 1920]}
+          sizes="100vw"
+          caption="Festival / room pressure / live system"
+        />
       </div>
 
-      <div class="section-actions section-actions--quiet" aria-label="About actions">
-        <a class="link-tertiary" href="/about/">Read the working approach</a>
+      <div class="home-hero-content">
+        <PageLabelBar label="BLACKOUT / UV SIGNAL" description="Live systems / room pressure" />
+        <h1 id="home-title">
+          <span>LIGHT THAT</span>
+          <span>SURVIVES</span>
+          <span>THE ROOM.</span>
+        </h1>
+        <p>
+          Lighting design, programming and touring systems for concerts, dance,
+          festivals and live productions — based in Oslo, working across Norway
+          and Europe.
+        </p>
+
+        <div class="hero-actions" aria-label="Home actions">
+          <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+          <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Work</a>
+        </div>
       </div>
     </section>
 
-    <SelectedWork projects={featuredProjects} />
+    <section class="home-work" aria-labelledby="home-work-title">
+      <div class="section-kicker">Selected Work</div>
+      <h2 id="home-work-title">Work that has to hold under pressure.</h2>
 
-    <FinalCTA />
+      <div class="home-work-grid">
+        {selectedProjects.map((project) => (
+          <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click">
+            <PortfolioImage
+              image={project.data.cover}
+              alt={project.data.coverAlt}
+              caption={`${project.data.format} / ${project.data.role}`}
+            />
+            <span>{project.data.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-breaks" aria-labelledby="home-breaks-title">
+      <div class="section-kicker">What Breaks A Show</div>
+      <h2 id="home-breaks-title">Pressure first. Service name second.</h2>
+
+      <div class="home-break-grid">
+        {breakPoints.map((item) => (
+          <article>
+            <span>{item.problem}</span>
+            <strong>{item.response}</strong>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-systems" aria-labelledby="home-systems-title">
+      <div>
+        <div class="section-kicker">Technical systems</div>
+        <h2 id="home-systems-title">Tools are only useful when the room is honest.</h2>
+      </div>
+
+      <ul>
+        {systems.map((system) => (
+          <li>
+            <span>{system.label}</span>
+            <p>{system.detail}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-process" aria-labelledby="home-process-title">
+      <div class="section-kicker">Process</div>
+      <h2 id="home-process-title">Make the show readable before show day.</h2>
+
+      <ol>
+        {process.map((step) => (
+          <li>
+            <span>{step.step}</span>
+            <p>{step.detail}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="home-proof" aria-labelledby="home-proof-title">
+      <div class="section-kicker">Proof</div>
+      <h2 id="home-proof-title">Built from real rooms, not ideal diagrams.</h2>
+
+      <ul>
+        {proofPoints.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="home-final" aria-labelledby="home-final-title">
+      <h2 id="home-final-title">Bring the brief, the room and the deadline.</h2>
+      <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
+    </section>
   </main>
 </Layout>
