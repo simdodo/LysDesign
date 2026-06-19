@@ -6,6 +6,13 @@ role: "Touring LD / Programmer / Operator"
 location: "France / Europe / International"
 year: "2006-present"
 format: "Touring"
+scale: "France / Europe / international touring contexts"
+genre: "Concert touring / live music"
+filters:
+  - touring
+  - programming
+  - showfiles
+  - festival-versioning
 featured: true
 order: 1
 tags:
@@ -24,8 +31,11 @@ approach: "Build modular showfile structure, readable layouts and adaptable cue 
 result: "A touring workflow that keeps the show recognizable while leaving room for fast programming decisions on site."
 truth: "The file has to be clear when time disappears."
 productionProblem: "Local rigs, festival versions and short rehearsal windows."
+decision: "Separate the artist identity from local rig translation."
+finalResult: "A readable touring file that can move quickly without losing the show picture."
 response: "Modular showfile structure and adaptable cue logic."
 changedOnSite: "Fixture availability, trim, positions and time."
+whatChangedOnSite: "Fixture availability, trim, positions, patch and programming time."
 stayedConsistent: "Artist identity, cue logic and show rhythm."
 productionContext: "Publishable touring references include JAIN, Tim Dup and Les Tambours du Bronx, with other touring contexts grouped by production type."
 venueContext: "France, Europe and international touring rooms, including venue and festival conditions."
@@ -33,6 +43,7 @@ systemWorkflow: "GrandMA2 / GrandMA3 touring showfiles, local-rig translation, f
 constraint: "Each stop can change fixture availability, trim, positions, patch, local crew and programming time."
 solution: "Use modular showfile structure, clear palettes, fixture roles and fallback looks so the artist picture survives different rigs."
 outcome: "The show keeps its identity while the file stays readable enough for short load-ins and show-day adaptation."
+credits: "Public references and production details are kept limited to what is clear for publication."
 mediaCredits: "Touring media is represented with front-of-house production imagery; full artist or venue credits are added only when cleared."
 mediaItems:
   - label: "Front-of-house production image"
@@ -52,6 +63,7 @@ selectedProjects:
   - Tim Dup
   - Les Tambours du Bronx
 published: true
+publishable: true
 ---
 
 Touring files need a hierarchy. The first layer is the show identity: core looks, song structure, cue timing and the stage picture the artist recognizes. The second layer is translation: what happens when the rig is smaller, the positions change, the festival package has different fixtures, or the local crew has limited focus time.

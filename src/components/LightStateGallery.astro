@@ -1,0 +1,40 @@
+---
+import PortfolioImage from "./PortfolioImage.astro";
+
+interface LightState {
+  label: string;
+  image?: unknown;
+  alt?: string;
+  caption?: string;
+}
+
+interface Props {
+  states?: LightState[];
+  title?: string;
+}
+
+const { states = [], title = "Light states" } = Astro.props as Props;
+const visibleStates = states.filter((state) => state?.image).slice(0, 6);
+---
+
+{visibleStates.length > 0 && (
+  <section class={`light-state-gallery light-state-gallery--count-${visibleStates.length}`} aria-labelledby="light-state-gallery-title">
+    <div class="section-kicker">LIGHT STATES</div>
+    <h2 id="light-state-gallery-title">{title}</h2>
+
+    <div class="light-state-grid">
+      {visibleStates.map((state, index) => (
+        <article class={index === 0 ? "light-state light-state--primary" : "light-state"}>
+          <PortfolioImage
+            image={state.image}
+            alt={state.alt ?? `${state.label} lighting state`}
+            loading="lazy"
+            caption={state.caption}
+            className="light-state-image"
+          />
+          <span>{state.label}</span>
+        </article>
+      ))}
+    </div>
+  </section>
+)}

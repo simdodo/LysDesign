@@ -3,6 +3,9 @@ import Layout from "./Layout.astro";
 import PageLabelBar from "../components/PageLabelBar.astro";
 import PortfolioImage from "../components/PortfolioImage.astro";
 import SceneGallery from "../components/SceneGallery.astro";
+import LightStateGallery from "../components/LightStateGallery.astro";
+import ProjectNarrative from "../components/ProjectNarrative.astro";
+import ProjectTechnicalPanel from "../components/ProjectTechnicalPanel.astro";
 
 const { project } = Astro.props;
 const data = project.data;
@@ -70,6 +73,7 @@ const sceneGalleryItems = [
       : `Detail read: ${data.constraint ?? data.productionProblem ?? data.challenge}`
   }))
 ];
+const changedOnSite = data.whatChangedOnSite ?? data.changedOnSite;
 const structuredSnapshot = [
   {
     label: "PRODUCTION",
@@ -142,36 +146,7 @@ const creativeWork = {
       <h1 id="case-study-title">{data.title}</h1>
       <p>{data.subtitle}</p>
 
-      <dl class="case-study-meta case-technical-panel" aria-label="Technical project panel">
-        <div>
-          <dt>Role</dt>
-          <dd>{data.role}</dd>
-        </div>
-        <div>
-          <dt>Location</dt>
-          <dd>{data.location}</dd>
-        </div>
-        <div>
-          <dt>Year</dt>
-          <dd>{data.year}</dd>
-        </div>
-        <div>
-          <dt>Format</dt>
-          <dd>{data.format}</dd>
-        </div>
-        <div>
-          <dt>System</dt>
-          <dd>{data.systemWorkflow ?? data.systems.join(" / ")}</dd>
-        </div>
-        <div>
-          <dt>Constraint</dt>
-          <dd>{data.constraint ?? data.productionProblem ?? data.challenge}</dd>
-        </div>
-        <div>
-          <dt>Result</dt>
-          <dd>{data.outcome ?? data.stayedConsistent ?? data.result}</dd>
-        </div>
-      </dl>
+      <ProjectTechnicalPanel data={data} />
 
       <ul class="hero-proof" aria-label="Tags and systems">
         {[...data.tags, ...data.systems].map((item) => (
@@ -181,11 +156,25 @@ const creativeWork = {
 
     </section>
 
+    <ProjectNarrative data={data} />
+
     {sceneGalleryFormats.has(data.format) && (
       <SceneGallery
         scenes={sceneGalleryItems}
         title={sceneGalleryTitles[data.format] ?? `${data.title} documented as a scene.`}
       />
+    )}
+
+    <LightStateGallery states={data.lightStates} title={`${data.title} / light states`} />
+
+    {changedOnSite && (
+      <section class="case-study-sections project-site-change" aria-label="What changed on site">
+        <article class="case-study-change">
+          <span>WHAT CHANGED ON SITE</span>
+          <h2>{changedOnSite}</h2>
+          <p>{data.truth ?? "The workflow had to stay readable under production pressure."}</p>
+        </article>
+      </section>
     )}
 
     <section class="case-study-sections" aria-label="Structured production details">
@@ -222,34 +211,6 @@ const creativeWork = {
         ))}
       </section>
     )}
-
-    <section class="case-study-sections" aria-label="Case study details">
-      <article>
-        <span>Challenge</span>
-        <h2>{data.productionProblem ?? data.challenge}</h2>
-        <p>{data.challenge}</p>
-      </article>
-
-      <article>
-        <span>Approach</span>
-        <h2>{data.response ?? "Professional response"}</h2>
-        <p>{data.approach}</p>
-      </article>
-
-      <article>
-        <span>Result</span>
-        <h2>{data.stayedConsistent ?? "What stayed consistent"}</h2>
-        <p>{data.result}</p>
-      </article>
-
-      {data.changedOnSite && (
-        <article class="case-study-change">
-          <span>What changed on site</span>
-          <h2>{data.changedOnSite}</h2>
-          <p>{data.truth ?? "The workflow had to stay readable under production pressure."}</p>
-        </article>
-      )}
-    </section>
 
     <section class="case-study-notes" aria-labelledby="technical-notes-title">
       <div class="section-kicker">Technical Notes</div>

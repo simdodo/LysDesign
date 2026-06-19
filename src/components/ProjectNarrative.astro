@@ -1,0 +1,46 @@
+---
+interface Props {
+  data: {
+    challenge: string;
+    approach: string;
+    result: string;
+    productionProblem?: string;
+    decision?: string;
+    finalResult?: string;
+    solution?: string;
+    response?: string;
+    outcome?: string;
+    stayedConsistent?: string;
+  };
+}
+
+const { data } = Astro.props as Props;
+
+const narrative = [
+  {
+    label: "PROBLEM",
+    title: data.productionProblem ?? data.challenge,
+    copy: data.challenge,
+  },
+  {
+    label: "DECISION",
+    title: data.decision ?? data.solution ?? data.response ?? "Practical production response",
+    copy: data.approach,
+  },
+  {
+    label: "RESULT",
+    title: data.finalResult ?? data.outcome ?? data.stayedConsistent ?? "Readable show result",
+    copy: data.result,
+  },
+];
+---
+
+<section class="case-study-sections project-narrative" aria-label="Project narrative">
+  {narrative.map((item) => (
+    <article>
+      <span>{item.label}</span>
+      <h2>{item.title}</h2>
+      <p>{item.copy}</p>
+    </article>
+  ))}
+</section>

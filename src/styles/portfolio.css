@@ -677,6 +677,68 @@
   min-height: 260px;
 }
 
+.project-narrative {
+  margin-bottom: 48px;
+}
+
+.project-technical-panel {
+  margin-top: 28px;
+}
+
+.project-site-change {
+  margin-bottom: 48px;
+}
+
+.light-state-gallery {
+  width: min(100% - 48px, 1300px);
+  margin: 0 auto 72px;
+  display: grid;
+  gap: 22px;
+}
+
+.light-state-gallery h2 {
+  max-width: 980px;
+  font-size: clamp(1.9rem, 5vw, 5.1rem);
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+.light-state-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  gap: 1px;
+  background: var(--color-border);
+}
+
+.light-state {
+  display: grid;
+  gap: 0;
+  background: var(--color-surface);
+}
+
+.light-state--primary {
+  grid-row: span 2;
+}
+
+.light-state .portfolio-image-frame {
+  min-height: 280px;
+}
+
+.light-state--primary .portfolio-image-frame {
+  min-height: clamp(420px, 54vw, 720px);
+}
+
+.light-state span {
+  padding: 12px 14px;
+  border-top: var(--border-width) solid rgba(255, 255, 255, 0.12);
+  color: rgba(125, 249, 255, 0.76);
+  font-family: var(--font-mono-family);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
 @media (hover: hover) {
   .portfolio-card:hover .portfolio-card-body h2,
   .portfolio-card:focus-within .portfolio-card-body h2 {
@@ -797,8 +859,22 @@
   .case-study-sections,
   .case-study-notes,
   .case-study-gallery,
-  .scene-gallery {
+  .scene-gallery,
+  .light-state-gallery {
     width: min(100% - 32px, 1300px);
     margin-bottom: 48px;
+  }
+
+  .light-state-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .light-state--primary {
+    grid-row: auto;
+  }
+
+  .light-state .portfolio-image-frame,
+  .light-state--primary .portfolio-image-frame {
+    min-height: 260px;
   }
 }

@@ -22,6 +22,9 @@ const portfolio = defineCollection({
       location: z.string(),
       year: z.string(),
       format: z.enum(formats),
+      scale: z.string().optional(),
+      genre: z.string().optional(),
+      filters: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
       order: z.number().int().default(99),
       tags: z.array(z.string()).default([]),
@@ -34,8 +37,11 @@ const portfolio = defineCollection({
       result: z.string(),
       truth: z.string().optional(),
       productionProblem: z.string().optional(),
+      decision: z.string().optional(),
+      finalResult: z.string().optional(),
       response: z.string().optional(),
       changedOnSite: z.string().optional(),
+      whatChangedOnSite: z.string().optional(),
       stayedConsistent: z.string().optional(),
       productionContext: z.string().optional(),
       venueContext: z.string().optional(),
@@ -43,7 +49,18 @@ const portfolio = defineCollection({
       constraint: z.string().optional(),
       solution: z.string().optional(),
       outcome: z.string().optional(),
+      credits: z.string().optional(),
       mediaCredits: z.string().optional(),
+      lightStates: z
+        .array(
+          z.object({
+            label: z.string(),
+            image: image().optional(),
+            alt: z.string().optional(),
+            caption: z.string().optional(),
+          })
+        )
+        .default([]),
       mediaItems: z
         .array(
           z.object({
@@ -63,6 +80,7 @@ const portfolio = defineCollection({
         .default([]),
       selectedProjects: z.array(z.string()).default([]),
       published: z.boolean().default(true),
+      publishable: z.boolean().default(true),
     }),
 });
 

@@ -1,0 +1,44 @@
+---
+interface Props {
+  data: {
+    role: string;
+    format: string;
+    location: string;
+    year: string;
+    systems: string[];
+    tags: string[];
+    scale?: string;
+    genre?: string;
+    systemWorkflow?: string;
+    constraint?: string;
+    productionProblem?: string;
+    challenge: string;
+    outcome?: string;
+    stayedConsistent?: string;
+    result: string;
+  };
+}
+
+const { data } = Astro.props as Props;
+
+const items = [
+  { label: "Role", value: data.role },
+  { label: "Format", value: data.format },
+  { label: "Location", value: data.location },
+  { label: "Period", value: data.year },
+  { label: "Scale", value: data.scale },
+  { label: "Genre", value: data.genre },
+  { label: "System", value: data.systemWorkflow ?? data.systems.join(" / ") },
+  { label: "Pressure", value: data.constraint ?? data.productionProblem ?? data.challenge },
+  { label: "Result", value: data.outcome ?? data.stayedConsistent ?? data.result },
+].filter((item) => item.value);
+---
+
+<dl class="case-study-meta case-technical-panel project-technical-panel" aria-label="Technical project panel">
+  {items.map((item) => (
+    <div>
+      <dt>{item.label}</dt>
+      <dd>{item.value}</dd>
+    </div>
+  ))}
+</dl>
