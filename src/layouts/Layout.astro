@@ -85,6 +85,11 @@ const jsonLd = [
   ...baseStructuredData,
   ...(Array.isArray(structuredData) ? structuredData : [structuredData]).filter(Boolean)
 ];
+
+const preloadImageHref = typeof preloadImage === "string" ? preloadImage : preloadImage?.href;
+const preloadImageSrcset = typeof preloadImage === "string" ? undefined : preloadImage?.srcset;
+const preloadImageSizes = typeof preloadImage === "string" ? undefined : preloadImage?.sizes;
+const preloadImageType = typeof preloadImage === "string" ? undefined : preloadImage?.type;
 ---
 
 <html lang="en">
@@ -110,7 +115,17 @@ const jsonLd = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {preloadImageHref && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImageHref}
+        imagesrcset={preloadImageSrcset}
+        imagesizes={preloadImageSizes}
+        type={preloadImageType}
+        fetchpriority="high"
+      />
+    )}
     <title>{title}</title>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];

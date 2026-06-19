@@ -9,6 +9,7 @@ import FinalCTA from "../components/FinalCTA.astro";
 import BlackoutBreak from "../components/BlackoutBreak.astro";
 import festivalHeroImage from "../assets/portfolio/festival/cover.jpg";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 
 const credibility = [
   "16+ years experience",
@@ -72,12 +73,31 @@ const process = [
 const featuredProjects = (await getCollection("portfolio", ({ data }) => data.published && data.featured))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 4);
+
+const heroImageWidths = [768, 1024, 1280, 1600, 1920];
+const heroPreloadSources = await Promise.all(
+  heroImageWidths.map((width) =>
+    getImage({
+      src: festivalHeroImage,
+      width,
+      format: "avif"
+    })
+  )
+);
+const heroPreloadImage = {
+  href: heroPreloadSources.at(-1)?.src,
+  srcset: heroPreloadSources
+    .map((source, index) => `${source.src} ${heroImageWidths[index]}w`)
+    .join(", "),
+  sizes: "100vw",
+  type: "image/avif"
+};
 ---
 
 <Layout
   title="De Freitas Lys Design | Lighting Design for Live Production"
   description="Lighting design, programming, touring/live production systems and previs for concerts, dance and festivals in Oslo, Norway and across Europe."
-  preloadImage="/images/portfolio/festival/cover.jpg"
+  preloadImage={heroPreloadImage}
 >
   <div class="glow"></div>
 
