@@ -259,6 +259,15 @@
     padding: 40px 0 64px;
   }
 
+  .home-v2-work,
+  .home-v2-breaks,
+  .home-v2-systems,
+  .home-v2-process,
+  .home-v2-proof,
+  .home-v2-final {
+    padding: 42px 0;
+  }
+
   .home-v2 h1 {
     max-width: 100%;
     font-size: clamp(2.85rem, 14vw, 5.2rem);
@@ -279,7 +288,25 @@
 
   .home-v2-work-grid .portfolio-image-frame,
   .home-v2-work-grid a:first-child .portfolio-image-frame {
-    min-height: 260px;
+    min-height: 224px;
+  }
+
+  .home-v2-break-grid article {
+    min-height: 136px;
+    gap: 8px;
+    padding: 18px;
+  }
+
+  .home-v2-systems li,
+  .home-v2-process li,
+  .home-v2-proof li {
+    padding: 14px;
+  }
+
+  .home-v2-systems li p,
+  .home-v2-process li p {
+    font-size: 0.88rem;
+    line-height: 1.38;
   }
 
   .home-v2 .hero-actions {
@@ -310,5 +337,30 @@
 
   .home-v2-hero p {
     font-size: 0.98rem;
+  }
+
+  .home-v2-work,
+  .home-v2-breaks,
+  .home-v2-systems,
+  .home-v2-process,
+  .home-v2-proof,
+  .home-v2-final {
+    padding: 34px 0;
+  }
+
+  .home-v2-work-grid .portfolio-image-frame,
+  .home-v2-work-grid a:first-child .portfolio-image-frame {
+    min-height: 204px;
+  }
+
+  .home-v2-break-grid article {
+    min-height: 118px;
+    padding: 14px;
+  }
+
+  .home-v2-systems li,
+  .home-v2-process li,
+  .home-v2-proof li {
+    padding: 12px;
   }
 }
