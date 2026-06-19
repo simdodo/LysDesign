@@ -25,7 +25,7 @@ const editorialCaptions = {
   Touring: "FOH / touring file pressure — the show has to survive another room.",
   Dance: "Black-box read — movement, timing and silence decide the cue.",
   Festival: "Festival translation — local rig, daylight and changeover pressure.",
-  Programming: "Programming read ? showfile structure built for live operation.",
+  Programming: "Programming read — showfile structure built for live operation.",
   "Visual Direction": "Artist-led scene — references become a repeatable visual language.",
   Previsualization: "Previs study — decisions tested before the venue becomes the first draft.",
   "Special Project": "Hybrid setup — technical solution outside normal production categories."
@@ -83,16 +83,16 @@ const getTone = (format: string) =>
                 <dd>{featuredProject.data.role}</dd>
               </div>
               <div>
+                <dt>Format</dt>
+                <dd>{featuredProject.data.format}</dd>
+              </div>
+              <div>
                 <dt>System</dt>
                 <dd>{featuredProject.data.systems.join(" / ")}</dd>
               </div>
               <div>
-                <dt>Constraint</dt>
-                <dd>{featuredProject.data.productionProblem ?? featuredProject.data.challenge}</dd>
-              </div>
-              <div>
                 <dt>Result</dt>
-                <dd>{featuredProject.data.result}</dd>
+                <dd>{featuredProject.data.outcome ?? featuredProject.data.result}</dd>
               </div>
             </dl>
 
@@ -124,12 +124,12 @@ const getTone = (format: string) =>
 
               <dl class="portfolio-case-notes" aria-label={`${project.data.title} case study summary`}>
                 <div>
-                  <dt>Constraint</dt>
-                  <dd>{project.data.productionProblem ?? project.data.challenge}</dd>
+                  <dt>Role</dt>
+                  <dd>{project.data.role}</dd>
                 </div>
                 <div>
-                  <dt>System</dt>
-                  <dd>{project.data.systems.join(" / ")}</dd>
+                  <dt>Result</dt>
+                  <dd>{project.data.outcome ?? project.data.result}</dd>
                 </div>
               </dl>
 
