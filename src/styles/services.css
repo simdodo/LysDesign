@@ -281,3 +281,70 @@
 .services-cta .hero-actions .cta {
   margin-top: 0;
 }
+
+@media (max-width: 700px) {
+  .services-page {
+    padding: 34px 0 62px;
+  }
+
+  .services-hero,
+  .services-grid,
+  .services-cta {
+    width: min(100% - 32px, 1300px);
+  }
+
+  .services-hero {
+    min-height: auto;
+    padding-bottom: 38px;
+  }
+
+  .services-hero h1 {
+    font-size: clamp(1.95rem, 9.6vw, 4rem);
+  }
+
+  .hero-proof {
+    gap: 8px 10px;
+  }
+
+  .services-proof {
+    grid-template-columns: 1fr;
+    margin-bottom: 38px;
+  }
+
+  .about-incarnation {
+    width: min(100% - 32px, 1300px);
+    grid-template-columns: 1fr;
+    margin-bottom: 38px;
+  }
+
+  .about-incarnation > div,
+  .about-incarnation .portfolio-image-frame {
+    min-height: 280px;
+  }
+
+  .pressure-module {
+    width: min(100% - 32px, 1300px);
+    margin-bottom: 38px;
+  }
+
+  .pressure-list a {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 250px;
+  }
+
+  .service-card--secondary {
+    min-height: 185px;
+  }
+
+  .services-cta {
+    padding-top: 40px;
+  }
+}

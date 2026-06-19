@@ -1204,3 +1204,235 @@ h3 {
   color: #7df9ff;
   transform: translateY(-1px);
 }
+
+@media (max-width: 700px) {
+  .site-header {
+    position: sticky;
+    align-items: center;
+    min-height: auto;
+    gap: 12px;
+    padding: 9px 16px;
+  }
+
+  .brand {
+    font-size: 0.64rem;
+    letter-spacing: 0.24em;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 16px;
+    right: 16px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 14px;
+    max-width: none;
+    padding: 14px;
+    border: var(--border-width) solid var(--color-border-soft);
+    border-radius: var(--border-radius);
+    background:
+      linear-gradient(150deg, rgba(125, 249, 255, 0.05), transparent 45%),
+      rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    font-size: 0.56rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a::after {
+    bottom: -4px;
+  }
+
+  .container {
+    width: min(100% - 32px, 1300px);
+    padding: 56px 0;
+  }
+
+  .hero-section {
+    min-height: 72vh;
+    width: min(100% - 32px, 1300px);
+    border-inline: 0;
+  }
+
+  .hero-media img {
+    object-position: 48% center;
+    filter: brightness(0.72) contrast(1.08) saturate(0.82);
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(2.75rem, 14.6vw, 4rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: manual;
+  }
+
+  .hero-small {
+    margin-bottom: 20px;
+    letter-spacing: 0.22em;
+  }
+
+  .hero-section .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-section .hero-actions .cta {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .hero-technical-panel {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 26px;
+  }
+
+  .hero-technical-panel div {
+    grid-template-columns: 62px 1fr;
+  }
+
+  .credibility-strip,
+  .home-section,
+  .home-final-cta,
+  .blackout-break {
+    width: min(100% - 32px, 1300px);
+  }
+
+  .blackout-break {
+    min-height: 260px;
+    margin-bottom: 58px;
+  }
+
+  .credibility-strip {
+    margin-top: 0;
+    margin-bottom: 52px;
+  }
+
+  .credibility-strip span {
+    flex-basis: 100%;
+  }
+
+  .home-section {
+    padding-bottom: 58px;
+  }
+
+  .home-section--compact {
+    padding-bottom: 48px;
+  }
+
+  .section-actions {
+    margin-top: 18px;
+  }
+
+  .production-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .production-grid ul {
+    grid-template-columns: 1fr;
+  }
+
+  .home-card-grid,
+  .home-service-row,
+  .process-grid,
+  .cue-sequence-track,
+  .home-portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-service-row {
+    gap: 10px;
+  }
+
+  .home-card,
+  .process-card,
+  .cue-sequence-card {
+    min-height: 205px;
+  }
+
+  .cue-sequence-track::before {
+    top: 0;
+    bottom: 0;
+    left: 22px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(0, 250, 255, 0.82), rgba(255, 154, 61, 0.62), rgba(242, 251, 255, 0.72));
+  }
+
+  .home-portfolio-card {
+    grid-template-rows: auto auto;
+  }
+
+  .home-portfolio-card > div {
+    min-height: 0;
+  }
+
+  .home-final-cta {
+    padding-bottom: 58px;
+  }
+
+  .work-section,
+  .site-footer {
+    width: min(100% - 32px, 1300px);
+  }
+
+  .work-section {
+    padding-bottom: 80px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    min-height: 230px;
+  }
+
+  .footer-main,
+  .footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+  }
+
+  .footer-actions {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    max-width: 11ch;
+    font-size: clamp(2.65rem, 14vw, 3.15rem);
+  }
+
+  .hero-title .hero-title-line {
+    white-space: normal;
+  }
+}

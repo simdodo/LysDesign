@@ -239,3 +239,49 @@
   color: #fff;
   transform: translateY(-1px);
 }
+
+@media (max-width: 700px) {
+  .contact-page {
+    padding: 34px 0 62px;
+  }
+
+  .contact-hero,
+  .contact-shell {
+    width: min(100% - 32px, 1300px);
+  }
+
+  .contact-hero {
+    min-height: auto;
+    padding-bottom: 38px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(1.95rem, 9.6vw, 4rem);
+  }
+
+  .contact-shell,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form,
+  .contact-details {
+    padding: 24px;
+  }
+
+  .cookie-consent {
+    right: 16px;
+    grid-template-columns: 1fr;
+    align-items: start;
+    bottom: 14px;
+    width: calc(100% - 32px);
+  }
+
+  .cookie-consent-actions {
+    width: 100%;
+  }
+
+  .cookie-consent-button {
+    flex: 1 1 130px;
+  }
+}
