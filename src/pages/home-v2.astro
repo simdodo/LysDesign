@@ -6,9 +6,18 @@ import festivalImage from "../assets/portfolio/festival/cover.jpg";
 import { getCollection } from "astro:content";
 import "../styles/home-v2.css";
 
-const selectedProjects = (await getCollection("portfolio", ({ data }) => data.published && data.featured))
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+const portfolioProjects = await getCollection("portfolio", ({ data }) => data.published);
+const projectMap = new Map(portfolioProjects.map((project) => [project.id, project]));
+const selectedProjectIds = [
+  "touring-lighting-showfiles",
+  "contemporary-dance-lighting",
+  "festival-venue-adaptation",
+  "unreal-visualization"
+];
+const selectedProjects = selectedProjectIds.flatMap((id) => {
+  const project = projectMap.get(id);
+  return project ? [project] : [];
+});
 
 const breakPoints = [
   {
@@ -30,17 +39,49 @@ const breakPoints = [
 ];
 
 const systems = [
-  "GrandMA",
-  "EOS",
-  "Unreal",
-  "Touring systems"
+  {
+    label: "GrandMA",
+    detail: "Touring showfiles, live programming and festival versions."
+  },
+  {
+    label: "EOS",
+    detail: "Cue timing, focus and theatre / dance environments."
+  },
+  {
+    label: "Unreal / previs",
+    detail: "Stage environments before the room becomes the first draft."
+  },
+  {
+    label: "Touring systems / showfiles",
+    detail: "Readable systems that can move between rooms and crews."
+  }
 ];
 
 const process = [
-  "Understand the room.",
-  "Build the system.",
-  "Adapt on site.",
-  "Keep the show recognizable."
+  {
+    step: "Understand the room.",
+    detail: "Start with the venue, rig, time, crew and unknowns."
+  },
+  {
+    step: "Build the system.",
+    detail: "Make the file and workflow readable before pressure arrives."
+  },
+  {
+    step: "Adapt on site.",
+    detail: "Translate the idea when the room or plot changes."
+  },
+  {
+    step: "Keep the show recognizable.",
+    detail: "Protect the artist picture through practical decisions."
+  }
+];
+
+const proofPoints = [
+  "16+ years in live entertainment",
+  "Oslo based",
+  "Norway / Europe",
+  "Concerts / dance / festivals",
+  "Lighting design / programming / operation"
 ];
 ---
 
@@ -55,19 +96,26 @@ const process = [
       <div class="home-v2-hero-media" aria-hidden="true">
         <PortfolioImage
           image={festivalImage}
-          alt=""
+          alt="Festival lighting and crowd seen from a production perspective"
           loading="eager"
           fetchpriority="high"
+          widths={[768, 1024, 1280, 1600, 1920]}
+          sizes="100vw"
           caption="Festival / room pressure / live system"
         />
       </div>
 
       <div class="home-v2-hero-content">
         <PageLabelBar label="BLACKOUT / SIGNAL" description="Private prototype" />
-        <h1 id="home-v2-title">LIGHT THAT SURVIVES THE ROOM.</h1>
+        <h1 id="home-v2-title">
+          <span>LIGHT THAT</span>
+          <span>SURVIVES</span>
+          <span>THE ROOM.</span>
+        </h1>
         <p>
-          Lighting design, programming and touring systems for concerts, dance, festivals
-          and live productions across Norway and Europe.
+          Lighting design, programming and touring systems for concerts, dance,
+          festivals and live productions — based in Oslo, working across Norway
+          and Europe.
         </p>
 
         <div class="hero-actions" aria-label="Home v2 actions">
@@ -79,7 +127,7 @@ const process = [
 
     <section class="home-v2-work" aria-labelledby="home-v2-work-title">
       <div class="section-kicker">Selected Work</div>
-      <h2 id="home-v2-work-title">Three ways the work has to hold.</h2>
+      <h2 id="home-v2-work-title">Work that has to hold under pressure.</h2>
 
       <div class="home-v2-work-grid">
         {selectedProjects.map((project) => (
@@ -117,18 +165,12 @@ const process = [
 
       <ul>
         {systems.map((system) => (
-          <li>{system}</li>
+          <li>
+            <span>{system.label}</span>
+            <p>{system.detail}</p>
+          </li>
         ))}
       </ul>
-    </section>
-
-    <section class="home-v2-states" aria-labelledby="home-v2-states-title">
-      <div class="section-kicker">Light States Teaser</div>
-      <h2 id="home-v2-states-title">Opening. Build. Peak. Blackout.</h2>
-      <p>
-        Future project pages can document real light states when the media is cleared:
-        emotional image, technical image, crop/detail.
-      </p>
     </section>
 
     <section class="home-v2-process" aria-labelledby="home-v2-process-title">
@@ -137,9 +179,23 @@ const process = [
 
       <ol>
         {process.map((step) => (
-          <li>{step}</li>
+          <li>
+            <span>{step.step}</span>
+            <p>{step.detail}</p>
+          </li>
         ))}
       </ol>
+    </section>
+
+    <section class="home-v2-proof" aria-labelledby="home-v2-proof-title">
+      <div class="section-kicker">Proof</div>
+      <h2 id="home-v2-proof-title">Built from real rooms, not ideal diagrams.</h2>
+
+      <ul>
+        {proofPoints.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
     </section>
 
     <section class="home-v2-final" aria-labelledby="home-v2-final-title">

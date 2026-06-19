@@ -8,6 +8,8 @@ const {
   height = 900,
   loading = "lazy",
   fetchpriority,
+  widths,
+  sizes,
   caption,
   className = ""
 } = Astro.props;
@@ -33,6 +35,8 @@ const isPublicPath = typeof image === "string";
         <OptimizedPicture
           image={image}
           alt={alt}
+          widths={widths}
+          sizes={sizes}
           loading={loading}
           fetchpriority={fetchpriority}
         />
