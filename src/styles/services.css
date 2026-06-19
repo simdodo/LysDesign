@@ -302,6 +302,14 @@
     font-size: clamp(1.95rem, 9.6vw, 4rem);
   }
 
+  .about-page .services-hero {
+    padding-bottom: 26px;
+  }
+
+  .about-page .about-hero-secondary {
+    display: none;
+  }
+
   .hero-proof {
     gap: 8px 10px;
   }
@@ -337,11 +345,13 @@
   }
 
   .service-card {
-    min-height: 250px;
+    min-height: auto;
+    gap: 14px;
+    padding: 24px;
   }
 
   .service-card--secondary {
-    min-height: 185px;
+    min-height: auto;
   }
 
   .services-cta {

@@ -50,7 +50,7 @@ const productionValue = [
 >
   <div class="glow"></div>
 
-  <main class="services-page" id="main-content">
+  <main class="services-page about-page" id="main-content">
     <section class="services-hero" aria-labelledby="about-title">
       <PageLabelBar label="About" />
 
@@ -61,11 +61,28 @@ const productionValue = [
         across touring, contemporary dance, festivals, venues and artist-led productions.
       </p>
 
-      <p>
+      <p class="about-hero-secondary">
         My work sits between artistic direction and technical delivery: building lighting
         systems, showfiles and cue structures that can survive real rooms, short rehearsals,
         local rigs and production pressure.
       </p>
+
+    </section>
+
+    <section class="services-proof" aria-labelledby="selected-experience-title">
+      <div class="proof-block">
+        <span>Selected experience</span>
+        <h2 id="selected-experience-title">Work built across real production formats.</h2>
+      </div>
+
+      <div class="proof-block">
+        <span>Proof</span>
+        <ul>
+          {experience.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
 
     </section>
 
@@ -84,23 +101,6 @@ const productionValue = [
           actually stands. The room usually tells you what will work before the console does.
         </p>
       </div>
-    </section>
-
-    <section class="services-proof" aria-labelledby="selected-experience-title">
-      <div class="proof-block">
-        <span>Selected experience</span>
-        <h2 id="selected-experience-title">Work built across real production formats.</h2>
-      </div>
-
-      <div class="proof-block">
-        <span>Proof</span>
-        <ul>
-          {experience.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </div>
-
     </section>
 
     <section class="services-grid" aria-labelledby="how-i-work-title">
