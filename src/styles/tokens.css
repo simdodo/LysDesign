@@ -6,3 +6,49 @@
   --color-white-hot: #f7fbff;
   --color-ash: #9aa3ad;
 }
+
+/* Site design tokens */
+:root {
+  --color-bg: #05080c;
+  --color-bg-studio: #071014;
+  --color-bg-soft: #090d12;
+  --color-surface: rgba(5, 8, 12, 0.85);
+  --color-surface-studio: rgba(7, 14, 18, 0.9);
+  --color-surface-strong: rgba(1, 4, 7, 0.9);
+  --color-border: rgba(0, 250, 255, 0.28);
+  --color-border-soft: rgba(0, 250, 255, 0.16);
+  --color-accent: #00faff;
+  --color-cyan: #00faff;
+  --color-light-cyan: #88fbff;
+  --color-accent-soft: rgba(125, 249, 255, 0.16);
+  --color-blackout: #020304;
+  --color-tungsten: #ff9a3d;
+  --color-violet: #7c3cff;
+  --color-magenta: #b61565;
+  --color-cold-white: #f2fbff;
+  --color-warm: rgba(255, 120, 40, 0.08);
+  --color-text: #ffffff;
+  --color-muted: #8ca0b3;
+  --color-text-muted: #8ca0b3;
+  --border-width: 1px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --radius-small: 0px;
+  --border-radius-sm: var(--radius-small);
+  --border-radius-md: var(--radius-small);
+  --border-radius: var(--border-radius-sm);
+  --font-size-base: 16px;
+  --font-display: clamp(4.8rem, 13.6vw, 11.6rem);
+  --font-hero: clamp(3rem, 7.8vw, 7.9rem);
+  --font-section: clamp(2.6rem, 6.4vw, 6.25rem);
+  --font-card-title: clamp(1.35rem, 2.05vw, 2.12rem);
+  --font-display-family: "Space Grotesk", "Geist", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-body-family: "Inter", "Geist", "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --font-mono-family: "IBM Plex Mono", "Geist Mono", "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --transition-fast: 200ms ease;
+  --transition-slow: 500ms ease;
+  --ease-refined: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-surface: none;
+}
