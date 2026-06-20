@@ -47,8 +47,8 @@ credits: "Public references and production details are kept limited to what is c
 mediaCredits: "Touring media is represented with front-of-house production imagery; full artist or venue credits are added only when cleared."
 mediaItems:
   - label: "Front-of-house production image"
-    detail: "Current public image shows the touring lighting context from FOH, with console and stage relationship visible."
-    credit: "Additional photographer or production credits can be added when cleared."
+    detail: "FOH image showing the relationship between the desk, the room and the stage."
+    credit: "Credits added when publication is cleared."
   - label: "Showfile workflow proof"
     detail: "Documented through GrandMA2 touring showfile structure, MA3 transition support, festival versions and local rig translation notes."
   - label: "Publishable references"

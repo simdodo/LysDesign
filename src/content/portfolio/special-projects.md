@@ -36,7 +36,7 @@ outcome: "A practical technical path for non-standard productions without preten
 mediaCredits: "Special-project media is shown as technical context; client or production names are anonymized unless cleared."
 mediaItems:
   - label: "Hybrid technical setup image"
-    detail: "Current public image shows conference, projection and mixed technical production context."
+    detail: "Hybrid setup image showing projection, room layout and mixed technical production context."
     credit: "Client or production credits remain anonymized unless publication approval is available."
   - label: "Workflow documentation"
     detail: "Proof is represented through signal-path decisions, control needs and custom operating logic."
