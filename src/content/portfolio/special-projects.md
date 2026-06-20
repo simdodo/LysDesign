@@ -1,7 +1,7 @@
 ---
 title: "Special Projects"
 subtitle: "Hybrid setups for productions that do not fit a standard workflow."
-description: "Unusual venues, installations, streaming, video, interaction and technical development where normal production categories are not enough."
+description: "Unusual venues, streaming, video, interaction and technical problem-solving when normal production categories are not enough."
 role: "Hybrid / Experimental Work"
 location: "Venues / Studios / Hybrid"
 year: "Selected builds"
@@ -24,7 +24,7 @@ approach: "Combine lighting, video, streaming, control and practical problem-sol
 result: "A technical path for unusual productions without pretending they are standard shows."
 truth: "If the workflow does not exist, it has to be made readable."
 productionProblem: "Hybrid setups, installations, streaming and mixed-discipline requirements."
-response: "Custom workflow design and practical technical development."
+response: "Readable signal paths, practical technical development and calm operating logic."
 changedOnSite: "Venue constraints, signal paths, control needs and available equipment."
 stayedConsistent: "The production goal and a clear operating logic."
 productionContext: "Anonymized hybrid productions, streaming setups, interactive work and immersive projects where public naming is not currently cleared."

@@ -3,7 +3,7 @@ export const servicePages = [
     slug: "lighting-design",
     label: "Lighting Design",
     title: "Lighting Design Services | De Freitas Lys Design",
-    description: "Lighting design for concerts, dance, festivals and artist-led productions in Oslo, Norway and Europe, built for real rooms and production pressure.",
+    description: "Lighting design for concerts, dance, festivals and artist-led productions in Oslo, shaped around real rooms, rigs and time.",
     h1: "Lighting design for rooms that do not behave perfectly.",
     intro: "Looks, cue structure, focus and rig-aware decisions for productions that need a clear visual identity and a technical system that can be built.",
     overview: [
@@ -61,12 +61,12 @@ export const servicePages = [
     slug: "lighting-programming",
     label: "Lighting Programming",
     title: "Lighting Programming & Operation | De Freitas Lys",
-    description: "Lighting programming, console operation and showfile support for GrandMA, Eos, touring, festivals and live events across Norway and Europe.",
+    description: "GrandMA programming, FOH operation and showfile support for touring, festivals and live events across Norway and Europe.",
     h1: "Lighting programming that stays readable under pressure.",
     intro: "Showfiles, layouts, cue logic and live operation for productions where speed matters and the file still needs to make sense on show day.",
     overview: [
       "Programming is where a visual idea becomes something that can be repeated, busked, timecoded, adapted and operated by a real person under pressure. The goal is not a clever file for its own sake. The goal is a file that helps decisions happen quickly when rehearsal time is short and the room changes.",
-      "This work covers GrandMA2, GrandMA3, ETC Eos and local-system translation. It is useful for touring artists, festivals, venues, contemporary performances and one-off productions that need clean structure, readable layouts and fast updates without destroying the show logic.",
+      "This work covers GrandMA2 programming, MA3 transition support, ETC Eos and local-system translation. It is useful for touring artists, festivals, venues, contemporary performances and one-off productions that need clean structure, readable layouts and fast updates without destroying the show logic.",
       "Good programming also reduces communication problems. A readable file makes it easier to explain the show to a designer, operator, production manager, house crew or festival team when decisions need to happen fast."
     ],
     idealFor: [
@@ -83,11 +83,11 @@ export const servicePages = [
       "Operate, revise and document the file so the workflow remains understandable after the first build."
     ],
     deliverables: [
-      "GrandMA2, GrandMA3 or Eos showfile structure.",
+      "GrandMA2, MA3 transition or Eos showfile structure.",
       "Cue stacks, busking pages, presets, layouts and playback logic.",
       "Festival or venue versions where needed.",
       "Programming notes for handover, remount or local crew communication.",
-      "Live operation, update sessions or remote preproduction support."
+      "Live operation, update sessions, remote showfile support or previs preparation."
     ],
     requiredInputs: [
       "Console type, fixture list, patch, plot and venue information if available.",
@@ -103,7 +103,7 @@ export const servicePages = [
       },
       {
         question: "Is this only for GrandMA?",
-        answer: "No. GrandMA2 and MA3 are common, but Eos and local-system workflows are part of the work when the production needs them."
+        answer: "No. GrandMA2 is the main programming base, MA3 transition support is possible, and Eos or local-system workflows are part of the work when the production needs them."
       },
       {
         question: "Can programming happen before the venue?",
@@ -119,7 +119,7 @@ export const servicePages = [
     slug: "touring-showfiles",
     label: "Touring Showfiles",
     title: "Touring Showfiles & Live Production Support",
-    description: "Touring showfile structure, local rig adaptation and live production support for artists, venues and festivals across Norway, Europe and international dates.",
+    description: "Touring showfile structure, local rig adaptation and live production support for artists, venues and festivals across Norway and Europe.",
     h1: "Touring showfiles that can travel between rooms.",
     intro: "Advance work, local rig translation and showfile structure for productions moving between venues, countries, crews and festival versions.",
     overview: [
@@ -294,12 +294,12 @@ export const servicePages = [
     slug: "unreal-previs",
     label: "Unreal Previs",
     title: "Unreal Previs & 3D Lighting for Live Shows",
-    description: "Unreal, Capture and 3D lighting previs for stage environments, camera angles, lighting concepts and show preparation before production time starts.",
+    description: "Capture, Unreal and 3D lighting previs for stage environments, camera angles, lighting concepts and show preparation.",
     h1: "Previs that answers production questions before load-in.",
-    intro: "3D and Unreal workflows for checking lighting ideas, stage environments, camera angles and visual direction before the venue becomes the first test.",
+    intro: "Capture, 3D and Unreal workflows for checking lighting ideas, stage environments, camera angles and visual direction before the venue becomes the first test.",
     overview: [
       "Previsualization is useful when it removes uncertainty. It should not be only a polished render. It should help decide whether an angle works, whether the stage picture is readable, whether a lighting idea supports camera, and whether the production is about to discover an expensive problem too late.",
-      "This service uses Unreal, Capture, Carbon and related 3D workflows as practical preproduction tools for shows, clips, live concepts, streaming setups and hybrid productions. The output can be simple or detailed depending on the question the production needs answered.",
+      "This service uses Capture, Unreal, Carbon and related 3D workflows as practical preproduction tools for shows, clips, live concepts, streaming setups and hybrid productions. The output can be simple or detailed depending on the question the production needs answered.",
       "The strongest previs is connected to real production choices. It should help with fixture positions, camera framing, screen relationships, staging scale, cue direction and what needs to be tested first in the actual room."
     ],
     idealFor: [

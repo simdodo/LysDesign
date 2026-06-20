@@ -1,7 +1,7 @@
 ---
 title: "Touring Lighting / Showfiles"
 subtitle: "Showfiles that travel between rooms without becoming fragile."
-description: "Touring lighting and programming support for France, Europe and international dates: local crews, festival versions, fast changes and GrandMA workflows."
+description: "Showfiles and programming structures built to move between real venues, local rigs and limited rehearsal time."
 role: "Touring LD / Programmer / Operator"
 location: "France / Europe / International"
 year: "2006-present"
@@ -21,7 +21,7 @@ tags:
   - Festival Versioning
 systems:
   - GrandMA2
-  - GrandMA3
+  - MA3 transition support
   - Touring showfiles
 cover: "../../assets/portfolio/touring/cover.jpg"
 coverAlt: "Lighting console and concert touring setup from front of house"
@@ -39,7 +39,7 @@ whatChangedOnSite: "Fixture availability, trim, positions, patch and programming
 stayedConsistent: "Artist identity, cue logic and show rhythm."
 productionContext: "Publishable touring references include JAIN, Tim Dup and Les Tambours du Bronx, with other touring contexts grouped by production type."
 venueContext: "France, Europe and international touring rooms, including venue and festival conditions."
-systemWorkflow: "GrandMA2 / GrandMA3 touring showfiles, local-rig translation, festival versioning and fast programming updates."
+systemWorkflow: "GrandMA2 touring showfiles, MA3 transition support, local-rig translation, festival versioning and fast programming updates."
 constraint: "Each stop can change fixture availability, trim, positions, patch, local crew and programming time."
 solution: "Use modular showfile structure, clear palettes, fixture roles and fallback looks so the artist picture survives different rigs."
 outcome: "The show keeps its identity while the file stays readable enough for short load-ins and show-day adaptation."
@@ -50,7 +50,7 @@ mediaItems:
     detail: "Current public image shows the touring lighting context from FOH, with console and stage relationship visible."
     credit: "Additional photographer or production credits can be added when cleared."
   - label: "Showfile workflow proof"
-    detail: "Documented through GrandMA2 / GrandMA3 touring showfile structure, festival versions and local rig translation notes."
+    detail: "Documented through GrandMA2 touring showfile structure, MA3 transition support, festival versions and local rig translation notes."
   - label: "Publishable references"
     detail: "JAIN, Tim Dup and Les Tambours du Bronx are listed as public reference contexts where appropriate."
 relatedServices:
