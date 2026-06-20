@@ -6,6 +6,7 @@ import SceneGallery from "../components/SceneGallery.astro";
 import LightStateGallery from "../components/LightStateGallery.astro";
 import ProjectNarrative from "../components/ProjectNarrative.astro";
 import ProjectTechnicalPanel from "../components/ProjectTechnicalPanel.astro";
+import SignalDivider from "../components/SignalDivider.astro";
 
 const { project } = Astro.props;
 const data = project.data;
@@ -213,7 +214,7 @@ const creativeWork = {
     )}
 
     <section class="case-study-notes" aria-labelledby="technical-notes-title">
-      <div class="section-kicker">Technical Notes</div>
+      <SignalDivider label="Technical Notes" detail="Workflow / room / file" />
       <div class="case-study-note-body">
         <h2 id="technical-notes-title">Notes from the workflow</h2>
         <slot />
@@ -230,7 +231,7 @@ const creativeWork = {
 
     <section class="services-cta" aria-labelledby="case-study-contact-title">
       <div>
-        <div class="section-kicker">Next Step</div>
+        <SignalDivider label="Next Step" detail="Brief / room / system" />
         <h2 id="case-study-contact-title">Need this kind of workflow on your production?</h2>
       </div>
 

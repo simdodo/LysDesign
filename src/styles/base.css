@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html {
-  background: #000;
+  background: var(--color-blackout-black);
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
 }
@@ -18,7 +18,7 @@ html::after {
   pointer-events: none;
   background-image:
     radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px),
-    radial-gradient(circle at 82% 72%, rgba(0, 250, 255, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 13px);
   background-size: 19px 23px, 29px 31px, 100% 100%;
   opacity: 0.035;
@@ -63,11 +63,10 @@ html::after {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 82% 8%, rgba(0, 250, 255, 0.1), transparent 31%),
-    radial-gradient(circle at 12% 82%, rgba(255, 154, 61, 0.055), transparent 30%),
-    radial-gradient(circle at 50% 120%, rgba(124, 60, 255, 0.045), transparent 42%),
-    linear-gradient(135deg, var(--color-blackout) 0%, var(--color-bg) 48%, #000 100%);
-  color: #fff;
+    radial-gradient(circle at 84% 8%, rgba(244, 244, 240, 0.045), transparent 30%),
+    radial-gradient(circle at 12% 82%, rgba(255, 154, 61, 0.028), transparent 30%),
+    linear-gradient(135deg, var(--color-blackout) 0%, var(--color-bg) 52%, #000 100%);
+  color: var(--color-text);
   font-family: var(--font-body-family);
   overflow-x: hidden;
 }
@@ -97,9 +96,9 @@ body::after {
   z-index: 0;
   width: 1px;
   height: 118vh;
-  background: linear-gradient(180deg, transparent, rgba(0, 250, 255, 0.24), transparent);
+  background: linear-gradient(180deg, transparent, rgba(244, 244, 240, 0.14), transparent);
   filter: none;
-  opacity: 0.28;
+  opacity: 0.18;
   transform: rotate(18deg);
   transform-origin: top;
   pointer-events: none;
@@ -157,6 +156,18 @@ h2,
 h3 {
   font-family: var(--font-display-family);
   letter-spacing: -0.035em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 700px) {

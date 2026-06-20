@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PageLabelBar from "../components/PageLabelBar.astro";
-import PortfolioImage from "../components/PortfolioImage.astro";
+import LiveSignalHero from "../components/LiveSignalHero.astro";
+import SceneCard from "../components/SceneCard.astro";
+import SignalDivider from "../components/SignalDivider.astro";
+import FinalSignalCTA from "../components/FinalSignalCTA.astro";
 import festivalImage from "../assets/portfolio/festival/cover.jpg";
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
@@ -120,52 +122,29 @@ const heroPreloadImage = {
   preloadImage={heroPreloadImage}
 >
   <main class="home" id="main-content">
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="home-hero-media" aria-hidden="true">
-        <PortfolioImage
-          image={festivalImage}
-          alt="Festival lighting and crowd seen from a production perspective"
-          loading="eager"
-          fetchpriority="high"
-          widths={[768, 1024, 1280, 1600, 1920]}
-          sizes="100vw"
-          caption="Festival / room pressure / live system"
-        />
-      </div>
-
-      <div class="home-hero-content">
-        <PageLabelBar label="BLACKOUT / UV SIGNAL" description="Live systems / room pressure" />
-        <h1 id="home-title">
-          <span>LIGHT THAT</span>
-          <span>SURVIVES</span>
-          <span>THE ROOM.</span>
-        </h1>
-        <p>
-          Lighting design, GrandMA programming and FOH operation for concerts,
-          dance and festivals — shaped around the room, the rig and the time available.
-        </p>
-
-        <div class="hero-actions" aria-label="Home actions">
-          <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-          <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Work</a>
-        </div>
-      </div>
-    </section>
+    <LiveSignalHero
+      image={festivalImage}
+      imageAlt="Festival lighting and crowd seen from a production perspective"
+      caption="Festival / room pressure / live system"
+      title="LIGHT THAT SURVIVES THE ROOM."
+      subtitle="Lighting design, GrandMA programming and FOH operation for concerts, dance and festivals — shaped around the room, the rig and the time available."
+    />
 
     <section class="home-work" aria-labelledby="home-work-title">
-      <div class="section-kicker">Selected Work</div>
+      <SignalDivider label="Selected Work" detail="Archive scenes / live production proof" />
       <h2 id="home-work-title">Fast programming. Calm decisions. Readable light. Real rooms.</h2>
 
       <div class="home-work-grid">
         {selectedProjects.map((project) => (
-          <a href={`/portfolio/${project.id}/`} data-track-event="portfolio_case_study_click">
-            <PortfolioImage
-              image={project.data.cover}
-              alt={project.data.coverAlt}
-              caption={`${project.data.format} / ${project.data.role}`}
-            />
-            <span>{project.data.title}</span>
-          </a>
+          <SceneCard
+            href={`/portfolio/${project.id}/`}
+            image={project.data.cover}
+            alt={project.data.coverAlt}
+            caption={`${project.data.format} / ${project.data.role}`}
+            title={project.data.title}
+            meta={`${project.data.year} / ${project.data.systems.join(" / ")}`}
+            trackingEvent="portfolio_case_study_click"
+          />
         ))}
       </div>
     </section>
@@ -225,9 +204,6 @@ const heroPreloadImage = {
       </ul>
     </section>
 
-    <section class="home-final" aria-labelledby="home-final-title">
-      <h2 id="home-final-title">Bring the music, the room and the deadline.</h2>
-      <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-    </section>
+    <FinalSignalCTA title="Bring the music, the room and the deadline." />
   </main>
 </Layout>

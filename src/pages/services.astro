@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageLabelBar from "../components/PageLabelBar.astro";
+import SignalDivider from "../components/SignalDivider.astro";
 
 const services = [
   {
@@ -241,7 +242,7 @@ const globalProcess = [
     </section>
 
     <section class="pressure-module" aria-labelledby="pressure-title">
-      <div class="section-kicker">CHOOSE BY PRESSURE</div>
+      <SignalDivider label="CHOOSE BY PRESSURE" detail="Problem / response / route" />
       <h2 id="pressure-title">Start with the problem, not the service name.</h2>
 
       <div class="pressure-list">
@@ -274,7 +275,7 @@ const globalProcess = [
 
     <section class="services-cta" aria-labelledby="service-comparison-title">
       <div>
-        <div class="section-kicker">Where to start</div>
+        <SignalDivider label="Where to start" detail="Service / deliverables / related work" />
         <h2 id="service-comparison-title">Pick the support that fits the pressure.</h2>
       </div>
 
@@ -314,7 +315,7 @@ const globalProcess = [
 
     <section class="services-cta" aria-labelledby="service-uncertain-title">
       <div>
-        <div class="section-kicker">Not Sure?</div>
+        <SignalDivider label="Not Sure?" detail="Advance brief accepted incomplete" />
         <h2 id="service-uncertain-title">If the brief is incomplete, send it anyway.</h2>
       </div>
 
@@ -333,7 +334,7 @@ const globalProcess = [
 
     <section class="services-cta" aria-labelledby="services-contact-title">
       <div>
-        <div class="section-kicker">Advance</div>
+        <SignalDivider label="Advance" detail="Room / rig / deadline" />
         <h2 id="services-contact-title">Bring the brief, the room, the deadline.</h2>
       </div>
 

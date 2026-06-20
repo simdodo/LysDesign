@@ -1,4 +1,6 @@
 ---
+import BrandLogo from "./BrandLogo.astro";
+
 const year = new Date().getFullYear();
 
 const footerLinks = [
@@ -21,7 +23,7 @@ const socialLinks = [
 <footer class="site-footer" aria-label="Site footer">
   <div class="footer-main">
     <div class="footer-brand">
-      <span class="footer-kicker">De Freitas Lys Design</span>
+      <BrandLogo variant="clean" className="footer-logo" />
       <p>
         Oslo-based lighting design, programming &amp; live production.
       </p>

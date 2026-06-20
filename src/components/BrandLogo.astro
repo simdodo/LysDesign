@@ -1,0 +1,33 @@
+---
+interface Props {
+  variant?: "clean" | "live" | "mark" | "wordmark";
+  href?: string;
+  className?: string;
+  label?: string;
+}
+
+const {
+  variant = "clean",
+  href,
+  className = "",
+  label = "De Freitas LysDesign"
+} = Astro.props as Props;
+
+const classes = ["brand-logo", `brand-logo--${variant}`, className].filter(Boolean).join(" ");
+const showMark = variant === "clean" || variant === "live" || variant === "mark";
+const showWordmark = variant === "clean" || variant === "live" || variant === "wordmark";
+---
+
+{href ? (
+  <a class={classes} href={href} aria-label={label}>
+    {showMark && <span class="brand-logo__mark" aria-hidden="true" data-signal="DFLD">DFLD</span>}
+    {showWordmark && <span class="brand-logo__wordmark" aria-hidden="true">DE FREITAS LYSDESIGN</span>}
+    <span class="sr-only">{label}</span>
+  </a>
+) : (
+  <div class={classes} aria-label={label} role="img">
+    {showMark && <span class="brand-logo__mark" aria-hidden="true" data-signal="DFLD">DFLD</span>}
+    {showWordmark && <span class="brand-logo__wordmark" aria-hidden="true">DE FREITAS LYSDESIGN</span>}
+    <span class="sr-only">{label}</span>
+  </div>
+)}

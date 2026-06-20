@@ -1,4 +1,6 @@
 ---
+import BrandLogo from "./BrandLogo.astro";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/portfolio/", label: "Portfolio" },
@@ -19,9 +21,7 @@ const isActive = (href: string) => {
 ---
 
 <header class="site-header" aria-label="Primary navigation">
-  <a class="brand" href="/" aria-label="DFLD — De Freitas Lys Design home">
-    DFLD
-  </a>
+  <BrandLogo variant="clean" href="/" className="brand" label="DFLD — De Freitas LysDesign home" />
 
   <button
     class="nav-toggle"

@@ -1,0 +1,23 @@
+---
+interface MetaItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  items: MetaItem[];
+  label?: string;
+  className?: string;
+}
+
+const { items, label = "Production metadata", className = "" } = Astro.props as Props;
+---
+
+<dl class={`production-meta ${className}`.trim()} aria-label={label}>
+  {items.map((item) => (
+    <div>
+      <dt>{item.label}</dt>
+      <dd>{item.value}</dd>
+    </div>
+  ))}
+</dl>

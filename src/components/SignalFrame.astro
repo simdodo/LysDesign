@@ -1,0 +1,15 @@
+---
+interface Props {
+  label?: string;
+  tone?: "neutral" | "red" | "cyan";
+  className?: string;
+}
+
+const { label, tone = "neutral", className = "" } = Astro.props as Props;
+const classes = ["signal-frame", `signal-frame--${tone}`, className].filter(Boolean).join(" ");
+---
+
+<section class={classes}>
+  {label && <div class="signal-frame__label">{label}</div>}
+  <slot />
+</section>

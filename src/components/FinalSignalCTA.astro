@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+  label?: string;
+}
+
+const { title, href = "/contact/", label = "Start a Project" } = Astro.props as Props;
+---
+
+<section class="final-signal-cta" aria-labelledby="final-signal-title">
+  <div class="signal-divider signal-divider--compact">
+    <span>FINAL SIGNAL</span>
+  </div>
+  <h2 id="final-signal-title">{title}</h2>
+  <a class="cta btn-primary" href={href} data-track-event="cta_start_project">{label}</a>
+</section>
