@@ -23,6 +23,8 @@ const process = service.process ?? [];
 const deliverables = service.deliverables ?? [];
 const caseStudies = service.caseStudies ?? [];
 const faqs = service.faqs ?? [];
+const secondaryCtaLabel = service.secondaryCtaLabel ?? "View Portfolio";
+const secondaryCtaHref = service.secondaryCtaHref ?? "/portfolio/";
 ---
 
 <Layout title={service.title} description={service.description}>
@@ -38,7 +40,7 @@ const faqs = service.faqs ?? [];
 
       <div class="hero-actions" aria-label={`${service.label} actions`}>
         <a class="cta btn-primary" href="/contact/" data-track-event="cta_start_project">Start a Project</a>
-        <a class="cta cta-secondary btn-secondary" href="/portfolio/" data-track-event="cta_view_work">View Portfolio</a>
+        <a class="cta cta-secondary btn-secondary" href={secondaryCtaHref} data-track-event={secondaryCtaHref === "/portfolio/" ? "cta_view_work" : "cta_start_project"}>{secondaryCtaLabel}</a>
       </div>
     </section>
 

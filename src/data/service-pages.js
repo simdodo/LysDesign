@@ -1,5 +1,74 @@
 export const servicePages = [
   {
+    slug: "remote-showfile-support",
+    label: "Remote Showfile Support",
+    title: "Remote Showfile & Previs Support | De Freitas Lys Design",
+    description: "Remote GrandMA showfile, busking layout, Capture previs and plot support for artists, LDs and productions preparing a live show before rehearsal.",
+    h1: "Remote Showfile & Previs Support",
+    intro: "Showfile review, busking layout, Capture previs and programming prep for productions that need to arrive in the room with a clearer plan.",
+    secondaryCtaLabel: "Send what you have",
+    secondaryCtaHref: "/contact/",
+    overview: [
+      "Remote support is for the period before the room starts costing time. Send the rig, the patch, the tracks, the references, the video, the deadline or the file that already exists. The work is to make the showfile, layout, plot or previs clearer before rehearsal pressure turns every small problem into a bigger one.",
+      "This is useful when a small band does not have a dedicated LD, when a lighting designer needs a second pair of eyes, when a venue is preparing a one-off show, or when a festival version needs to be translated from an idea into the rig that is actually available.",
+      "The goal is not to make the file impressive from the outside. The goal is to make it playable: readable groups, useful presets, clear layout logic, practical busking access, sensible fixture roles, and enough preparation that the first room is not the first time the show makes sense.",
+      "Support can stay light or go deeper depending on the material. Sometimes that means notes on an existing file. Sometimes it means building a GrandMA2 base structure from tracks, references and a patch. Sometimes it means Capture previs, screenshots, plot cleanup or a touring version that can survive a different rig."
+    ],
+    idealFor: [
+      "Artists or bands without a dedicated LD.",
+      "LDs who need a second pair of eyes before rehearsal.",
+      "Venues preparing a one-off show or touring file.",
+      "Festivals adapting a visual idea to available rigs.",
+      "Productions with references, tracks and not enough time."
+    ],
+    process: [
+      "Send what you have: file, patch, plot, references, tracks, video, screenshots, constraints or only the deadline.",
+      "I check the room, rig, file and timeline, then identify what needs to be playable first.",
+      "We agree the useful output: notes, cleanup, busking layout, GrandMA2 base structure, Capture previs, plot support or touring adaptation.",
+      "I prepare the support in a way that stays readable for the person at FOH, the artist, the venue or the production team.",
+      "You arrive with a cleaner plan, fewer unknowns and a file or workflow that is easier to play."
+    ],
+    deliverables: [
+      "Showfile review focused on structure, groups, presets, layout and busking logic.",
+      "Showfile cleanup so an existing file is easier to read and operate under pressure.",
+      "Busking layout for live decisions, rhythm, fixture access and fast updates.",
+      "GrandMA2 programming base from tracks, references, patch information or a simple brief.",
+      "MA3 transition support for moving ideas or logic carefully without pretending it is magic.",
+      "Capture previs, screenshots, plot drawing or touring adaptation notes where useful."
+    ],
+    requiredInputs: [
+      "GrandMA showfile if one already exists.",
+      "Patch, fixture list, plot or venue plan if available.",
+      "Tracks, playlist, setlist, rehearsal video or reference material.",
+      "Capture file, screenshots, moodboard or simple visual references.",
+      "Deadline, rehearsal date, show date and known constraints.",
+      "What feels unclear, risky or too slow in the current workflow."
+    ],
+    faqs: [
+      {
+        question: "Does the brief need to be complete?",
+        answer: "No. It does not need to be perfect. Incomplete briefs are normal, as long as the deadline and current unknowns are clear."
+      },
+      {
+        question: "Can this start from a messy showfile?",
+        answer: "Yes. Reviewing and cleaning an existing file is often more useful than starting again."
+      },
+      {
+        question: "Is this a full show design overnight?",
+        answer: "No. This is practical support for making a showfile, previs or lighting setup clearer, faster and easier to play."
+      },
+      {
+        question: "Can this include MA3?",
+        answer: "Yes, as MA3 transition support. GrandMA2 remains the main programming base."
+      }
+    ],
+    caseStudies: [
+      { href: "/portfolio/touring-lighting-showfiles/", label: "Touring showfile structure and adaptation" },
+      { href: "/portfolio/unreal-visualization/", label: "Previs workflow before production" },
+      { href: "/portfolio/festival-venue-adaptation/", label: "Festival versioning and local rig translation" }
+    ]
+  },
+  {
     slug: "lighting-design",
     label: "Lighting Design",
     title: "Lighting Design Services | De Freitas Lys Design",
