@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { caseUi } from '../data/work';
+import type { Locale } from '../i18n/ui';
+
+/**
+ * The "Imaginé / Réel" comparison module. Until real previz frames arrive,
+ * the "imagined" side is the same photo pushed through a previz-viewport
+ * treatment (cold grade + wireframe grid), clearly labelled as placeholder.
+ * Swap `previzImage` in when the real render exists.
+ */
+
+interface Props {
+  locale: Locale;
+  realImage: ImageMetadata;
+  previzImage?: ImageMetadata;
+  alt: string;
+}
+
+const { locale, realImage, previzImage, alt } = Astro.props;
+const t = caseUi[locale];
+---
+
+<figure class="compare" data-compare>
+  <div class="frame">
+    <div class="layer real">
+      <Image src={realImage} alt={alt} widths={[640, 1080, 1600]} sizes="(max-width: 48rem) 100vw, 44rem" />
+      <span class="tag tag-real mono-label">{t.real}</span>
+    </div>
+    <div class="layer previz" aria-hidden="true">
+      <Image
+        src={previzImage ?? realImage}
+        alt=""
+        widths={[640, 1080, 1600]}
+        sizes="(max-width: 48rem) 100vw, 44rem"
+        class={previzImage ? '' : 'previz-treated'}
+      />
+      {!previzImage && <span class="grid-overlay"></span>}
+      <span class="tag tag-previz mono-label">{t.imagined}</span>
+    </div>
+    <span class="divider" aria-hidden="true"></span>
+  </div>
+  <label class="control">
+    <span class="sr-only">{t.dragHint}</span>
+    <input type="range" min="0" max="100" value="50" step="1" />
+  </label>
+  <figcaption>
+    <span class="hint">{t.dragHint}</span>
+    {!previzImage && <span class="note mono-label">{t.placeholderNote}</span>}
+  </figcaption>
+</figure>
+
+<style>
+  .compare {
+    margin: 2.6rem 0;
+  }
+
+  .frame {
+    position: relative;
+    --split: 50%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--ligne);
+  }
+
+  .layer img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .layer.previz {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 calc(100% - var(--split)) 0 0);
+  }
+
+  .previz-treated {
+    filter: saturate(0.25) contrast(1.15) brightness(0.85) hue-rotate(160deg);
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(110, 168, 201, 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110, 168, 201, 0.14) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--split);
+    width: 1px;
+    background: rgba(242, 237, 228, 0.6);
+  }
+
+  .tag {
+    position: absolute;
+    top: 0.8rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(8, 8, 10, 0.72);
+  }
+
+  .tag-previz {
+    left: 0.8rem;
+    color: #6ea8c9;
+  }
+
+  .tag-real {
+    right: 0.8rem;
+    color: var(--tungsten);
+  }
+
+  .control {
+    display: block;
+    margin-top: 0.9rem;
+  }
+
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--tungsten);
+    cursor: ew-resize;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .hint {
+    color: var(--gris-2);
+    font-size: 0.85rem;
+  }
+
+  .note {
+    color: var(--tungsten-dim);
+  }
+</style>
+
+<script>
+  for (const fig of document.querySelectorAll<HTMLElement>('[data-compare]')) {
+    const frame = fig.querySelector<HTMLElement>('.frame');
+    const range = fig.querySelector<HTMLInputElement>('input[type="range"]');
+    if (!frame || !range) continue;
+    range.addEventListener('input', () => {
+      frame.style.setProperty('--split', `${range.value}%`);
+    });
+  }
+</script>

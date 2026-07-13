@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import About from '../../components/About.astro';
+import { about } from '../../data/about';
+
+const t = about.no;
+---
+
+<Base locale="no" title={t.metaTitle} description={t.metaDescription} path="/about/">
+  <About locale="no" />
+</Base>

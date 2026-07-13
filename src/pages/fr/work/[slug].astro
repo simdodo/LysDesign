@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CasePage from '../../../components/CasePage.astro';
+import { work, type WorkEntry } from '../../../data/work';
+
+export function getStaticPaths() {
+  return work.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+interface Props {
+  entry: WorkEntry;
+}
+
+const { entry } = Astro.props;
+const c = entry.copy.fr;
+---
+
+<Base
+  locale="fr"
+  title={`${c.title} — Dorian De Freitas, concepteur lumière`}
+  description={c.paragraphs[0]}
+  path={`/work/${entry.slug}/`}
+>
+  <CasePage locale="fr" entry={entry} />
+</Base>

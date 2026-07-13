@@ -1,19 +1,132 @@
-/* Residual cross-module CSS: shared scroll reveal only. */
+:root {
+  /* The room */
+  --noir: #08080a;
+  --noir-2: #101014;
+  --noir-3: #16161b;
+  --ligne: #1e1e24;
+
+  /* What the light touches */
+  --blanc: #f2ede4;
+  --gris: #a09889;
+  --gris-2: #625f58;
+
+  /* Tungsten — the one warm source */
+  --tungsten: #c9743d;
+  --tungsten-dim: #7a4526;
+
+  /* Chapter tints (fed to the light engine via data-light) */
+  --tint-house: 18, 14, 12;
+  --tint-wait: 16, 22, 34;
+  --tint-impact: 46, 26, 14;
+  --tint-portrait: 30, 18, 26;
+  --tint-proof: 14, 20, 22;
+  --tint-live: 40, 14, 16;
+  --tint-song: 36, 22, 12;
+
+  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-body: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --measure: 34rem;
+  --pad-x: clamp(1.25rem, 5vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--noir);
+  color: var(--blanc);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--tungsten);
+  color: var(--noir);
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--tungsten-dim);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-color: var(--tungsten);
+}
+
+:focus-visible {
+  outline: 2px solid var(--tungsten);
+  outline-offset: 3px;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+  top: 0;
+  background: var(--blanc);
+  color: var(--noir);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris-2);
+}
+
+/* House lights going down: one slow settle when the page opens. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1 {
-    animation: letter-breathe 12s ease-in-out infinite;
+  .house-down {
+    animation: house-down 2.4s cubic-bezier(0.3, 0, 0.2, 1) both;
   }
 
-  @supports (animation-timeline: view()) {
-    .home-section,
-    .portfolio-card,
-    .case-study-sections article,
-    .services-grid,
-    .services-proof,
-    .contact-shell {
-      animation: section-fade-up both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 22%;
+  @keyframes house-down {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .lit-in {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 1.1s cubic-bezier(0.2, 0, 0.2, 1),
+      transform 1.1s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+
+  .lit-in.is-lit {
+    opacity: 1;
+    transform: none;
   }
 }
