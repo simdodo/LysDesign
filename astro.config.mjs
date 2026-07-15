@@ -5,9 +5,19 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://defreitaslysdesign.com',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr', 'no'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     sitemap({
-      filter: (page) => !page.endsWith('/design-lab/')
-    })
-  ]
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en', fr: 'fr', no: 'no' },
+      },
+    }),
+  ],
 });

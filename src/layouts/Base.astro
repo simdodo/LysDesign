@@ -1,0 +1,83 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/jetbrains-mono';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import { locales, pathForLocale, contact, type Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** Locale-independent path of the current page, e.g. "/" */
+  path?: string;
+}
+
+const { locale, title, description, path = '/' } = Astro.props;
+const canonical = new URL(pathForLocale(locale, path), Astro.site);
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dorian De Freitas',
+  jobTitle: 'Lighting designer',
+  description:
+    'Lighting design, GrandMA programming and FOH operation for concerts, dance and festivals.',
+  url: Astro.site?.toString(),
+  email: `mailto:${contact.email}`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Oslo',
+    addressCountry: 'NO',
+  },
+  sameAs: [contact.youtube, contact.instagram],
+  knowsLanguage: ['fr', 'en', 'no', 'pt'],
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {
+      locales.map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(pathForLocale(l, path), Astro.site)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(path, Astro.site)} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#08080a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="De Freitas Lysdesign" />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL('/og-image.png', Astro.site)} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  </head>
+  <body>
+    <script is:inline>
+      // Progressive enhancement marker: reveal-on-scroll hiding only applies
+      // when JavaScript actually runs (see .lit-in in global.css).
+      document.documentElement.classList.add('js');
+    </script>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Nav locale={locale} path={path} />
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

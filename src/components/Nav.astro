@@ -1,0 +1,146 @@
+---
+import { locales, localeNames, pathForLocale, nav, type Locale } from '../i18n/ui';
+
+const localeCodes: Record<Locale, string> = { en: 'EN', fr: 'FR', no: 'NO' };
+
+interface Props {
+  locale: Locale;
+  /** Locale-independent path of the current page, for the language switch */
+  path?: string;
+}
+
+const { locale, path = '/' } = Astro.props;
+const t = nav[locale];
+const homePath = pathForLocale(locale, '/');
+---
+
+<header class="site-nav">
+  <a class="brand mono-label" href={homePath}>
+    {/* Official mark — assets/svg/mark-principal.svg, do not redraw */}
+    <svg class="brand-mark" viewBox="0 0 200 176" fill="none" aria-hidden="true">
+      <path
+        d="M37.11,150 A80,80 0 1 1 162.89,150 Z"
+        fill="none"
+        stroke="#F2EDE4"
+        stroke-width="11.7"></path>
+      <path
+        d="M61.16,150 A49.4,49.4 0 1 1 138.84,150 Z"
+        fill="none"
+        stroke="#F2EDE4"
+        stroke-width="11.7"></path>
+      <path d="M85.14,150 A18.9,18.9 0 1 1 114.86,150 Z" fill="#C9743D"></path>
+    </svg>
+    <span>De Freitas Lysdesign</span>
+  </a>
+  <nav class="links" aria-label="Site">
+    <a class="mono-label" href={homePath}>{t.home}</a>
+    <a class="mono-label" href={homePath + '#work'}>{t.work}</a>
+    <a class="mono-label" href={pathForLocale(locale, '/about/')}>{t.about}</a>
+    <a class="mono-label send" href={homePath + '#send-a-song'}>{t.send}</a>
+  </nav>
+  <nav class="langs" aria-label="Language">
+    {
+      locales.map((l) => (
+        <a
+          class="mono-label"
+          href={pathForLocale(l, path)}
+          aria-current={l === locale ? 'page' : undefined}
+          lang={l}
+          aria-label={localeNames[l]}
+        >
+          {localeCodes[l]}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem 2rem;
+    flex-wrap: wrap;
+    padding: 1.1rem var(--pad-x);
+    background: rgba(8, 8, 10, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(30, 30, 36, 0.6);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .brand {
+    color: var(--blanc);
+    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .brand-mark {
+    height: 1.35rem;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .links,
+  .langs {
+    display: flex;
+    gap: 1.4rem;
+  }
+
+  .links a {
+    color: var(--gris);
+  }
+
+  .links a:hover {
+    color: var(--blanc);
+  }
+
+  .links .send {
+    color: var(--tungsten);
+  }
+
+  .links .send:hover {
+    color: #d98449;
+  }
+
+  .langs {
+    gap: 0.9rem;
+  }
+
+  .langs a {
+    color: var(--gris-2);
+  }
+
+  .langs a:hover {
+    color: var(--gris);
+  }
+
+  .langs a[aria-current='page'] {
+    color: var(--tungsten);
+  }
+
+  @media (max-width: 40rem) {
+    .site-nav {
+      gap: 0.8rem 1.2rem;
+      padding: 0.9rem var(--pad-x);
+    }
+
+    .links {
+      gap: 1rem;
+    }
+
+    .links a:first-child {
+      display: none;
+    }
+  }
+</style>
