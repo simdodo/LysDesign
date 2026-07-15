@@ -4,6 +4,7 @@ import LightEngine from './LightEngine.astro';
 import ImagineReel from './ImagineReel.astro';
 import { home, contact, pathForLocale, type Locale } from '../i18n/ui';
 import { work } from '../data/work';
+import { legalNavLabel } from '../data/legal';
 
 interface Props {
   locale: Locale;
@@ -151,7 +152,10 @@ const pilotCover = pilot
     ·
     <a href={contact.instagram} rel="noopener">Instagram</a>
   </p>
-  <p class="footer-legal mono-label">© {year} De Freitas Lysdesign — Oslo</p>
+  <p class="footer-legal mono-label">
+    © {year} De Freitas Lysdesign — Oslo ·
+    <a href={pathForLocale(locale, '/legal/')}>{legalNavLabel[locale]}</a>
+  </p>
 </footer>
 
 <style>
