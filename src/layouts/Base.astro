@@ -69,6 +69,11 @@ const personJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   </head>
   <body>
+    <script is:inline>
+      // Progressive enhancement marker: reveal-on-scroll hiding only applies
+      // when JavaScript actually runs (see .lit-in in global.css).
+      document.documentElement.classList.add('js');
+    </script>
     <a class="skip-link" href="#main">Skip to content</a>
     <Nav locale={locale} path={path} />
     <main id="main">

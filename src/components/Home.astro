@@ -459,6 +459,9 @@ const pilotCover = pilot
 
 <script>
   const items = document.querySelectorAll('.lit-in');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('is-lit'));
+  }
   const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
