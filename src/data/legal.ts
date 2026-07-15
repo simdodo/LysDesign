@@ -22,7 +22,7 @@ export const legal: Record<Locale, LegalCopy> = {
       {
         heading: 'Publisher',
         paragraphs: [
-          'This site is published by Dorian De Freitas, operating as De Freitas Lysdesign, a Norwegian sole proprietorship (enkeltpersonforetak) based in Oslo, Norway.',
+          'This site is published by Dorian De Freitas, operating as De Freitas Lysdesign, a Norwegian sole proprietorship (enkeltpersonforetak), org. no. 927 785 528, based in Oslo, Norway.',
           'Contact: hello@defreitaslysdesign.com',
         ],
       },
@@ -57,7 +57,7 @@ export const legal: Record<Locale, LegalCopy> = {
       {
         heading: 'Éditeur',
         paragraphs: [
-          "Ce site est édité par Dorian De Freitas, exerçant sous le nom De Freitas Lysdesign, entreprise individuelle de droit norvégien (enkeltpersonforetak) établie à Oslo, Norvège.",
+          "Ce site est édité par Dorian De Freitas, exerçant sous le nom De Freitas Lysdesign, entreprise individuelle de droit norvégien (enkeltpersonforetak), n° d'organisation 927 785 528, établie à Oslo, Norvège.",
           'Contact : hello@defreitaslysdesign.com',
         ],
       },
@@ -92,7 +92,7 @@ export const legal: Record<Locale, LegalCopy> = {
       {
         heading: 'Utgiver',
         paragraphs: [
-          'Dette nettstedet utgis av Dorian De Freitas, som driver De Freitas Lysdesign, et norsk enkeltpersonforetak med base i Oslo.',
+          'Dette nettstedet utgis av Dorian De Freitas, som driver De Freitas Lysdesign, et norsk enkeltpersonforetak, org.nr. 927 785 528, med base i Oslo.',
           'Kontakt: hello@defreitaslysdesign.com',
         ],
       },
