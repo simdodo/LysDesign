@@ -1,5 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import { locales, defaultLocale } from '../i18n/ui';
+
+const altLocales = locales.filter((l) => l !== defaultLocale);
 ---
 
 <Base
@@ -7,8 +10,9 @@ import Base from '../layouts/Base.astro';
   title="Page not found — De Freitas Lysdesign"
   description="This page does not exist."
   path="/404"
+  noindex
 >
-  <section class="lost">
+  <section class="lost" data-locales={JSON.stringify(altLocales)}>
     <p class="mono-label">House lights up</p>
     <h1>This page isn't in the show.</h1>
     <p class="lost-body">
@@ -17,6 +21,18 @@ import Base from '../layouts/Base.astro';
     <a class="back" href="/">Back to the room →</a>
   </section>
 </Base>
+
+<script>
+  // If the broken URL was inside a locale (/fr/..., /no/...), send the
+  // visitor back to that locale's homepage instead of the English root.
+  const container = document.querySelector<HTMLElement>('.lost');
+  const back = document.querySelector<HTMLAnchorElement>('.back');
+  if (container && back) {
+    const locales: string[] = JSON.parse(container.dataset.locales || '[]');
+    const first = window.location.pathname.split('/').filter(Boolean)[0];
+    if (locales.includes(first)) back.href = `/${first}/`;
+  }
+</script>
 
 <style>
   .lost {

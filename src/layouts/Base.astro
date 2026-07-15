@@ -11,9 +11,11 @@ interface Props {
   description: string;
   /** Locale-independent path of the current page, e.g. "/" */
   path?: string;
+  /** Ask search engines not to index this page (error pages, drafts) */
+  noindex?: boolean;
 }
 
-const { locale, title, description, path = '/' } = Astro.props;
+const { locale, title, description, path = '/', noindex = false } = Astro.props;
 const canonical = new URL(pathForLocale(locale, path), Astro.site);
 
 const personJsonLd = {
@@ -42,6 +44,7 @@ const personJsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     {
       locales.map((l) => (
