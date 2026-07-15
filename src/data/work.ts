@@ -172,29 +172,29 @@ export const work: WorkEntry[] = [
     copy: {
       en: {
         title: 'Panta Rei Danseteater',
-        context: 'Oslo — lighting for contemporary dance',
-        meta: 'Oslo · Contemporary dance lighting',
+        context: 'Oslo — lighting technician, contemporary dance',
+        meta: 'Oslo · Lighting technician — contemporary dance',
         paragraphs: [
           'Light for bodies, silence and timing. In dance, a cue is part of the choreography — half a second early and the moment is gone.',
-          'Cues built inside the rehearsal process, close to the movement, so the light breathes with the performers instead of decorating them.',
+          'As lighting technician with the company, the job was precision: focus, timing, and running the piece exactly as it was designed — night after night, without drift.',
         ],
       },
       fr: {
         title: 'Panta Rei Danseteater',
-        context: 'Oslo — lumière pour la danse contemporaine',
-        meta: 'Oslo · Lumière pour la danse contemporaine',
+        context: 'Oslo — technicien lumière, danse contemporaine',
+        meta: 'Oslo · Technicien lumière — danse contemporaine',
         paragraphs: [
           'De la lumière pour des corps, du silence et du tempo. En danse, un cue fait partie de la chorégraphie — une demi-seconde trop tôt et le moment est perdu.',
-          'Des cues construits au cœur des répétitions, au plus près du mouvement, pour que la lumière respire avec les interprètes au lieu de les décorer.',
+          "Technicien lumière auprès de la compagnie : le travail, c'était la précision — le focus, le tempo, et la pièce jouée exactement comme elle a été conçue, soir après soir, sans dérive.",
         ],
       },
       no: {
         title: 'Panta Rei Danseteater',
-        context: 'Oslo — lys for samtidsdans',
-        meta: 'Oslo · Lys for samtidsdans',
+        context: 'Oslo — lystekniker, samtidsdans',
+        meta: 'Oslo · Lystekniker — samtidsdans',
         paragraphs: [
           'Lys for kropper, stillhet og timing. I dans er et lyskue en del av koreografien — et halvt sekund for tidlig, og øyeblikket er borte.',
-          'Kuer bygget inne i prøveprosessen, tett på bevegelsen, slik at lyset puster med utøverne i stedet for å pynte dem.',
+          'Som lystekniker for kompaniet handlet jobben om presisjon: fokus, timing, og å kjøre forestillingen nøyaktig slik den var designet — kveld etter kveld, uten avvik.',
         ],
       },
     },

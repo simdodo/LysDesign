@@ -39,7 +39,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Designs',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus · Panta Rei Danseteater',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
       },
       {
         label: 'Rooms — Oslo',
@@ -95,7 +95,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Créations',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus · Panta Rei Danseteater',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
       },
       {
         label: 'Salles — Oslo',
@@ -151,7 +151,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Design',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus · Panta Rei Danseteater',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
       },
       {
         label: 'Rom — Oslo',
