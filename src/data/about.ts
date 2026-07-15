@@ -48,7 +48,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Rooms — France',
-        items: 'La Coopérative de Mai · Le Tremplin · Maison de la Culture — Clermont-Ferrand',
+        items:
+          'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
         label: 'Tools',
@@ -91,7 +92,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Salles — France',
-        items: 'La Coopérative de Mai · Le Tremplin · Maison de la Culture — Clermont-Ferrand',
+        items:
+          'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
         label: 'Outils',
@@ -134,7 +136,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Rom — Frankrike',
-        items: 'La Coopérative de Mai · Le Tremplin · Maison de la Culture — Clermont-Ferrand',
+        items:
+          'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
         label: 'Verktøy',
