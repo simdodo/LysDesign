@@ -52,9 +52,20 @@ export const about: Record<Locale, AboutCopy> = {
           'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
-        label: 'Tools',
-        items:
-          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Video · Networking',
+        label: 'Consoles',
+        items: 'GrandMA3 · GrandMA2 · GrandMA1 · MA LightCommander · ETC Eos · Presto',
+      },
+      {
+        label: 'Previz & design',
+        items: 'Capture · Wysiwyg · Unreal · Light plots & schematics',
+      },
+      {
+        label: 'Video & media',
+        items: 'Resolume · MadMapper · Ableton · Adobe Suite',
+      },
+      {
+        label: 'Craft',
+        items: 'Electricity · Networking · Servers · Rigging · Crew management',
       },
       {
         label: 'Languages',
@@ -97,9 +108,20 @@ export const about: Record<Locale, AboutCopy> = {
           'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
-        label: 'Outils',
-        items:
-          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Vidéo · Réseau',
+        label: 'Consoles',
+        items: 'GrandMA3 · GrandMA2 · GrandMA1 · MA LightCommander · ETC Eos · Presto',
+      },
+      {
+        label: 'Previz & conception',
+        items: 'Capture · Wysiwyg · Unreal · Plans de feu & schémas',
+      },
+      {
+        label: 'Vidéo & médias',
+        items: 'Resolume · MadMapper · Ableton · Adobe Suite',
+      },
+      {
+        label: 'Savoir-faire',
+        items: "Électricité · Réseau · Serveurs · Accroche · Gestion d'équipe",
       },
       {
         label: 'Langues',
@@ -142,9 +164,20 @@ export const about: Record<Locale, AboutCopy> = {
           'La Coopérative de Mai, Clermont-Ferrand · Le Tremplin, Beaumont · Maison de la Culture, Clermont-Ferrand',
       },
       {
-        label: 'Verktøy',
-        items:
-          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Video · Nettverk',
+        label: 'Konsoller',
+        items: 'GrandMA3 · GrandMA2 · GrandMA1 · MA LightCommander · ETC Eos · Presto',
+      },
+      {
+        label: 'Previz & design',
+        items: 'Capture · Wysiwyg · Unreal · Lysplott og tegninger',
+      },
+      {
+        label: 'Video & media',
+        items: 'Resolume · MadMapper · Ableton · Adobe Suite',
+      },
+      {
+        label: 'Håndverk',
+        items: 'Elektrisitet · Nettverk · Servere · Rigging · Crewledelse',
       },
       {
         label: 'Språk',
