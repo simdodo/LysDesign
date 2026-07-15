@@ -109,7 +109,7 @@ const pilotCover = pilot
       <input
         type="hidden"
         name="_next"
-        value={`https://defreitaslysdesign.com${pathForLocale(locale, '/merci/')}`}
+        value={`${Astro.url.origin}${pathForLocale(locale, '/merci/')}`}
       />
       <input type="hidden" name="_captcha" value="false" />
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
