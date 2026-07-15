@@ -25,7 +25,8 @@ jobs:
       - run: npm run build
 
       - name: Deploy dist/ via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        # Pinned to the v4.3.5 commit SHA (supply-chain hardening)
+        uses: SamKirkland/FTP-Deploy-Action@8e83cea8672e3fbcbb9fdafff34debf6ae4c5f65
         with:
           server: ${{ secrets.O2SWITCH_FTP_HOST }}
           username: ${{ secrets.O2SWITCH_FTP_USER }}

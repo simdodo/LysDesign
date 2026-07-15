@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Legal from '../components/Legal.astro';
+import { legal } from '../data/legal';
+
+const t = legal.en;
+---
+
+<Base locale="en" title={t.metaTitle} description={t.metaDescription} path="/legal/">
+  <Legal locale="en" />
+</Base>

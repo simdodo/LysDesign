@@ -1,0 +1,68 @@
+---
+import { legal } from '../data/legal';
+import { pathForLocale, type Locale } from '../i18n/ui';
+import { caseUi } from '../data/work';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = legal[locale];
+const back = caseUi[locale].back;
+---
+
+<article class="legal">
+  <p>
+    <a class="backlink mono-label" href={pathForLocale(locale, '/')}>← {back}</a>
+  </p>
+  <h1>{t.title}</h1>
+  {
+    t.sections.map((s) => (
+      <section>
+        <h2>{s.heading}</h2>
+        {s.paragraphs.map((p) => (
+          <p>{p}</p>
+        ))}
+      </section>
+    ))
+  }
+</article>
+
+<style>
+  .legal {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 8rem var(--pad-x) 5rem;
+  }
+
+  .backlink {
+    text-decoration: none;
+    color: var(--gris-2);
+  }
+
+  .backlink:hover {
+    color: var(--gris);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin: 1.6rem 0 2rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin: 2.2rem 0 0.6rem;
+  }
+
+  p {
+    color: var(--gris);
+    font-size: 0.98rem;
+    margin-bottom: 0.9rem;
+    max-width: var(--measure);
+  }
+</style>
