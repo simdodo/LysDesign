@@ -19,6 +19,7 @@
   RewriteRule ^services/festival-lighting/?$ /work/kaleidoscope-shi-pratt/ [R=301,L]
   RewriteRule ^services/dance-theatre-lighting/?$ /work/panta-rei/ [R=301,L]
   RewriteRule ^services/unreal-previs/?$ /work/queer-the-wack/ [R=301,L]
+  RewriteRule ^services/lighting-design/?$ /#work [R=301,NE,L]
   RewriteRule ^services/lighting-programming/?$ /#work [R=301,NE,L]
   RewriteRule ^services(/.*)?$ / [R=301,L]
 
