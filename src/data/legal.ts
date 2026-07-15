@@ -106,7 +106,7 @@ export const legal: Record<Locale, LegalCopy> = {
         heading: 'Personvern',
         paragraphs: [
           'Dette nettstedet bruker ingen informasjonskapsler, ingen analyseverktøy og ingen sporing av noe slag.',
-          'De eneste personopplysningene som samles inn, er det du selv velger å sende via kontaktskjemaet: navnet ditt, en e-postadresse, en musikklenke og en eventuell melding. De overføres av formsubmit.co (skjemaleverandøren) direkte til innboksen min, brukes kun til å svare deg, og deles aldri videre.',
+          'De eneste personopplysningene som samles inn, er det du selv velger å sende via kontaktskjemaet: navnet ditt, en e-postadresse, en musikklenke og en valgfri melding. De overføres av formsubmit.co (skjemaleverandøren) direkte til innboksen min, brukes kun til å svare deg, og deles aldri videre.',
           'For innsyn eller sletting holder én e-post: hello@defreitaslysdesign.com.',
         ],
       },
