@@ -39,7 +39,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Designs',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus, Oslo · By The Fall · Lafayette Regency · Wejna “Traversée” — France',
       },
       {
         label: 'Rooms — Oslo',
@@ -69,7 +69,7 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Languages',
-        items: 'Français · English · Norsk · Português',
+        items: 'Français · English · Português',
       },
     ],
     cvLine: 'Full CV and references on request:',
@@ -95,7 +95,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Créations',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus, Oslo · By The Fall · Lafayette Regency · Wejna « Traversée » — France',
       },
       {
         label: 'Salles — Oslo',
@@ -125,7 +125,7 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Langues',
-        items: 'Français · English · Norsk · Português',
+        items: 'Français · English · Português',
       },
     ],
     cvLine: 'CV complet et références sur demande :',
@@ -151,7 +151,7 @@ export const about: Record<Locale, AboutCopy> = {
       {
         label: 'Design',
         items:
-          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus',
+          'Soul Sessions · Roller Disco · Queer the Wack — Dansens Hus, Oslo · By The Fall · Lafayette Regency · Wejna «Traversée» — Frankrike',
       },
       {
         label: 'Rom — Oslo',
@@ -181,7 +181,7 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Språk',
-        items: 'Français · English · Norsk · Português',
+        items: 'Français · English · Português',
       },
     ],
     cvLine: 'Full CV og referanser på forespørsel:',
