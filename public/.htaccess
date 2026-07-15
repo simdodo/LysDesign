@@ -3,6 +3,28 @@
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} ^www\.defreitaslysdesign\.com$ [NC]
   RewriteRule ^(.*)$ https://defreitaslysdesign.com/$1 [R=301,L]
+
+  # --- Legacy URLs from the previous site → closest current equivalent ---
+  # Specific mappings first, catch-alls last. NE keeps #fragments intact.
+  RewriteRule ^portfolio/touring-lighting-showfiles/?$ /work/touring-france/ [R=301,L]
+  RewriteRule ^portfolio/contemporary-dance-lighting/?$ /work/panta-rei/ [R=301,L]
+  RewriteRule ^portfolio/festival-venue-adaptation/?$ /work/kaleidoscope-shi-pratt/ [R=301,L]
+  RewriteRule ^portfolio/unreal-visualization/?$ /work/queer-the-wack/ [R=301,L]
+  RewriteRule ^portfolio/visual-direction/?$ /work/soul-sessions/ [R=301,L]
+  RewriteRule ^portfolio/special-projects/?$ /work/roller-disco/ [R=301,L]
+  RewriteRule ^portfolio(/.*)?$ /#work [R=301,NE,L]
+
+  RewriteRule ^services/touring-showfiles/?$ /work/touring-france/ [R=301,L]
+  RewriteRule ^services/remote-showfile-support/?$ /work/touring-france/ [R=301,L]
+  RewriteRule ^services/festival-lighting/?$ /work/kaleidoscope-shi-pratt/ [R=301,L]
+  RewriteRule ^services/dance-theatre-lighting/?$ /work/panta-rei/ [R=301,L]
+  RewriteRule ^services/unreal-previs/?$ /work/queer-the-wack/ [R=301,L]
+  RewriteRule ^services/lighting-programming/?$ /#work [R=301,NE,L]
+  RewriteRule ^services(/.*)?$ / [R=301,L]
+
+  RewriteRule ^contact/?$ /#send-a-song [R=301,NE,L]
+  RewriteRule ^lighting-designer-oslo/?$ / [R=301,L]
+  RewriteRule ^design-lab/?$ / [R=301,L]
 </IfModule>
 
 ErrorDocument 404 /404.html
