@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import Thanks from '../../components/Thanks.astro';
+import { thanks } from '../../i18n/ui';
+
+const t = thanks.fr;
+---
+
+<Base locale="fr" title={t.metaTitle} description={t.body} path="/merci/" noindex>
+  <Thanks locale="fr" />
+</Base>

@@ -64,9 +64,9 @@ const homePath = pathForLocale(locale, '/');
     z-index: 20;
     display: flex;
     align-items: center;
-    gap: 1.2rem 2rem;
+    gap: 0 1.6rem;
     flex-wrap: wrap;
-    padding: 1.1rem var(--pad-x);
+    padding: 0.35rem var(--pad-x);
     background: rgba(8, 8, 10, 0.55);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -75,6 +75,10 @@ const homePath = pathForLocale(locale, '/');
 
   a {
     text-decoration: none;
+    /* 44px+ touch targets (WCAG 2.5.8) without visual bloat */
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 0.2rem;
   }
 
   .brand {
@@ -94,7 +98,7 @@ const homePath = pathForLocale(locale, '/');
   .links,
   .langs {
     display: flex;
-    gap: 1.4rem;
+    gap: 0.9rem;
   }
 
   .links a {
@@ -113,10 +117,6 @@ const homePath = pathForLocale(locale, '/');
     color: #d98449;
   }
 
-  .langs {
-    gap: 0.9rem;
-  }
-
   .langs a {
     color: var(--gris-2);
   }
@@ -131,16 +131,36 @@ const homePath = pathForLocale(locale, '/');
 
   @media (max-width: 40rem) {
     .site-nav {
-      gap: 0.8rem 1.2rem;
-      padding: 0.9rem var(--pad-x);
+      gap: 0 0.9rem;
+      padding: 0.1rem var(--pad-x) 0.2rem;
+    }
+
+    /* Two compact rows: brand + languages on top, section links below */
+    .langs {
+      order: 2;
     }
 
     .links {
-      gap: 1rem;
+      order: 3;
+      flex-basis: 100%;
+      gap: 0.6rem;
     }
 
     .links a:first-child {
       display: none;
+    }
+
+    a {
+      padding: 0.75rem 0.2rem;
+    }
+
+    /* The arch alone identifies the brand on small screens */
+    .brand span {
+      display: none;
+    }
+
+    .brand-mark {
+      height: 1.5rem;
     }
   }
 </style>
