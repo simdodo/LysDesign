@@ -113,7 +113,7 @@ export const about: Record<Locale, AboutCopy> = {
     paragraphs: [
       'Jeg begynte i 2008 i Clermont-Ferrand i Frankrike, med å laste trailere og henge lamper for et utleiefirma. Ikke den romantiske veien inn — den nyttige. Når du begynner nederst i kjeden, lærer du hva hvert ledd over deg faktisk trenger fra lyset.',
       'Siden har jeg hatt alle de jobbene: roadie, rigger, tekniker, operatør, programmerer, designer. Tretten år på turné i Frankrike og Europa — JAIN, Tim Dup, Les Tambours du Bronx, og danseforestillingen «Traversée» med Wejna — lærte meg disiplinen: showet skal kjennes som samme artist i hvert rom, på den riggen som venter der.',
-      'I dag bor jeg i Oslo. Jeg er ansatt på Dansens Hus — lystekniker på papiret, i praksis operatør, rigger, videotekniker og designer. Ved siden av designer og previsualiserer jeg show i 3D, programmerer GrandMA, og kjører pult live på byens scener, fra Rockefeller til Parkteatret.',
+      'I dag bor jeg i Oslo. Jeg er ansatt på Dansens Hus — lystekniker på papiret, i praksis operatør, rigger, videotekniker og designer. Ved siden av dette designer og previsualiserer jeg show i 3D, programmerer GrandMA, og kjører lyspult live på byens scener, fra Rockefeller til Parkteatret.',
     ],
     recordLabel: 'Merittlisten',
     groups: [

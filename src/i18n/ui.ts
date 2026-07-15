@@ -242,13 +242,13 @@ export const home: Record<Locale, HomeCopy> = {
   no: {
     metaTitle: 'Dorian De Freitas — Lysdesigner, GrandMA-programmerer, FOH-operatør · Oslo',
     metaDescription:
-      'Lysdesign, GrandMA-programmering og FOH-kjøring for konserter, dans og festivaler. Send ett spor, få et lys-moodboard tilbake. Basert i Oslo, jobber internasjonalt.',
+      'Lysdesign, GrandMA-programmering og FOH-kjøring for konserter, dans og festivaler. Send et spor, få et lys-moodboard tilbake. Basert i Oslo, jobber internasjonalt.',
     houseLine: 'Oslo — lyset i salen dempes.',
     heroLabel: 'De Freitas Lysdesign',
     heroTitleA: 'Lys som lytter.',
     heroTitleB: 'Musikk du kan se.',
     heroSub:
-      'Lysdesign, GrandMA-programmering og FOH-kjøring for konserter, dans og festivaler — formet etter rommet, riggen og tiden som faktisk finnes.',
+      'Lysdesign, GrandMA-programmering og FOH-kjøring for konserter, dans og festivaler — formet etter rommet, riggen og den tilgjengelige tiden.',
     scrollHint: 'Showet starter lenger ned',
     chapters: [
       {
@@ -257,8 +257,8 @@ export const home: Record<Locale, HomeCopy> = {
         label: 'Kapittel én',
         title: 'Ventetiden',
         body: [
-          'Publikum kjenner allerede noe før du spiller en eneste tone. Mørket, disen, ett varmt lyspunkt på et mikrofonstativ.',
-          'Det minuttet tilhører lyset. Jeg har brukt atten år på å lære hva det skal brukes til.',
+          'Publikum føler allerede noe før du spiller en eneste tone. Mørket, disen, et varmt lyspunkt på et mikrofonstativ.',
+          'Det minuttet tilhører lyset. Jeg har brukt atten år på å lære hva jeg skal gjøre med det.',
         ],
       },
       {
@@ -268,7 +268,7 @@ export const home: Record<Locale, HomeCopy> = {
         title: 'Første tone',
         body: [
           'Når første tone treffer, er lyset halvparten av det folk kommer til å huske.',
-          'Jobben min er enkel å si og vanskelig å gjøre: at de husker showet ditt — i hvert rom, på hver rigg, hver kveld på turné.',
+          'Jobben min er enkel å beskrive, men vanskelig å gjøre: å sørge for at de husker showet ditt — i hvert rom, på hver rigg, hver kveld på turné.',
         ],
       },
       {
@@ -277,8 +277,8 @@ export const home: Record<Locale, HomeCopy> = {
         label: 'Kapittel tre',
         title: 'Portrettet',
         body: [
-          'Ett ansikt, riktig belyst, kan holde en full sal stille.',
-          'Lys er ikke pynt oppå musikken din. Det er slik musikken din ser ut.',
+          'Et ansikt, riktig belyst, kan holde en hel sal stille.',
+          'Lys er ikke pynt på toppen av musikken din. Det er slik musikken din ser ut.',
         ],
       },
     ],
@@ -286,7 +286,7 @@ export const home: Record<Locale, HomeCopy> = {
       label: 'Finalen — beviset',
       title: 'Sett før det finnes.',
       intro:
-        'Jeg tegner showet i 3D før get-in, lys for lys. Så programmerer jeg det, og kjører det fra FOH. Det du godkjenner på skjermen er det publikum får i salen.',
+        'Jeg tegner showet i 3D før opprigg, lys for lys. Så programmerer jeg det, og kjører det fra FOH. Det du godkjenner på skjermen er det publikum får i salen.',
       touringLabel: 'Turnéhistorikk',
       touring:
         'JAIN · Tim Dup · Les Tambours du Bronx · Wejna — Frankrike, Sveits, Luxembourg, England, 2008–2021.',
@@ -297,19 +297,19 @@ export const home: Record<Locale, HomeCopy> = {
     },
     busking: {
       label: 'Ekstranummeret — spilt live',
-      title: 'Ingen prøve. Ingen sikkerhetsnett.',
+      title: 'Ingen prøve. Ikke noe sikkerhetsnett.',
       body: [
-        'Ikke alle show kan tegnes på forhånd. Skift på festival, supportslotter, klubbkvelder: bandet starter, og lyset må svare — live, for hånd, låt etter låt.',
-        'Faget har et ord for det: busking. Atten år med rom har lært meg å lese et band slik et komp leser en vokalist. De kveldene er pulten et instrument, og jeg spiller på det.',
+        'Ikke alle show kan tegnes på forhånd. Scenebytter på festivaler, support-sett, klubbkvelder: bandet starter, og lyset må svare — live, for hånd, låt etter låt.',
+        'Faget har et ord for det: busking. Atten år med rom har lært meg å lese et band slik et komp leser en vokalist. De kveldene er lyspulten et instrument, og jeg spiller på det.',
       ],
       watch: 'Hele konserter, lyssatt live og filmet fra FOH — uredigert:',
       watchCta: 'Se på YouTube',
     },
     song: {
       label: 'Din tur',
-      title: 'Og hvis det var din musikk?',
-      body: 'Send meg ett spor — en lenke holder. Jeg lytter, og du får et lys-moodboard tilbake: hva jeg ville sett, i hvilken tekstur, i hva slags mørke.',
-      promise: 'Det tar deg ett minutt. Det forplikter ingen av oss til noe.',
+      title: 'Og hva om det var din musikk?',
+      body: 'Send meg et spor — en lenke holder. Jeg lytter, og du får et lys-moodboard tilbake: hva jeg ville sett, i hvilken tekstur, i hva slags mørke.',
+      promise: 'Det tar deg et minutt. Det forplikter ingen av oss til noe.',
       placeholderLink: 'Spotify-, YouTube- eller SoundCloud-lenke',
       placeholderName: 'Navnet ditt eller artistnavn',
       placeholderEmail: 'Hvor jeg kan nå deg',

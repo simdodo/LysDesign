@@ -74,7 +74,10 @@
       );
     }
 
-    const activeTint = (): [number, number, number] => {
+    // The active tint only changes on scroll/resize — cache it there so the
+    // rAF loop never touches the DOM (getBoundingClientRect forces layout).
+    let targetTint: [number, number, number] = tints.house ?? [18, 14, 12];
+    const updateActiveTint = () => {
       const mid = h / 2;
       let best: HTMLElement | null = null;
       let bestDist = Infinity;
@@ -87,8 +90,11 @@
           best = s;
         }
       }
-      return tints[best?.dataset.light ?? 'house'] ?? tints.house;
+      targetTint = tints[best?.dataset.light ?? 'house'] ?? tints.house ?? [18, 14, 12];
     };
+    window.addEventListener('scroll', updateActiveTint, { passive: true });
+    window.addEventListener('resize', updateActiveTint);
+    updateActiveTint();
 
     let running = true;
     document.addEventListener('visibilitychange', () => {
@@ -101,7 +107,7 @@
       if (!running) return;
       t += 0.008;
 
-      const target = activeTint();
+      const target = targetTint;
       for (let i = 0; i < 3; i++) current[i] += (target[i] - current[i]) * 0.03;
 
       pointer.x += (pointer.tx - pointer.x) * 0.08;

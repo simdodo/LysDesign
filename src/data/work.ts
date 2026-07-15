@@ -54,7 +54,7 @@ export const work: WorkEntry[] = [
         meta: 'Dansens Hus, Oslo · Lysdesign, previz, kjøring',
         paragraphs: [
           'En kveld på Dansens Hus der forestilling og fest deler samme gulv, og publikum er en del av bildet. Lyset måtte holde begge deler: et show du ser på, og et rom du er inne i.',
-          'Designet ble tegnet i 3D før get-in, deretter programmert og kjørt live. Det huset godkjente på skjermen, var det rommet fikk samme kveld.',
+          'Designet ble tegnet i 3D før opprigg, deretter programmert og kjørt live. Det huset godkjente på skjermen, var det rommet fikk samme kveld.',
         ],
       },
     },
@@ -158,8 +158,8 @@ export const work: WorkEntry[] = [
         context: 'Norgesturné — design og kjøring',
         meta: 'Norgesturné · Lysdesign og kjøring',
         paragraphs: [
-          'En turné gjennom norske scener, der hvert rom endrer seg og forestillingen ikke kan gjøre det. Design og kjøring reiste sammen: én person med ansvar for bildet, fra tegning til pult.',
-          'Jobben er den samme overalt — holde identiteten til showet intakt mens veggene, riggen og get-in-tiden stadig endrer seg.',
+          'En turné gjennom norske scener, der hvert rom endrer seg og forestillingen ikke kan gjøre det. Design og kjøring reiste sammen: én person med ansvar for bildet, fra tegning til lyspult.',
+          'Jobben er den samme overalt — holde identiteten til showet intakt mens veggene, riggen og opprigg-tiden stadig endrer seg.',
         ],
       },
     },
@@ -277,7 +277,7 @@ export const caseUi: Record<
     dragHint: 'Dra for å sammenligne 3D-previzen med selve kvelden',
     placeholderNote: 'Midlertidige bilder — ekte previz og showbilder er på vei.',
     ctaTitle: 'Og hvis det var din musikk?',
-    ctaButton: 'Send meg ett spor',
+    ctaButton: 'Send meg et spor',
     placeholderPhoto: 'Midlertidig bilde — produksjonsbilder kommer.',
   },
 };
