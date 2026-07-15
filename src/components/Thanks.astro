@@ -1,0 +1,69 @@
+---
+import { thanks, pathForLocale, type Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = thanks[locale];
+---
+
+<section class="thanks">
+  <span class="pilot" aria-hidden="true"></span>
+  <h1>{t.title}</h1>
+  <p class="body">{t.body}</p>
+  <a class="back" href={pathForLocale(locale, '/')}>{t.back} →</a>
+</section>
+
+<style>
+  .thanks {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem var(--pad-x);
+  }
+
+  .pilot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--tungsten);
+    margin: 0 auto 1.6rem;
+    box-shadow: 0 0 18px 2px rgba(201, 116, 61, 0.55);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+
+  .body {
+    color: var(--gris);
+    max-width: var(--measure);
+  }
+
+  .back {
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tungsten);
+    text-decoration: none;
+    border: 1px solid var(--tungsten-dim);
+    border-radius: 6px;
+    padding: 0.85rem 1.4rem;
+  }
+
+  .back:hover {
+    border-color: var(--tungsten);
+  }
+</style>

@@ -8,7 +8,7 @@
   /* What the light touches */
   --blanc: #f2ede4;
   --gris: #a09889;
-  --gris-2: #625f58;
+  --gris-2: #827d72; /* 4.88:1 on noir — WCAG AA for small text */
 
   /* Tungsten — the one warm source */
   --tungsten: #c9743d;
@@ -96,7 +96,7 @@ video {
 
 .mono-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gris-2);

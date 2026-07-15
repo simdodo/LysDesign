@@ -43,7 +43,15 @@ const t = caseUi[locale];
   </div>
   <label class="control">
     <span class="sr-only">{t.dragHint}</span>
-    <input type="range" min="0" max="100" value="50" step="1" />
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      step="1"
+      data-imagined={t.imagined}
+      data-real={t.real}
+    />
   </label>
   <figcaption>
     <span class="hint">{t.dragHint}</span>
@@ -149,7 +157,7 @@ const t = caseUi[locale];
   }
 
   .note {
-    color: var(--tungsten-dim);
+    color: var(--tungsten);
   }
 </style>
 
@@ -158,8 +166,14 @@ const t = caseUi[locale];
     const frame = fig.querySelector<HTMLElement>('.frame');
     const range = fig.querySelector<HTMLInputElement>('input[type="range"]');
     if (!frame || !range) continue;
-    range.addEventListener('input', () => {
+    const announce = () => {
       frame.style.setProperty('--split', `${range.value}%`);
-    });
+      range.setAttribute(
+        'aria-valuetext',
+        `${range.dataset.imagined} ${range.value}% / ${range.dataset.real} ${100 - Number(range.value)}%`
+      );
+    };
+    range.addEventListener('input', announce);
+    announce();
   }
 </script>

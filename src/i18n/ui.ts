@@ -146,7 +146,7 @@ export const home: Record<Locale, HomeCopy> = {
       placeholderName: 'Your name or artist name',
       placeholderEmail: 'Where I can reach you',
       placeholderNote: 'Anything I should know — optional',
-      submit: 'Send the track',
+      submit: 'Send a track',
       directLine: 'No robot, no automatic quote. I do the listening. Or simply write:',
     },
     footer: {
@@ -322,6 +322,30 @@ export const home: Record<Locale, HomeCopy> = {
       based: 'Basert i Oslo — jobber der showet er.',
       watch: 'Hele konserter, filmet fra FOH:',
     },
+  },
+};
+
+export const thanks: Record<
+  Locale,
+  { metaTitle: string; title: string; body: string; back: string }
+> = {
+  en: {
+    metaTitle: 'Track received — De Freitas Lysdesign',
+    title: "Got it. I'm listening.",
+    body: 'Your track is in my inbox. I will listen properly — not in the background — and come back to you with a light moodboard, usually within a few days.',
+    back: 'Back to the room',
+  },
+  fr: {
+    metaTitle: 'Morceau bien reçu — De Freitas Lysdesign',
+    title: "Bien reçu. J'écoute.",
+    body: "Ton morceau est dans ma boîte. Je vais l'écouter pour de vrai — pas en fond sonore — et te répondre avec un moodboard lumière, en général sous quelques jours.",
+    back: 'Retour à la salle',
+  },
+  no: {
+    metaTitle: 'Spor mottatt — De Freitas Lysdesign',
+    title: 'Mottatt. Jeg lytter.',
+    body: 'Sporet ditt er i innboksen min. Jeg lytter ordentlig — ikke i bakgrunnen — og kommer tilbake til deg med et lys-moodboard, vanligvis i løpet av noen dager.',
+    back: 'Tilbake til salen',
   },
 };
 
