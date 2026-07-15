@@ -30,7 +30,7 @@ const altLocales = locales.filter((l) => l !== defaultLocale);
   if (container && back) {
     const locales: string[] = JSON.parse(container.dataset.locales || '[]');
     const first = window.location.pathname.split('/').filter(Boolean)[0];
-    if (locales.includes(first)) back.href = `/${first}/`;
+    if (first && locales.includes(first)) back.href = `/${first}/`;
   }
 </script>
 
