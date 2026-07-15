@@ -53,7 +53,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Tools',
-        items: 'GrandMA2 · GrandMA3 · ETC Eos · Wysiwyg · Unreal · Resolume · Ableton · Video · Networking',
+        items:
+          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Video · Networking',
       },
       {
         label: 'Languages',
@@ -97,7 +98,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Outils',
-        items: 'GrandMA2 · GrandMA3 · ETC Eos · Wysiwyg · Unreal · Resolume · Ableton · Vidéo · Réseau',
+        items:
+          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Vidéo · Réseau',
       },
       {
         label: 'Langues',
@@ -141,7 +143,8 @@ export const about: Record<Locale, AboutCopy> = {
       },
       {
         label: 'Verktøy',
-        items: 'GrandMA2 · GrandMA3 · ETC Eos · Wysiwyg · Unreal · Resolume · Ableton · Video · Nettverk',
+        items:
+          'GrandMA2 · GrandMA3 · ETC Eos · Capture · Unreal · Wysiwyg · Resolume · Ableton · Video · Nettverk',
       },
       {
         label: 'Språk',
