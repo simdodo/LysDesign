@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  locale="en"
+  title="Page not found — De Freitas Lysdesign"
+  description="This page does not exist."
+  path="/404"
+>
+  <section class="lost">
+    <p class="mono-label">House lights up</p>
+    <h1>This page isn't in the show.</h1>
+    <p class="lost-body">
+      The link is wrong or the page has moved. The room is still here, though.
+    </p>
+    <a class="back" href="/">Back to the room →</a>
+  </section>
+</Base>
+
+<style>
+  .lost {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem var(--pad-x);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: 0.9rem 0 1rem;
+    text-wrap: balance;
+  }
+
+  .lost-body {
+    color: var(--gris);
+    max-width: var(--measure);
+  }
+
+  .back {
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tungsten);
+    text-decoration: none;
+    border: 1px solid var(--tungsten-dim);
+    border-radius: 6px;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .back:hover {
+    border-color: var(--tungsten);
+  }
+</style>
